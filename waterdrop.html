@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waterdrop | Purificación de Agua de Élite en Ecuador</title>
+<meta name="description" content="Waterdrop Ecuador – Ósmosis inversa, ultrafiltración y filtros inteligentes para agua cristalina en tu hogar.">
+
+<!-- OpenGraph Meta Tags para SEO y Redes Sociales -->
+<meta property="og:title" content="Waterdrop Ecuador | Purificadores de Agua Premium">
+<meta property="og:description" content="Agua cristalina y libre de contaminantes para tu familia. Conoce nuestros purificadores tankless.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=1200&q=80">
+<meta property="og:url" content="https://www.nasfeco.com/waterdrop">
+<meta property="og:type" content="website">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--wd-cyan:#00B4D8;--wd-dark:#0077B6;--wd-light:#E0F7FA;--wd-white:#ffffff;--wd-gray:#F9FAFB;--wd-text:#1F2937;--wd-muted:#6B7280;--fh:'Montserrat',sans-serif;--fb:'Inter',sans-serif}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);color:var(--wd-text);background:var(--wd-white);line-height:1.7;overflow-x:hidden;}
+a,button,select,input,textarea,.tilt{cursor:pointer;}
+
+/* MAGNETIC CURSOR */
+.cursor-dot{width:8px;height:8px;background:var(--wd-cyan);border-radius:50%;position:fixed;pointer-events:none;z-index:10000;top:0;left:0;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,opacity 0.3s;}
+.cursor-outline{width:40px;height:40px;border:2px solid rgba(0,180,216,0.5);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;top:0;left:0;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,background 0.3s,border-color 0.3s;}
+.cursor-hover .cursor-dot{width:0;height:0;opacity:0;}
+.cursor-hover .cursor-outline{width:70px;height:70px;background:rgba(0,180,216,0.1);border-color:transparent;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);}
+
+/* PRELOADER */
+.preloader{position:fixed;inset:0;background:var(--wd-white);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.8s ease,visibility 0.8s ease;}
+.preloader-hidden{opacity:0;visibility:hidden;}
+.pl-logo{font-family:var(--fh);font-size:2.5rem;font-weight:900;letter-spacing:-1.5px;color:var(--wd-dark);margin-bottom:2rem;animation:pulsePl 2s infinite ease-in-out;}
+.pl-logo span{color:var(--wd-cyan)}
+.pl-line{width:200px;height:2px;background:rgba(0,119,182,0.1);position:relative;overflow:hidden;}
+.pl-line::after{content:'';position:absolute;left:-50%;width:50%;height:100%;background:linear-gradient(90deg,transparent,#00B4D8,#0077B6,transparent);animation:loadingLine 1.5s infinite ease-in-out;}
+@keyframes pulsePl{0%,100%{opacity:0.5;transform:scale(0.95);}50%{opacity:1;transform:scale(1);}}
+@keyframes loadingLine{0%{left:-50%;}100%{left:150%;}}
+
+h1,h2,h3{font-family:var(--fh);line-height:1.15}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.c{max-width:1180px;margin:0 auto;padding:0 2rem}
+@keyframes fluidMix { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes flowText { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
+@keyframes pulseGlow { 0% { filter: drop-shadow(0 0 10px rgba(0,180,216,0.3)); } 50% { filter: drop-shadow(0 0 25px rgba(0,180,216,0.8)); } 100% { filter: drop-shadow(0 0 10px rgba(0,180,216,0.3)); } }
+.text-gradient-cyan { background: linear-gradient(270deg, #81EFFF, #ffffff, #81EFFF); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: flowText 4s linear infinite; display: inline-block; }
+.text-gradient-dark { background: linear-gradient(270deg, var(--wd-dark), var(--wd-cyan), var(--wd-dark)); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: flowText 6s linear infinite; }
+.bg-fluid-cyan { background: linear-gradient(-45deg, #0077B6, #00B4D8, #005f99, #0096c7); background-size: 400% 400%; animation: fluidMix 12s ease infinite; }
+
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06);z-index:999;padding:1rem 0;transition:transform 0.3s, background 0.3s, padding 0.3s;}
+.nav-i{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:var(--fh);font-size:1.8rem;font-weight:900;letter-spacing:-1px;color:var(--wd-dark); transition: transform 0.3s;}
+.logo:hover { transform: scale(1.05); }
+.logo span{color:var(--wd-cyan)}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{font-family:var(--fh);font-size:.9rem;font-weight:600;color:var(--wd-muted);transition:color .25s}
+.nav-links a:hover{color:var(--wd-dark)}
+.nav-cta{background: linear-gradient(90deg, var(--wd-cyan), var(--wd-dark), var(--wd-cyan)); background-size: 200% auto; color:#fff!important;padding:.6rem 1.4rem;border-radius:4px;transition:transform .25s,box-shadow .25s!important; animation: flowText 4s linear infinite;}
+.nav-cta:hover{transform:translateY(-2px); box-shadow: 0 5px 15px rgba(0,180,216,0.4);}
+
+/* MOBILE MENU CSS */
+.menu-btn { display: none; background: none; border: none; color: var(--wd-dark); position: relative; z-index: 1002; padding: 0.5rem; }
+.mobile-menu { position: fixed; inset: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 1001; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1); clip-path: circle(0% at 90% 10%); }
+.mobile-menu.open { opacity: 1; visibility: visible; clip-path: circle(150% at 90% 10%); }
+.mobile-links { display: flex; flex-direction: column; gap: 2rem; align-items: center; text-align: center; width:100%; }
+.mobile-links a { font-family: var(--fh); font-size: 1.8rem; font-weight: 800; color: var(--wd-dark); transform: translateY(30px); opacity: 0; transition: transform 0.5s ease, opacity 0.5s ease; letter-spacing: -0.5px; }
+.mobile-menu.open .mobile-links a { transform: translateY(0); opacity: 1; }
+.mobile-menu.open .mobile-links a:nth-child(1) { transition-delay: 0.1s; }
+.mobile-menu.open .mobile-links a:nth-child(2) { transition-delay: 0.2s; }
+.mobile-menu.open .mobile-links a:nth-child(3) { transition-delay: 0.3s; }
+.mobile-menu.open .mobile-links a:nth-child(4) { transition-delay: 0.4s; }
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:80px;background:var(--wd-white)}
+.hero-bg{position:absolute;inset:0;background:url('assets/waterdrop-bg.png') center/cover no-repeat;animation:wpan 30s infinite alternate ease-in-out;filter:brightness(.3) saturate(1.5)}
+@keyframes wpan{0%{transform:scale(1.1)}100%{transform:scale(1.18) translate(-1.5%,1%)}}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(-45deg,rgba(0,119,182,.85),rgba(0,180,216,.4),rgba(0,119,182,.9));background-size:400% 400%;animation:fluidMix 12s ease infinite; mix-blend-mode: multiply;}
+.bubbles { position:absolute; inset:0; z-index:1; overflow:hidden; pointer-events:none; }
+.bubble { position:absolute; bottom:-20px; background:rgba(255,255,255,0.25); border-radius:50%; animation:rise infinite ease-in; backdrop-filter: blur(2px); box-shadow: inset 0 0 10px rgba(255,255,255,0.5); }
+.bubble:nth-child(1) { width:40px; height:40px; left:10%; animation-duration:8s; animation-delay:0s; }
+.bubble:nth-child(2) { width:20px; height:20px; left:20%; animation-duration:5s; animation-delay:1s; }
+.bubble:nth-child(3) { width:50px; height:50px; left:35%; animation-duration:10s; animation-delay:2s; }
+.bubble:nth-child(4) { width:30px; height:30px; left:50%; animation-duration:6s; animation-delay:0.5s; }
+.bubble:nth-child(5) { width:60px; height:60px; left:70%; animation-duration:12s; animation-delay:3s; }
+.bubble:nth-child(6) { width:25px; height:25px; left:80%; animation-duration:7s; animation-delay:1.5s; }
+.bubble:nth-child(7) { width:45px; height:45px; left:90%; animation-duration:9s; animation-delay:2.5s; }
+@keyframes rise { 0% { bottom:-20px; transform:translateX(0); opacity:1; } 50% { transform:translateX(20px); opacity:0.8; } 100% { bottom:120%; transform:translateX(-20px); opacity:0; } }
+.hero-ct{position:relative;z-index:2;max-width:780px; animation: heroEnter 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; opacity:0; transform: translateY(40px);}
+@keyframes heroEnter { to { opacity: 1; transform: translateY(0); } }
+.hero-ey{display:inline-block;font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:.4rem 1.2rem;border-radius:50px;margin-bottom:1.8rem;backdrop-filter: blur(4px); animation: pulseGlow 3s infinite alternate;}
+.typewriter-wrapper { display: inline-block; overflow: hidden; white-space: nowrap; border-right: 3px solid var(--wd-cyan); animation: typeWriter 2s steps(30, end) forwards, blinkCursor .75s step-end infinite; vertical-align: bottom; }
+@keyframes typeWriter { from { width: 0; } to { width: 100%; } }
+@keyframes blinkCursor { from, to { border-color: transparent } 50% { border-color: var(--wd-cyan); } }
+.hero h1{color:#fff;font-size:clamp(2.5rem,4.5vw,5rem);font-weight:900;margin-bottom:1.5rem;letter-spacing:-2px; text-shadow: 0 10px 30px rgba(0,0,0,0.3);}
+.hero p{color:rgba(255,255,255,.85);font-size:1.2rem;max-width:550px;margin-bottom:2.5rem; text-shadow: 0 2px 10px rgba(0,0,0,0.3);}
+.btn-g{display:flex;flex-wrap:wrap;gap:1.5rem}
+.btn-p{display:inline-flex;align-items:center;padding:1.1rem 2.4rem;border-radius:6px;font-family:var(--fh);font-size:.95rem;font-weight:800;letter-spacing:.5px;border:none; transition:transform .3s,box-shadow .3s; background: linear-gradient(90deg, #fff, #E0F7FA, #fff); background-size: 200% auto; color:var(--wd-dark) !important; box-shadow:0 6px 25px rgba(0,119,182,.4); animation: flowText 3s linear infinite;}
+.btn-g2{display:inline-flex;align-items:center;padding:1.1rem 2.4rem;border-radius:6px;font-family:var(--fh);font-size:.95rem;font-weight:700;border:2px solid rgba(255,255,255,.4);color:#fff;backdrop-filter: blur(4px); transition:all .3s;}
+
+.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; } .d4 { transition-delay: 0.4s; }
+
+/* TILT & GENERIC GLASS */
+.tilt { transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform-style: preserve-3d; will-change: transform; }
+.glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.9); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05); }
+.glow-orb { position:absolute; border-radius:50%; filter:blur(100px); opacity:0.3; pointer-events:none; z-index:1; mix-blend-mode: multiply; }
+
+/* SECTIONS */
+.trust{background:var(--wd-white);padding:3rem 0; position:relative; z-index:5;}
+.tr-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.tr{text-align:center;padding:1.5rem;border-right:1px solid #e5e7eb}
+.tr:last-child{border:none}
+.tr-num{font-family:var(--fh);font-size:2.8rem;font-weight:900;color:var(--wd-dark)}
+.tr span{color:var(--wd-cyan); font-size:2rem;}
+.tr-label{font-size:.9rem;font-weight:600;color:var(--wd-muted);margin-top:.2rem}
+
+.products{padding:8rem 0;background:var(--wd-gray); position:relative; overflow:hidden;}
+.sec-hdr{text-align:center;max-width:620px;margin:0 auto 5rem; position:relative; z-index:3;}
+.ov{font-family:var(--fh);font-size:.75rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--wd-cyan);margin-bottom:1rem;display:inline-block; animation: pulseGlow 4s infinite alternate;}
+.sh{font-size:clamp(2rem,3vw,3.2rem);font-weight:900;margin-bottom:1rem;letter-spacing:-1px;}
+.pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem; position:relative; z-index:3;}
+.pr-card{border-radius:16px;overflow:hidden; display:flex;flex-direction:column}
+.pr-img{height:280px;overflow:hidden;background:transparent;display:flex;align-items:center;justify-content:center; padding: 2rem;}
+.pr-img img{width:100%;height:100%;object-fit:contain;transition:transform .8s ease-in-out; filter:drop-shadow(0 20px 30px rgba(0,0,0,0.1));}
+.pr-card:hover .pr-img img{transform:scale(1.1)}
+.pr-body{padding:2.5rem;flex:1;display:flex;flex-direction:column}
+.pr-badge{align-self:flex-start;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;padding:.4rem 1.2rem;border-radius:50px;margin-bottom:1.5rem}
+.badge-prem{background:#E0F7FA;color:var(--wd-dark)}
+.badge-eco{background:#E8F5E9;color:#2E7D32}
+.badge-smart{background:#EDE7F6;color:#4527A0}
+.pr-body h3{font-size:1.5rem;font-weight:800;color:var(--wd-text);margin-bottom:.75rem}
+.pr-body p{font-size:.95rem;color:var(--wd-muted);flex:1;margin-bottom:2rem;line-height:1.6;}
+.pr-link{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fh);font-weight:700;font-size:.95rem;color:var(--wd-dark);transition:gap .25s, color .25s}
+.pr-link:hover{gap:1rem;color:var(--wd-cyan)}
+
+.hiw{padding:8rem 0;background:var(--wd-white); position:relative; overflow:hidden;}
+.hiw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4rem;text-align:center; position:relative; z-index:3;}
+.hiw-step{display:flex;flex-direction:column;align-items:center; padding:3rem 2rem; border-radius:16px; transition:transform 0.4s;}
+.hiw-step:hover{transform:translateY(-10px);}
+.hiw-num{width:70px;height:70px;border-radius:50%;background: linear-gradient(135deg, var(--wd-cyan), var(--wd-dark));color:#fff;font-family:var(--fh);font-weight:900;font-size:1.8rem;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem; box-shadow:0 15px 30px rgba(0,180,216,.2); transition:transform 0.4s}
+.hiw-step:hover .hiw-num { transform:scale(1.15) rotate(10deg); }
+.hiw-step h3{font-size:1.3rem;font-weight:800;color:var(--wd-text);margin-bottom:.75rem}
+.hiw-step p{font-size:.95rem;color:var(--wd-muted);line-height:1.6;}
+
+.why{padding:8rem 0; position:relative;}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;text-align:center; position:relative; z-index:2;}
+.why-i{color:rgba(255,255,255,.85)}
+.why-i h3{color:#fff;font-size:1.3rem;font-weight:800;margin:1rem 0 .75rem}
+.why-ico{width:70px;height:70px;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;color:#fff; transition:transform 0.4s}
+.why-i:hover .why-ico { transform: translateY(-12px) scale(1.1); background:rgba(255,255,255,0.25); }
+
+.banner{padding:6rem 0;background:var(--wd-white);text-align:center}
+.banner h2{font-size:clamp(2rem,3.5vw,3rem);font-weight:900;margin-bottom:1rem;letter-spacing:-.5px}
+.banner p{color:var(--wd-muted);font-size:1.1rem;max-width:500px;line-height:1.6;margin:0 auto 2.5rem}
+.btn-cy{display:inline-flex;align-items:center;padding:1.1rem 2.4rem;border-radius:6px;font-family:var(--fh);font-size:1.05rem;font-weight:800;border:none; transition:transform .3s,box-shadow .3s; background: linear-gradient(90deg, var(--wd-cyan), var(--wd-dark), var(--wd-cyan)); background-size: 200% auto; color:#fff !important; box-shadow:0 6px 25px rgba(0,180,216,.4); animation: flowText 3s linear infinite;}
+
+.contact{padding:8rem 0;background:var(--wd-gray); position:relative; overflow:hidden;}
+.ct-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start; position:relative; z-index:3;}
+.form-card{border-radius:16px;padding:3.5rem; border-top: 5px solid var(--wd-cyan); display:flex; flex-direction:column;}
+.fg{margin-bottom:1.8rem}
+.fg label{display:block;font-size:.9rem;font-weight:700;color:var(--wd-text);margin-bottom:.5rem}
+.fg input,.fg textarea,.fg select{width:100%;padding:1rem 1.2rem;border:2px solid rgba(255,255,255,0.6);border-radius:8px;font-family:var(--fb);font-size:1rem;color:var(--wd-text);transition:all .3s;background:rgba(255,255,255,0.7);}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--wd-cyan);background:#fff;box-shadow:0 0 0 4px rgba(0,180,216,.15)}
+.fg textarea{resize:vertical;min-height:130px}
+.btn-full{width:100%;justify-content:center}
+
+/* PRODUCTS DETAILS CSS */
+.pr-details { margin-bottom: 1.5rem; border: 1px solid rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; font-size:0.9rem;}
+.pr-details summary { padding: 0.8rem 1rem; cursor: pointer; font-weight: 700; background: rgba(0,180,216,0.05); color: var(--wd-dark); outline: none; transition: background 0.3s; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.pr-details summary::-webkit-details-marker { display: none; }
+.pr-details summary::after { content: '+'; font-size: 1.2rem; line-height: 1; transition: transform 0.3s; }
+.pr-details[open] summary::after { transform: rotate(45deg); }
+.pr-details summary:hover { background: rgba(0,180,216,0.1); }
+.pr-details p { padding: 1rem; margin: 0; background: #fff; border-top: 1px solid rgba(0,0,0,0.05); font-size: 0.85rem; color: var(--wd-muted); line-height: 1.5;}
+
+/* WA FLOAT CSS */
+.wa-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(37,211,102,0.4); z-index: 990; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); animation: waPulse 2s infinite; }
+.wa-float:hover { transform: scale(1.15) rotate(-10deg); color: #fff; }
+@keyframes waPulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); } 70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+
+/* ADVANCED FOOTER CSS */
+.adv-footer { background: var(--wd-dark); color: rgba(255,255,255,0.7); padding: 5rem 0 2rem; font-size: 0.95rem;}
+.ft-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; margin-bottom: 4rem; }
+.ft-col h4 { color: #fff; margin-bottom: 1.5rem; font-size: 1.1rem; letter-spacing: 0.5px; font-weight:700;}
+.ft-col p { margin-bottom: 1rem; line-height:1.6; }
+.ft-col a { display: block; margin-bottom: 0.8rem; transition: color 0.3s; }
+.ft-col a:hover { color: #81EFFF; }
+.ft-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; font-size: 0.85rem; }
+
+@media(max-width:900px){
+    .nav-links{display:none;}
+    .menu-btn{display:block;}
+    .hero-ct,.hiw-grid,.pr-grid,.why-grid,.ct-grid,.ft-grid{grid-template-columns:1fr;gap:3rem;}
+    .tr-grid{grid-template-columns:1fr;gap:2rem;}
+    .ft-grid{gap:2.5rem;}
+    .hero h1{font-size:3rem;}
+    .form-card{padding:2.5rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="preloader">
+    <div class="pl-logo">Water<span>drop</span></div>
+    <div class="pl-line"></div>
+</div>
+
+<!-- CURSOR HTML REMOVED -->
+
+<nav class="nav"><div class="c nav-i">
+  <a href="index.html" class="logo hover-target">Water<span>drop Filter</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="hover-target">← Portal</a>
+    <a href="#products" class="hover-target">Productos</a>
+    <a href="#hiw" class="hover-target">Cómo Funciona</a>
+    <a href="nasfeco.html" class="hover-target" style="display:flex;align-items:center;gap:0.4rem;transition:transform 0.3s;">
+        <svg viewBox="0 0 200 40" width="80" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(5, 5)">
+                <path d="M5 5 L25 15 L5 25 Z" stroke="currentColor" stroke-width="4.5" stroke-linejoin="round" fill="none" />
+                <circle cx="5" cy="5" r="5" />
+                <circle cx="25" cy="15" r="5" />
+                <circle cx="5" cy="25" r="5" />
+            </g>
+            <text x="45" y="26" font-family="'Times New Roman', serif" font-weight="bold" font-size="22" letter-spacing="1">NASFECO</text>
+        </svg>
+    </a>
+    <a href="#contact" class="nav-cta hover-target">Asesoría Gratuita</a>
+  </div>
+  <button class="menu-btn hover-target" aria-label="Menu" id="menu-btn">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+</div></nav>
+
+<div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-links">
+        <a href="index.html" class="hover-target mobile-close">Portal Principal</a>
+        <a href="#products" class="hover-target mobile-close">Productos Waterdrop</a>
+        <a href="#hiw" class="hover-target mobile-close">Cómo Funciona</a>
+        <a href="nasfeco.html" class="hover-target mobile-close">División Industrial</a>
+        <a href="#contact" class="hover-target mobile-close" style="color:var(--wd-cyan);">Agenda Asesoría</a>
+    </div>
+</div>
+
+<section class="hero">
+  <div class="hero-bg"></div><div class="hero-ov"></div>
+  <div class="bubbles">
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+  </div>
+  <div class="c hero-ct">
+    <span class="hero-ey">Waterdrop Filter · Línea de Alta Gama</span>
+    <h1>Agua <span class="typewriter-wrapper"><em class="text-gradient-cyan" style="padding-right: 15px;">Cristalina</em></span><br>para tu Hogar.</h1>
+    <p>Tecnología de filtración intuitiva de última generación que elimina hasta el 99% de contaminantes. Diseño minimalista, máxima eficiencia.</p>
+    <div class="btn-g">
+      <a href="#products" class="btn-p hover-target">Explorar Sistemas</a>
+      <a href="#contact" class="btn-g2 hover-target">Agenda tu Instalación</a>
+    </div>
+  </div>
+</section>
+
+<section class="trust"><div class="c"><div class="tr-grid">
+  <div class="tr reveal d1"><div class="tr-num text-gradient-dark">99<span>%</span></div><div class="tr-label">Reducción de Contaminantes</div></div>
+  <div class="tr reveal d2"><div class="tr-num text-gradient-dark">+100000<span>L</span></div><div class="tr-label">Agua Ahorrada</div></div>
+  <div class="tr reveal d3"><div class="tr-num text-gradient-dark">+1000</div><div class="tr-label">Familias Ecuatorianas</div></div>
+  <div class="tr reveal d4"><div class="tr-num text-gradient-dark">5<span>★</span></div><div class="tr-label">Calificación Global</div></div>
+</div></div></section>
+
+<section class="products" id="products">
+  <div class="glow-orb" style="background:#00B4D8; width:500px; height:500px; top:-5%; right:-10%;"></div>
+  <div class="c">
+  <div class="sec-hdr reveal">
+    <span class="ov">El Ecosistema Waterdrop</span>
+    <h2 class="sh text-gradient-dark">Pureza para el bienestar de tu familia.</h2>
+    <p style="color:var(--wd-muted);font-size:1.15rem">Tres soluciones de vanguardia, un objetivo común: agua perfecta en cada vaso.</p>
+  </div>
+  <div class="pr-grid">
+    <div class="pr-card glass-panel tilt hover-target reveal d1">
+      <a href="product-ro.html" class="pr-img hover-target"><img src="assets/ro-gal-1.png.png" alt="Ósmosis Inversa Tankless Waterdrop" loading="lazy"></a>
+      <div class="pr-body">
+        <span class="pr-badge badge-prem">Premium Series</span>
+        <h3>Ósmosis Inversa (RO)</h3>
+        <p>Pureza absoluta sin comprometer tu espacio bajo el fregadero. Tecnología tankless de flujo directo que elimina metales pesados. Agua inagotable.</p>
+        <a href="product-ro.html" class="pr-link hover-target">Ver Detalles Completos <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+    <div class="pr-card glass-panel tilt hover-target reveal d2">
+      <a href="product-uf.html" class="pr-img hover-target"><img src="assets/uf-gal-1.png.png" alt="Ultrafiltración Waterdrop" loading="lazy"></a>
+      <div class="pr-body">
+        <span class="pr-badge badge-eco">Eco Logic</span>
+        <h3>Ultrafiltración (UF)</h3>
+        <p>Agua limpia que retiene los minerales esenciales que tu salud necesita mientras extrae cloro y sedimentos. Sin dependencia eléctrica.</p>
+        <a href="product-uf.html" class="pr-link hover-target">Ver Detalles Completos <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+    <div class="pr-card glass-panel tilt hover-target reveal d3">
+      <a href="product-smart.html" class="pr-img hover-target"><img src="assets/smart-gal-1.png.jpg" alt="Filtro Eléctrico Inteligente Waterdrop" loading="lazy"></a>
+      <div class="pr-body">
+        <span class="pr-badge badge-smart">Smart Tech</span>
+        <h3>Dispensador Inteligente</h3>
+        <p>El futuro visualizado en tu encimera. Purificación RO con calentamiento instantáneo a temperaturas exactas y monitoreo OLED integrado.</p>
+        <a href="product-smart.html" class="pr-link hover-target">Ver Detalles Completos <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="hiw" id="hiw">
+  <div class="glow-orb" style="background:#0077B6; width:600px; height:600px; bottom:-10%; left:-10%; opacity:0.15; mix-blend-mode:normal;"></div>
+  <div class="c">
+  <div class="sec-hdr reveal">
+    <span class="ov">El Proceso de Actualización</span>
+    <h2 class="sh text-gradient-dark">Transición Rápida y Limpia.</h2>
+  </div>
+  <div class="hiw-grid">
+    <div class="hiw-step glass-panel tilt hover-target reveal d1"><div class="hiw-num">1</div><h3>Asesoría Focalizada</h3><p>Evaluamos la calidad de agua de tu sector y te perfilamos el sistema Waterdrop ideal.</p></div>
+    <div class="hiw-step glass-panel tilt hover-target reveal d2"><div class="hiw-num">2</div><h3>Integración Nasfeco</h3><p>Técnicos certificados instalan asépticamente el equipo en tu red goteo a goteo.</p></div>
+    <div class="hiw-step glass-panel tilt hover-target reveal d3"><div class="hiw-num">3</div><h3>Desbloquea Pureza</h3><p>Sirve el primer vaso con certificación global. Acompañamiento post-instalación continuo.</p></div>
+  </div>
+</div></section>
+
+<section class="why bg-fluid-cyan"><div class="c">
+  <div class="sec-hdr reveal" style="margin-bottom:5rem">
+    <h2 class="sh" style="color:#fff">¿Por qué Elegir Waterdrop Filter?</h2>
+    <p style="color:rgba(255,255,255,.8);font-size:1.15rem">El estándar mundial moderno, soportado por la arquitectura sólida de Nasfeco.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-i reveal d1">
+      <div class="why-ico"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+      <h3>Certificados Oficiales</h3>
+      <p>Aprobaciones FDA y NSF 58 contra metales, quistes y elementos traza dañinos persistentes.</p>
+    </div>
+    <div class="why-i reveal d2">
+      <div class="why-ico"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+      <h3>Mínimo Impacto de Espacio</h3>
+      <p>Perfil de chasis ultra-delgado en tecnología tankless asegurando más capacidad libre en cabina.</p>
+    </div>
+    <div class="why-i reveal d3">
+      <div class="why-ico"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+      <h3>Soporte Técnico Especializado</h3>
+      <p>Atención y reposición rápida de cartuchos garantizada por stock de base Nasfeco S.A.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="banner reveal">
+  <div class="c">
+    <h2 class="sh text-gradient-dark">Despídete del plástico de un solo uso.</h2>
+    <p>Agua infinitamente limpia en tu propia grifería. Más de 1000 familias ecuatorianas tomaron la decisión.</p>
+    <a href="#contact" class="btn-cy hover-target">Deseo Obtener Asesoría Inmediata</a>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="glow-orb" style="background:#00B4D8; width:500px; height:500px; top:-10%; left:20%; opacity:0.2;"></div>
+  <div class="c"><div class="ct-grid">
+  <div class="reveal d1">
+    <span class="ov">Sectores Residenciales</span>
+    <h2 class="sh text-gradient-dark">Protege lo que más importa.</h2>
+    <p style="color:var(--wd-muted);font-size:1.15rem;margin-bottom:2.5rem;max-width:400px;line-height:1.7;">Un agente certificado asignado perfilará el consumo automático de tu hogar y agendará la inspección previa gratuita.</p>
+    <div style="display:flex;flex-direction:column;gap:1.5rem">
+      <div style="display:flex;align-items:center;gap:1rem;color:var(--wd-text);font-weight:600;font-size:1.05rem;"><div style="width:48px;height:48px;border-radius:50%;background:rgba(0,180,216,0.1);display:flex;align-items:center;justify-content:center;color:var(--wd-cyan);"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>Oficina Matriz: Quito, Ecuador</div>
+      <div style="display:flex;align-items:center;gap:1rem;color:var(--wd-text);font-weight:600;font-size:1.05rem;"><div style="width:48px;height:48px;border-radius:50%;background:rgba(0,180,216,0.1);display:flex;align-items:center;justify-content:center;color:var(--wd-cyan);"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>nasfeco@gmail.com</div>
+    </div>
+  </div>
+  <div class="form-card glass-panel tilt hover-target reveal d2">
+    <form id="wdf">
+      <div class="fg"><label>Nombre del Propietario</label><input type="text" id="w_name" placeholder="Ej. Dra. María García" class="hover-target" required></div>
+      <div class="fg"><label>Email Relacionado</label><input type="email" id="w_email" placeholder="maria@gmail.com" class="hover-target" required></div>
+      <div class="fg"><label>Teléfono / WhatsApp</label><input type="tel" id="w_phone" placeholder="Ej. 0999999999" class="hover-target" required></div>
+      <div class="fg"><label>Interés de Tecnología</label>
+        <select id="w_interest" class="hover-target">
+          <option>Sistema RO (Ósmosis Inversa Tankless)</option>
+          <option>Sistema UF (Hibridación Eco)</option>
+          <option>Estación Inteligente de Bebidas</option>
+          <option>Asesoramiento general gratuito</option>
+        </select>
+      </div>
+      <div class="fg"><label>Contexto Habitacional</label><textarea id="w_context" placeholder="Familia de 4 personas en casa independiente..." class="hover-target" required></textarea></div>
+      <button type="submit" class="btn-cy btn-full hover-target" style="font-size:1.1rem;padding:1.2rem">Remitir Formulario Oficial</button>
+    </form>
+  </div>
+</div></div></section>
+
+<!-- ADVANCED FOOTER -->
+<footer class="adv-footer">
+  <div class="c">
+    <div class="ft-grid">
+      <div class="ft-col">
+          <div class="logo" style="color:#fff;margin-bottom:1.5rem;">Water<span style="color:#00B4D8">drop Filter</span></div>
+          <p>Potenciando la salud de las familias ecuatorianas mediante soluciones de hiper-purificación sin comprometer los recursos del planeta.</p>
+      </div>
+      <div class="ft-col">
+          <h4>Sistemas</h4>
+          <a href="#products" class="hover-target">Ósmosis Inversa (RO)</a>
+          <a href="#products" class="hover-target">Ultrafiltración (UF)</a>
+          <a href="#products" class="hover-target">Dispensadores Smart</a>
+      </div>
+      <div class="ft-col">
+          <h4>Asistencia</h4>
+          <a href="#contact" class="hover-target">Preguntas Frecuentes</a>
+          <a href="#contact" class="hover-target">Agendar Mantenimiento</a>
+          <a href="#contact" class="hover-target">Reportar Falla</a>
+      </div>
+      <div class="ft-col">
+          <h4>Representación Nasfeco</h4>
+          <p>La marca Waterdrop Filter en Ecuador es operada exclusiva y directamente por la matriz corporativa <a href="nasfeco.html" class="hover-target" style="display:inline; color:#00B4D8; text-decoration:underline;">Nasfeco S.A.</a></p>
+      </div>
+    </div>
+    <div class="ft-bottom">
+        <p>&copy; 2026 Waterdrop Filter Global. Operado por Nasfeco S.A. Ecuador. Todos los derechos reservados. Creado por <strong>Mateo Perez</strong>.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOATING WIDGET -->
+<a href="https://wa.me/593997312362" target="_blank" class="wa-float hover-target" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+    // PRELOADER
+    window.addEventListener('load', () => { setTimeout(() => document.querySelector('.preloader').classList.add('preloader-hidden'), 600); });
+
+    // MOBILE MENU
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileCloses = document.querySelectorAll('.mobile-close');
+    menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('open'); });
+    mobileCloses.forEach(btn => btn.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    // MAGNETIC CURSOR & TILT
+    const dot = document.querySelector('.cursor-dot') || {style:{}};
+    const outline = document.querySelector('.cursor-outline') || {style:{}};
+    let mouseX = 0, mouseY = 0, outlineX = 0, outlineY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX; mouseY = e.clientY;
+        dot.style.left = `${mouseX}px`; dot.style.top = `${mouseY}px`;
+    });
+
+    function animateCursor() {
+        outlineX += (mouseX - outlineX) * 0.15; outlineY += (mouseY - outlineY) * 0.15;
+        outline.style.left = `${outlineX}px`; outline.style.top = `${outlineY}px`;
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    document.querySelectorAll('.hover-target, a, button, input, textarea, select').forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+
+    // 3D TILT (Disabled on mobile)
+    if(window.innerWidth > 900) {
+        document.querySelectorAll('.tilt').forEach(el => {
+            el.addEventListener('mousemove', e => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left; const y = e.clientY - rect.top;
+                const xPct = (x / rect.width - 0.5) * 2; const yPct = (y / rect.height - 0.5) * 2;
+                el.style.transform = `perspective(1200px) rotateX(${yPct * -6}deg) rotateY(${xPct * 6}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            el.addEventListener('mouseleave', () => { el.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`; });
+        });
+    }
+
+    // OTHERS
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.nav');
+        if (window.scrollY > 50) { nav.style.padding = "0.6rem 0"; nav.style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)"; } 
+        else { nav.style.padding = "1rem 0"; nav.style.boxShadow = "none"; }
+    });
+
+    // FORM SUBMISSION (n8n Webhook)
+    document.getElementById('wdf').addEventListener('submit', async (e) => {
+        e.preventDefault(); 
+        const b = e.target.querySelector('button'); 
+        const originalText = b.textContent;
+        b.textContent = 'Procesando...';
+        b.style.opacity = '0.8';
+        
+        const payload = new URLSearchParams({
+            source: "Waterdrop B2C",
+            name: document.getElementById('w_name').value,
+            email: document.getElementById('w_email').value,
+            phone: document.getElementById('w_phone').value,
+            interest: document.getElementById('w_interest').value,
+            context: document.getElementById('w_context').value
+        });
+
+        try {
+            const response = await fetch('https://guachotw1.app.n8n.cloud/webhook/727f04bc-196b-4e54-947b-70ed61e854dd', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: payload
+            });
+            
+            if(response.ok || response.type === 'opaque') {
+                b.textContent = '¡Solicitud Oficial Enviada! ✓';
+                b.style.background = '#00B4D8';
+                e.target.reset();
+            } else {
+                b.textContent = 'Error al enviar. Intenta de nuevo.';
+                b.style.background = '#ef4444';
+                setTimeout(() => { b.textContent = originalText; b.style.background = ''; b.style.opacity = '1'; }, 3000);
+            }
+        } catch (error) {
+            b.textContent = 'Error de conexión.';
+            b.style.background = '#ef4444';
+            setTimeout(() => { b.textContent = originalText; b.style.background = ''; b.style.opacity = '1'; }, 3000);
+        }
+    });
+
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('active'); }});}, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

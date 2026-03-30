@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="shortcut icon" href="favicon.svg">
+<title>Nasfeco S.A. | Energía Solar y Purificación de Agua</title>
+<meta name="description" content="Nasfeco Ecuador – Energía solar fotovoltaica, purificación de agua industrial y doméstica, tratamiento químico para fábricas y minas en Quito y todo Ecuador.">
+<meta name="keywords" content="energía solar Ecuador, paneles solares Quito, purificación de agua industrial Ecuador, tratamiento de agua Quito, tecnología limpia Ecuador, energía renovable empresas Ecuador, purificadores agua corporativo, Nasfeco S.A.">
+
+<!-- OpenGraph Meta Tags para SEO y Redes Sociales -->
+<meta property="og:title" content="Nasfeco S.A. | Energía Solar y Purificación de Agua en Ecuador">
+<meta property="og:description" content="Energía solar fotovoltaica, purificación de agua industrial y doméstica, tratamiento químico para fábricas y minas en Ecuador.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80">
+<meta property="og:url" content="https://nasfeco.com/nasfeco">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nasfeco S.A. | Energía Solar y Purificación de Agua en Ecuador">
+<meta name="twitter:description" content="Energía solar y purificación de agua industrial en Ecuador.">
+<meta name="twitter:image" content="https://nasfeco.com/assets/nasfeco-bg.png">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://nasfeco.com/nasfeco">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://nasfeco.com/#organization",
+      "name": "Nasfeco S.A.",
+      "url": "https://nasfeco.com",
+      "logo": "https://nasfeco.com/favicon.svg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Quito, Ecuador",
+        "addressLocality": "Quito",
+        "addressRegion": "Pichincha",
+        "addressCountry": "EC"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+593 99 731 2362",
+        "contactType": "Sales and Consulting",
+        "email": "nasfeco@gmail.com",
+        "areaServed": "EC",
+        "availableLanguage": "Spanish"
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://nasfeco.com/nasfeco/#business",
+      "name": "Nasfeco S.A. | Energía y Purificación",
+      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200",
+      "priceRange": "$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Quito",
+        "addressLocality": "Quito",
+        "addressRegion": "Pichincha",
+        "addressCountry": "EC"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -0.1807,
+        "longitude": -78.4678
+      },
+      "url": "https://nasfeco.com/nasfeco",
+      "telephone": "+593 99 731 2362",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0A192F;--navy-l:#112240;--emerald:#10B981;--emerald-d:#059669;--slate:#8892B0;--white:#FFF;--pearl:#F8FAFC;--fh:'Montserrat',sans-serif;--fb:'Inter',sans-serif}
+html{scroll-behavior:smooth;}
+body{font-family:var(--fb);color:#3d4f6e;background:var(--pearl);line-height:1.7;overflow-x:hidden;}
+a,button,select,input,textarea,.tilt{cursor:pointer;}
+
+/* MAGNETIC CURSOR */
+.cursor-dot{width:8px;height:8px;background:var(--emerald);border-radius:50%;position:fixed;pointer-events:none;z-index:10000;top:0;left:0;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,opacity 0.3s;}
+.cursor-outline{width:40px;height:40px;border:2px solid rgba(16,185,129,0.5);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;top:0;left:0;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,background 0.3s,border-color 0.3s;}
+.cursor-hover .cursor-dot{width:0;height:0;opacity:0;}
+.cursor-hover .cursor-outline{width:70px;height:70px;background:rgba(16,185,129,0.1);border-color:transparent;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);}
+
+/* PRELOADER */
+.preloader{position:fixed;inset:0;background:var(--navy);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.8s ease,visibility 0.8s ease;}
+.preloader-hidden{opacity:0;visibility:hidden;}
+.pl-logo{width:160px;height:32px;margin-bottom:2rem;animation:pulsePl 2s infinite ease-in-out;}
+.pl-line{width:200px;height:2px;background:rgba(255,255,255,0.1);position:relative;overflow:hidden;}
+.pl-line::after{content:'';position:absolute;left:-50%;width:50%;height:100%;background:linear-gradient(90deg,transparent,#10B981,#00B4D8,transparent);animation:loadingLine 1.5s infinite ease-in-out;}
+@keyframes pulsePl{0%,100%{opacity:0.5;transform:scale(0.95);}50%{opacity:1;transform:scale(1);}}
+@keyframes loadingLine{0%{left:-50%;}100%{left:150%;}}
+
+h1,h2,h3,h4{font-family:var(--fh);color:var(--navy);line-height:1.15}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.c{max-width:1180px;margin:0 auto;padding:0 2rem}
+@keyframes fluidMix { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes flowText { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
+@keyframes pulseGlow { 0% { filter: drop-shadow(0 0 10px rgba(16,185,129,0.3)); } 50% { filter: drop-shadow(0 0 25px rgba(16,185,129,0.8)); } 100% { filter: drop-shadow(0 0 10px rgba(16,185,129,0.3)); } }
+.text-gradient-emerald { background: linear-gradient(270deg, var(--emerald), #00B4D8, var(--emerald)); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: flowText 4s linear infinite; display: inline-block; }
+.text-gradient-dark { background: linear-gradient(270deg, var(--navy), var(--emerald-d), var(--navy)); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: flowText 6s linear infinite; }
+.bg-fluid-dark { background: linear-gradient(-45deg, var(--navy), #061e38, var(--navy-l), #032b20); background-size: 400% 400%; animation: fluidMix 12s ease infinite; }
+
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06);z-index:999;padding:1rem 0;transition:transform 0.3s, background 0.3s, box-shadow 0.3s;}
+.nav-i{display:flex;justify-content:space-between;align-items:center}
+.logo-svg { color: var(--navy); display: block; line-height: 0; transition: transform 0.3s; }
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{font-family:var(--fh);font-size:.9rem;font-weight:600;color:var(--slate);transition:color .25s}
+.nav-links a:hover{color:var(--emerald)}
+.nav-cta{background: linear-gradient(90deg, var(--emerald), var(--emerald-d), var(--emerald)); background-size: 200% auto; color:var(--white)!important;padding:.6rem 1.4rem;border-radius:4px;transition:transform .25s, box-shadow .25s!important; animation: flowText 4s linear infinite;}
+
+/* MOBILE MENU CSS */
+.menu-btn { display: none; background: none; border: none; color: var(--navy); position: relative; z-index: 1002; padding: 0.5rem; }
+.mobile-menu { position: fixed; inset: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 1001; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1); clip-path: circle(0% at 90% 10%); }
+.mobile-menu.open { opacity: 1; visibility: visible; clip-path: circle(150% at 90% 10%); }
+.mobile-links { display: flex; flex-direction: column; gap: 2rem; align-items: center; text-align: center; width:100%; }
+.mobile-links a { font-family: var(--fh); font-size: 1.8rem; font-weight: 800; color: var(--navy); transform: translateY(30px); opacity: 0; transition: transform 0.5s ease, opacity 0.5s ease; letter-spacing: -0.5px; }
+.mobile-menu.open .mobile-links a { transform: translateY(0); opacity: 1; }
+.mobile-menu.open .mobile-links a:nth-child(1) { transition-delay: 0.1s; }
+.mobile-menu.open .mobile-links a:nth-child(2) { transition-delay: 0.2s; }
+.mobile-menu.open .mobile-links a:nth-child(3) { transition-delay: 0.3s; }
+.mobile-menu.open .mobile-links a:nth-child(4) { transition-delay: 0.4s; }
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:80px}
+.hero-bg{position:absolute;inset:0;background:url('assets/nasfeco-bg.png') center/cover no-repeat;animation:hpan 30s infinite alternate ease-in-out;filter:brightness(.3) saturate(1.2)}
+@keyframes hpan{0%{transform:scale(1.1) translate(0,0)}100%{transform:scale(1.18) translate(-2%,1.5%)}}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(-45deg,rgba(10,25,47,0.95),rgba(16,185,129,0.35),rgba(10,25,47,0.9));background-size:400% 400%;animation:fluidMix 15s ease infinite; mix-blend-mode: multiply;}
+.hero-ov-light{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,25,47,0.6), transparent); pointer-events:none;}
+.hero-mesh { position:absolute;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(rgba(16,185,129,0.2) 1.5px,transparent 1.5px),radial-gradient(rgba(16,185,129,0.2) 1.5px,transparent 1.5px);background-size:40px 40px;background-position:0 0,20px 20px;animation:meshMove 20s linear infinite;}
+@keyframes meshMove {100%{background-position:40px 40px,60px 60px;}}
+.glow-orb { position:absolute; border-radius:50%; filter:blur(80px); opacity:0.5; animation:orbFloat 10s ease-in-out infinite alternate; pointer-events:none; z-index:1; mix-blend-mode: screen; }
+.orb-1 { width:450px; height:450px; background:#10B981; top:10%; left:-5%; }
+.orb-2 { width:550px; height:550px; background:#00B4D8; bottom:-20%; right:-10%; animation-delay:-5s; }
+@keyframes orbFloat { 0% { transform:translate(0,0) scale(1); } 100% { transform:translate(80px,-80px) scale(1.15); } }
+
+.hero-ct{position:relative;z-index:2;max-width:800px; animation: fadeUp 1s cubic-bezier(.17,.67,.26,.99) forwards;}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+.hero-ey{display:inline-block;font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white);background:rgba(16,185,129,.2);border:1px solid rgba(16,185,129,.5);padding:.4rem 1.2rem;border-radius:50px;margin-bottom:1.8rem;backdrop-filter: blur(4px); animation: pulseGlow 3s infinite;}
+.typewriter-wrapper { display: inline-block; overflow: hidden; white-space: nowrap; border-right: 3px solid var(--emerald); animation: typeWriter 2s steps(30, end) forwards, blinkCursor .75s step-end infinite; vertical-align: bottom; }
+@keyframes typeWriter { from { width: 0; } to { width: 100%; } }
+@keyframes blinkCursor { from, to { border-color: transparent } 50% { border-color: var(--emerald); } }
+.hero h1{color:var(--white);font-size:clamp(2.5rem,4.5vw,4.5rem);font-weight:900;margin-bottom:1.5rem;letter-spacing:-1.5px; text-shadow: 0 10px 30px rgba(0,0,0,0.5);}
+.hero p{color:rgba(255,255,255,.8);font-size:1.2rem;max-width:550px;margin-bottom:2.5rem}
+.btn-g{display:flex;flex-wrap:wrap;gap:1.2rem}
+.btn-p{display:inline-flex;align-items:center;padding:1.1rem 2.4rem;border-radius:6px;font-family:var(--fh);font-size:.95rem;font-weight:800;border:none; transition:transform .3s,box-shadow .3s; background: linear-gradient(90deg, var(--emerald), #00B4D8, var(--emerald)); background-size: 200% auto; color:#fff !important; box-shadow:0 6px 25px rgba(16,185,129,.4); animation: flowText 3s linear infinite;}
+.btn-g2{display:inline-flex;align-items:center;padding:1.1rem 2.4rem;border-radius:6px;font-family:var(--fh);font-size:.95rem;font-weight:700;border:2px solid rgba(255,255,255,.4);color:#fff;backdrop-filter: blur(4px); transition:all .3s;}
+
+/* SCROLL REVEAL ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
+
+/* TILT & GLASSMORPHISM */
+.tilt { transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94); transform-style: preserve-3d; will-change: transform; }
+.glass-panel { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.9); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05); }
+
+/* SECTIONS */
+.stats{background:var(--navy-l);padding:3rem 0; position:relative; z-index:5;}
+.st-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.st{text-align:center;}
+.st-num{font-family:var(--fh);font-size:3rem;font-weight:900;}
+.st-label{font-size:.95rem;color:var(--slate);font-weight:600}
+
+.about{padding:8rem 0;background:var(--pearl); position:relative; overflow:hidden;}
+.ab-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center; position:relative; z-index:2;}
+.ov{font-family:var(--fh);font-size:.75rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--emerald);margin-bottom:1rem;display:inline-block; animation: pulseGlow 4s infinite alternate;}
+.sh{font-size:clamp(2rem,3vw,3.2rem);font-weight:900;margin-bottom:1.5rem;letter-spacing:-1px}
+.ab-img-w{position:relative}
+.ab-img{border-radius:12px;box-shadow:0 30px 60px rgba(10,25,47,.15); position:relative; z-index:2; border: 4px solid #fff;}
+.ab-ac{position:absolute;bottom:-20px;right:-20px;width:100%;height:100%;background:linear-gradient(-45deg, var(--emerald), #00B4D8, var(--emerald)); background-size: 200% 200%; border-radius:12px;z-index:1; animation: fluidMix 5s ease infinite;}
+
+.svcs{padding:8rem 0;background:var(--pearl); position: relative; overflow:hidden;}
+.sec-hdr{text-align:center;max-width:620px;margin:0 auto 5rem; position:relative; z-index:2;}
+.svcs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem; position:relative; z-index:2;}
+.svc{padding:3rem 2.5rem;border-radius:16px;}
+.svc-ico{width:60px;height:60px;background:linear-gradient(135deg, rgba(16,185,129,.15), rgba(0,180,216,.1));border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;color:var(--emerald);transition:all .4s;}
+.svc:hover .svc-ico{background:linear-gradient(135deg, var(--emerald), #00B4D8);color:#fff; box-shadow: 0 10px 20px rgba(16,185,129,0.3);}
+.svc h3{font-size:1.3rem;margin-bottom:1rem;font-weight:800;letter-spacing:-0.5px;}
+
+.diffs{padding:8rem 0; position: relative;}
+.df-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4rem;text-align:center; position:relative; z-index:2;}
+.df{color:#8892b0}
+.df-num{font-family:var(--fh);font-size:4.5rem;font-weight:900; line-height:1;margin-bottom: 1rem;}
+.df h3{color:#fff;font-size:1.3rem;margin:0 0 1rem;font-weight:800;}
+
+.contact{padding:8rem 0;background:var(--pearl); position:relative; overflow:hidden;}
+.ct-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem;align-items:start; position:relative; z-index:2;}
+.ct-dets{display:flex;flex-direction:column;gap:1.5rem}
+.ct-det{display:flex;align-items:center;gap:1rem;color:#3d4f6e;font-weight:600;font-size:1.05rem;}
+.ct-det-i{width:48px;height:48px;border-radius:50%;background:rgba(16,185,129,0.1);display:flex;align-items:center;justify-content:center;color:var(--emerald); transition: transform 0.3s;}
+.form-card{border-radius:20px;padding:3.5rem; border-top: 5px solid var(--emerald); display: flex; flex-direction: column;}
+.fg{margin-bottom:1.8rem}
+.fg label{display:block;font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.fg input,.fg textarea{width:100%;padding:1rem 1.2rem;border:2px solid rgba(255,255,255,0.5);border-radius:8px;font-family:var(--fb);font-size:1rem;color:var(--navy);transition:all .3s;background:rgba(255,255,255,0.5);}
+.fg input:focus,.fg textarea:focus{outline:none;border-color:var(--emerald);background:#fff;box-shadow:0 0 0 4px rgba(16,185,129,.15)}
+.fg textarea{resize:vertical;min-height:140px}
+.btn-full{width:100%;justify-content:center}
+
+/* WA FLOAT CSS */
+.wa-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(37,211,102,0.4); z-index: 990; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); animation: waPulse 2s infinite; }
+.wa-float:hover { transform: scale(1.15) rotate(-10deg); color: #fff; }
+@keyframes waPulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); } 70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+
+/* ADVANCED FOOTER CSS */
+.adv-footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 5rem 0 2rem; }
+.ft-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; margin-bottom: 4rem; }
+.ft-col h4 { color: #fff; margin-bottom: 1.5rem; font-size: 1.1rem; letter-spacing: 0.5px; font-weight:700;}
+.ft-col p { margin-bottom: 1rem; line-height:1.6; font-size:0.95rem; }
+.ft-col a { display: block; margin-bottom: 0.8rem; transition: color 0.3s; font-size: 0.95rem;}
+.ft-col a:hover { color: var(--emerald); }
+.ft-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; font-size: 0.85rem; }
+
+@media(max-width:900px){
+    .nav-links{display:none;}
+    .menu-btn{display:block;}
+    .hero-ct,.ab-grid,.svcs-grid,.df-grid,.ct-grid,.ft-grid{grid-template-columns:1fr;gap:3rem;}
+    .st-grid{grid-template-columns:1fr;gap:2rem;}
+    .ft-grid{gap:2.5rem;}
+    .hero h1{font-size:3rem;}
+    .df-num{font-size:3.5rem;}
+    .form-card{padding:2.5rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="preloader">
+    <svg class="pl-logo" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(5, 5)">
+            <path d="M5 5 L25 15 L5 25 Z" stroke="url(#logoGrad1)" stroke-width="4.5" stroke-linejoin="round" fill="none" />
+            <circle cx="5" cy="5" r="5" fill="#10B981" />
+            <circle cx="25" cy="15" r="5" fill="#059669" />
+            <circle cx="5" cy="25" r="5" fill="#00B4D8" />
+        </g>
+        <text x="45" y="26" font-family="'Times New Roman', serif" font-weight="bold" font-size="22" fill="#fff" letter-spacing="1">NASFECO S.A</text>
+        <defs><linearGradient id="logoGrad1" x1="5" y1="5" x2="25" y2="25" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#10B981" /><stop offset="100%" stop-color="#00B4D8" /></linearGradient></defs>
+    </svg>
+    <div class="pl-line"></div>
+</div>
+
+<!-- CURSOR HTML REMOVED -->
+
+<nav class="nav"><div class="c nav-i">
+  <a href="index.html" class="logo-svg hover-target" title="Nasfeco S.A. Portal">
+    <svg viewBox="0 0 200 40" width="160" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(5, 5)">
+            <path d="M5 5 L25 15 L5 25 Z" stroke="url(#logoGrad2)" stroke-width="4.5" stroke-linejoin="round" fill="none" />
+            <circle cx="5" cy="5" r="5" fill="#10B981" />
+            <circle cx="25" cy="15" r="5" fill="#059669" />
+            <circle cx="5" cy="25" r="5" fill="#00B4D8" />
+        </g>
+        <text x="45" y="26" font-family="'Times New Roman', serif" font-weight="bold" font-size="22" fill="currentColor" letter-spacing="1">NASFECO S.A</text>
+        <defs><linearGradient id="logoGrad2" x1="5" y1="5" x2="25" y2="25" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#10B981" /><stop offset="100%" stop-color="#00B4D8" /></linearGradient></defs>
+    </svg>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="hover-target">← Portal</a>
+    <a href="#svcs" class="hover-target">Servicios</a>
+    <a href="#nosotros" class="hover-target">Nosotros</a>
+    <a href="waterdrop.html" class="hover-target">Waterdrop</a>
+    <a href="#contact" class="nav-cta hover-target">Contáctanos</a>
+  </div>
+  <button class="menu-btn hover-target" aria-label="Menu" id="menu-btn">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+</div></nav>
+
+<div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-links">
+        <a href="index.html" class="hover-target mobile-close">Portal Principal</a>
+        <a href="#svcs" class="hover-target mobile-close">Servicios</a>
+        <a href="#nosotros" class="hover-target mobile-close">Nosotros</a>
+        <a href="waterdrop.html" class="hover-target mobile-close">Línea Waterdrop</a>
+        <a href="#contact" class="hover-target mobile-close" style="color:var(--emerald);">Contáctanos</a>
+    </div>
+</div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div><div class="hero-ov-light"></div><div class="hero-mesh"></div>
+  <div class="glow-orb orb-1"></div><div class="glow-orb orb-2"></div>
+  <div class="c hero-ct">
+    <span class="hero-ey">Tecnología Inteligente</span>
+    <h1>El Futuro <span class="typewriter-wrapper"><em class="text-gradient-emerald" style="padding-right: 15px;">Sostenible</em></span><br>Empieza Aquí.</h1>
+    <p>Energía limpia, purificación de agua doméstica e industrial y tratamiento químico para fábricas y minas.</p>
+    <div class="btn-g">
+      <a href="#contact" class="btn-p hover-target">Solicitar Asesoría Corporativa</a>
+      <a href="#nosotros" class="btn-g2 hover-target">Descubrir Más</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats"><div class="c"><div class="st-grid">
+  <div class="st reveal d1"><div class="st-num text-gradient-emerald">+3</div><div class="st-label">Años de experiencia</div></div>
+  <div class="st reveal d2"><div class="st-num text-gradient-emerald">99%</div><div class="st-label">Satisfacción operativa</div></div>
+  <div class="st reveal d3"><div class="st-num text-gradient-emerald">500+</div><div class="st-label">Proyectos ejecutados</div></div>
+</div></div></section>
+
+<section class="about" id="nosotros">
+  <div class="glow-orb" style="background:#00B4D8; width:400px; height:400px; top:0; left:-10%; opacity:0.3; filter:blur(100px); mix-blend-mode:normal;"></div>
+  <div class="c"><div class="ab-grid">
+  <div class="reveal">
+    <span class="ov">Visión e Innovación</span>
+    <h2 class="sh text-gradient-dark">Transformando la forma en que Ecuador consume energía y agua.</h2>
+    <p>En Nasfeco S.A., integramos tecnología de punta para transformar la manera en que Ecuador consume energía y agua. Desde nuestra sede principal, no solo distribuimos equipos de vanguardia; diseñamos soluciones eficientes que optimizan recursos, garantizan la salud y potencian la rentabilidad de nuestros clientes.</p>
+    <a href="#contact" class="btn-p hover-target" style="margin-top:2rem">Hablar con un Especialista</a>
+  </div>
+  <div class="ab-img-w reveal d2 tilt hover-target">
+    <img class="ab-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80" alt="Oficinas Nasfeco" loading="lazy">
+    <div class="ab-ac"></div>
+  </div>
+</div></div></section>
+
+<section class="svcs" id="svcs">
+  <div class="glow-orb" style="background:#10B981; width:500px; height:500px; bottom:0; right:-10%; opacity:0.2; filter:blur(120px); mix-blend-mode:normal;"></div>
+  <div class="c">
+  <div class="sec-hdr reveal">
+    <span class="ov">Nuestros Servicios Estratégicos</span>
+    <h2 class="sh text-gradient-dark">Un ecosistema de soluciones para la industria moderna.</h2>
+  </div>
+  <div class="svcs-grid">
+    <div class="svc glass-panel tilt hover-target reveal d1">
+      <div class="svc-ico"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><title>Energía Solar Fotovoltaica</title><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <h3>Energía Solar</h3>
+      <p>Paneles y sistemas fotovoltaicos de última generación para instalaciones corporativas con máxima eficiencia energética.</p>
+    </div>
+    <div class="svc glass-panel tilt hover-target reveal d2">
+      <div class="svc-ico"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><title>Purificación de Agua</title><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+      <h3>Purificación de Agua</h3>
+      <p>Sistemas industriales y residenciales Waterdrop (RO, UF y Smart Systems) garantizando pureza absoluta inagotable.</p>
+    </div>
+    <div class="svc glass-panel tilt hover-target reveal d3">
+      <div class="svc-ico"><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><title>Consultoría Técnica y Soporte</title><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+      <h3>Consultoría Técnica</h3>
+      <p>Asesoría personalizada, diagnóstico e implementación integral con retorno de inversión garantizado.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="diffs bg-fluid-dark">
+<div class="glow-orb" style="background:#00B4D8; width:300px; height:300px; opacity:0.3; top:10%; left:30%;"></div>
+<div class="c"><div class="df-grid">
+  <div class="df reveal d1"><div class="df-num text-gradient-emerald">01</div><h3>Respaldo Técnico Local</h3><p style="color:rgba(255,255,255,0.7)">Equipo in-house en Ecuador disponible para soporte inmediato, instalación integral y mantenimiento.</p></div>
+  <div class="df reveal d2"><div class="df-num text-gradient-emerald">02</div><h3>Estándares Globales</h3><p style="color:rgba(255,255,255,0.7)">Tecnologías con certificaciones internacionales que aseguran el máximo rendimiento a largo plazo.</p></div>
+  <div class="df reveal d3"><div class="df-num text-gradient-emerald">03</div><h3>Rentabilidad Real</h3><p style="color:rgba(255,255,255,0.7)">Soluciones inteligentes que optimizan costos fijos mientras aportan valor a la sostenibilidad del planeta.</p></div>
+</div></div></section>
+
+<section class="contact" id="contact">
+  <div class="glow-orb" style="background:#10B981; width:600px; height:600px; top:-20%; left:-15%; opacity:0.15; filter:blur(150px); mix-blend-mode:normal;"></div>
+  <div class="c"><div class="ct-grid">
+  <div class="reveal">
+    <span class="ov">Inicia la Transición</span>
+    <h2 class="sh text-gradient-dark">Potenciemos juntos tu proyecto.</h2>
+    <p style="color:#5a7099;margin-bottom:2.5rem;font-size:1.15rem;max-width:400px;line-height:1.7;">Estamos listos para diseñar la infraestructura limpia y eficiente que tu industria demanda. Un especialista sénior te contactará en breve.</p>
+    <div class="ct-dets">
+      <div class="ct-det"><div class="ct-det-i"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>Base de Operaciones: Quito, Ecuador</div>
+      <div class="ct-det"><div class="ct-det-i"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>nasfeco@gmail.com</div>
+    </div>
+  </div>
+  <div class="form-card glass-panel tilt hover-target reveal d2">
+    <form id="nf">
+      <div class="fg"><label>Nombre del Representante</label><input type="text" id="n_name" placeholder="Ej. Juan Pérez" class="hover-target" required></div>
+      <div class="fg"><label>Razón Social Corporativa</label><input type="text" id="n_company" placeholder="Empresa S.A." class="hover-target" required></div>
+      <div class="fg"><label>Correo Corporativo</label><input type="email" id="n_email" placeholder="contacto@empresa.com" class="hover-target" required></div>
+      <div class="fg"><label>Teléfono / WhatsApp</label><input type="tel" id="n_phone" placeholder="Ej. 0999999999" class="hover-target" required></div>
+      <div class="fg"><label>Detalles del Proyecto</label><textarea id="n_details" placeholder="Describe brevemente tus requerimientos o problemas a solucionar..." class="hover-target" required></textarea></div>
+      <button type="submit" class="btn-p btn-full hover-target" style="font-size:1.1rem;padding:1.2rem">Solicitar Contacto Estratégico</button>
+    </form>
+  </div>
+</div></div></section>
+
+<!-- ADVANCED FOOTER -->
+<footer class="adv-footer">
+  <div class="c">
+    <div class="ft-grid">
+      <div class="ft-col">
+          <svg viewBox="0 0 200 40" width="140" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:1.5rem">
+            <g transform="translate(5, 5)">
+                <path d="M5 5 L25 15 L5 25 Z" stroke="url(#logoGrad3)" stroke-width="4.5" stroke-linejoin="round" fill="none" />
+                <circle cx="5" cy="5" r="5" fill="#10B981" />
+                <circle cx="25" cy="15" r="5" fill="#059669" />
+                <circle cx="5" cy="25" r="5" fill="#00B4D8" />
+            </g>
+            <text x="45" y="26" font-family="'Times New Roman', serif" font-weight="bold" font-size="22" fill="#fff" letter-spacing="1">NASFECO S.A</text>
+            <defs><linearGradient id="logoGrad3" x1="5" y1="5" x2="25" y2="25" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#10B981" /><stop offset="100%" stop-color="#00B4D8" /></linearGradient></defs>
+          </svg>
+          <p>Innovando en la eficiencia hídrica y energética con tecnología sustentable de clase mundial para Ecuador.</p>
+      </div>
+      <div class="ft-col">
+          <h4>Explorar</h4>
+          <a href="#svcs" class="hover-target">Servicios</a>
+          <a href="#nosotros" class="hover-target">Sobre Nasfeco</a>
+          <a href="waterdrop.html" class="hover-target">Línea Waterdrop</a>
+      </div>
+      <div class="ft-col">
+          <h4>Soporte</h4>
+          <a href="#contact" class="hover-target">Red de Servicio</a>
+          <a href="#contact" class="hover-target">Garantías</a>
+          <a href="#contact" class="hover-target">Contacto General</a>
+      </div>
+      <div class="ft-col">
+          <h4>Contáctanos</h4>
+          <p>Email: nasfeco@gmail.com</p>
+          <p>WhatsApp: +593 99 731 2362</p>
+          <p>Quito, Ecuador</p>
+      </div>
+    </div>
+    <div class="ft-bottom">
+        <p>&copy; 2026 Nasfeco S.A. Todos los derechos reservados. Creado por <strong>Mateo Perez</strong>.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOATING WIDGET -->
+<a href="https://wa.me/593997312362" target="_blank" class="wa-float hover-target" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+    // PRELOADER
+    window.addEventListener('load', () => { setTimeout(() => document.querySelector('.preloader').classList.add('preloader-hidden'), 600); });
+
+    // MOBILE MENU
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileCloses = document.querySelectorAll('.mobile-close');
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+    });
+    mobileCloses.forEach(btn => btn.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    // MAGNETIC CURSOR & TILT
+    const dot = document.querySelector('.cursor-dot') || {style:{}};
+    const outline = document.querySelector('.cursor-outline') || {style:{}};
+    let mouseX = 0, mouseY = 0, outlineX = 0, outlineY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX; mouseY = e.clientY;
+        dot.style.left = `${mouseX}px`; dot.style.top = `${mouseY}px`;
+    });
+
+    function animateCursor() {
+        outlineX += (mouseX - outlineX) * 0.15; outlineY += (mouseY - outlineY) * 0.15;
+        outline.style.left = `${outlineX}px`; outline.style.top = `${outlineY}px`;
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    document.querySelectorAll('.hover-target, a, button, input, textarea, select').forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+
+    // 3D TILT EFFECT (Disabled on mobile width for performance)
+    if(window.innerWidth > 900) {
+        document.querySelectorAll('.tilt').forEach(el => {
+            el.addEventListener('mousemove', e => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left; const y = e.clientY - rect.top;
+                const xPct = (x / rect.width - 0.5) * 2; const yPct = (y / rect.height - 0.5) * 2;
+                el.style.transform = `perspective(1200px) rotateX(${yPct * -6}deg) rotateY(${xPct * 6}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            el.addEventListener('mouseleave', () => { el.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`; });
+        });
+    }
+
+    // OTHERS
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.nav');
+        if (window.scrollY > 50) { nav.style.padding = "0.6rem 0"; nav.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)"; } 
+        else { nav.style.padding = "1rem 0"; nav.style.boxShadow = "none"; }
+    });
+
+    // FORM SUBMISSION (n8n Webhook)
+    document.getElementById('nf').addEventListener('submit', async (e) => {
+        e.preventDefault(); 
+        const b = e.target.querySelector('button'); 
+        const originalText = b.textContent;
+        b.textContent = 'Transmitiendo...';
+        b.style.opacity = '0.8';
+        
+        const payload = new URLSearchParams({
+            source: "Nasfeco B2B",
+            name: document.getElementById('n_name').value,
+            company: document.getElementById('n_company').value,
+            email: document.getElementById('n_email').value,
+            phone: document.getElementById('n_phone').value,
+            details: document.getElementById('n_details').value
+        });
+
+        try {
+            const response = await fetch('https://guachotw1.app.n8n.cloud/webhook/727f04bc-196b-4e54-947b-70ed61e854dd', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: payload
+            });
+            
+            if(response.ok || response.type === 'opaque') {
+                b.textContent = '¡Solicitud Oficial Enviada! ✓';
+                b.style.background = '#10B981';
+                e.target.reset();
+            } else {
+                b.textContent = 'Error al enviar. Intenta de nuevo.';
+                b.style.background = '#ef4444';
+                setTimeout(() => { b.textContent = originalText; b.style.background = ''; b.style.opacity = '1'; }, 3000);
+            }
+        } catch (error) {
+            b.textContent = 'Error de conexión.';
+            b.style.background = '#ef4444';
+            setTimeout(() => { b.textContent = originalText; b.style.background = ''; b.style.opacity = '1'; }, 3000);
+        }
+    });
+
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('active'); } }); }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

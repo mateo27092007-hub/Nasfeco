@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="shortcut icon" href="favicon.svg">
+<title>Nasfeco S.A. | Purificadores de Agua y Paneles Solares en Quito, Ecuador</title>
+<meta name="description" content="Nasfeco S.A. – Especialistas en tecnología limpia en Quito, Ecuador. Venta e instalación de purificadores de agua, paneles solares y tratamientos químicos industriales.">
+<meta name="keywords" content="purificadores de agua Quito, paneles solares Ecuador, energía solar Quito, filtros agua Ecuador, Nasfeco, tecnología limpia Ecuador, purificación agua industrial, tratamiento agua empresas">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://nasfeco.com/">
+
+<!-- OpenGraph Meta Tags para SEO y Redes Sociales -->
+<meta property="og:title" content="Nasfeco S.A. | Energía y Agua para Ecuador">
+<meta property="og:description" content="Elige tu experiencia. Soluciones corporativas B2B de tecnología limpia (Nasfeco) y sistemas de purificación de agua premium para tu hogar (Waterdrop).">
+<meta property="og:image" content="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80">
+<meta property="og:url" content="https://www.nasfeco.com">
+<meta property="og:type" content="website">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0A192F;overflow:hidden;height:100vh;width:100vw;cursor:none!important;}
+a,button,.side{cursor:none!important;}
+
+/* MAGNETIC CURSOR */
+.cursor-dot{width:8px;height:8px;background:#fff;border-radius:50%;position:fixed;pointer-events:none;z-index:10000;top:0;left:0;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,opacity 0.3s;}
+.cursor-outline{width:40px;height:40px;border:2px solid rgba(255,255,255,0.5);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;top:0;left:0;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,background 0.3s,border-color 0.3s;}
+.cursor-hover .cursor-dot{width:0;height:0;opacity:0;}
+.cursor-hover .cursor-outline{width:70px;height:70px;background:rgba(255,255,255,0.1);border-color:transparent;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);}
+
+/* PRELOADER */
+.preloader{position:fixed;inset:0;background:#0A192F;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.8s ease,visibility 0.8s ease;}
+.preloader-hidden{opacity:0;visibility:hidden;}
+.pl-logo{width:160px;height:32px;margin-bottom:2rem;animation:pulsePl 2s infinite ease-in-out;}
+.pl-line{width:200px;height:2px;background:rgba(255,255,255,0.1);position:relative;overflow:hidden;}
+.pl-line::after{content:'';position:absolute;left:-50%;width:50%;height:100%;background:linear-gradient(90deg,transparent,#10B981,#00B4D8,transparent);animation:loadingLine 1.5s infinite ease-in-out;}
+@keyframes pulsePl{0%,100%{opacity:0.5;transform:scale(0.95);}50%{opacity:1;transform:scale(1);}}
+@keyframes loadingLine{0%{left:-50%;}100%{left:150%;}}
+
+/* PORTAL */
+.portal{display:flex;width:100%;height:100vh;position:relative}
+.side{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;transition:flex 0.9s cubic-bezier(0.77,0,0.18,1)}
+.side:hover{flex:1.6}
+.portal::after{content:'';position:absolute;left:50%;top:10%;height:80%;width:1px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.25),transparent);transform:translateX(-50%);z-index:10;pointer-events:none;transition:opacity .6s}
+.portal:has(.side:hover)::after{opacity:0}
+.side-bg{position:absolute;inset:-5%;width:110%;height:110%;background-size:cover;background-position:center;transition:transform 1s cubic-bezier(0.77,0,0.18,1),filter 0.6s ease;filter:brightness(.4) saturate(1.2)}
+#side-nasfeco .side-bg{background-image:url('assets/nasfeco-bg.png');animation:panBgNasfeco 20s infinite alternate linear}
+#side-waterdrop .side-bg{background-image:url('assets/waterdrop-bg.png');animation:panBgWaterdrop 25s infinite alternate linear}
+@keyframes panBgNasfeco{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.05) translate(-1%,1%)}}
+@keyframes panBgWaterdrop{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.05) translate(1%,-1%)}}
+.side:hover .side-bg{filter:brightness(.55) saturate(1.4)}
+.side-overlay{position:absolute;inset:0;pointer-events:none}
+#side-nasfeco .side-overlay{background:linear-gradient(135deg,rgba(10,25,47,.7) 0%,rgba(16,185,129,.15) 100%)}
+#side-waterdrop .side-overlay{background:linear-gradient(225deg,rgba(0,119,182,.7) 0%,rgba(0,180,216,.1) 100%)}
+.ambient-particles{position:absolute;inset:0;z-index:2;opacity:0;pointer-events:none;transition:opacity 1s}
+.side:hover .ambient-particles{opacity:1}
+.particle{position:absolute;background:rgba(16,185,129,.4);border-radius:50%;filter:blur(4px);animation:floatUp var(--dr) linear infinite}
+.particle:nth-child(1){width:10px;height:10px;left:20%;bottom:-10px;--dr:6s}
+.particle:nth-child(2){width:15px;height:15px;left:60%;bottom:-20px;--dr:8s;animation-delay:2s}
+.particle:nth-child(3){width:8px;height:8px;left:80%;bottom:-10px;--dr:5s;animation-delay:1s}
+@keyframes floatUp{0%{transform:translateY(0) scale(1);opacity:0}30%{opacity:1}100%{transform:translateY(-40vh) scale(1.5);opacity:0}}
+.side-content{position:relative;z-index:5;text-align:center;padding:2rem 3rem;color:#fff;display:flex;flex-direction:column;align-items:center;gap:1.5rem;transform:scale(.95);transition:transform .8s cubic-bezier(.175,.885,.32,1.275)}
+.side:hover .side-content{transform:scale(1)}
+.side-badge{font-family:'Inter',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;padding:.4rem 1.2rem;border-radius:50px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(4px);opacity:0;transform:translateY(10px);transition:opacity .4s .1s,transform .4s .1s}
+.side:hover .side-badge{opacity:1;transform:translateY(0)}
+.side-name{font-family:'Montserrat',sans-serif;font-size:clamp(3rem,5vw,5.5rem);font-weight:900;line-height:1;letter-spacing:-2px;text-shadow:0 10px 30px rgba(0,0,0,.5)}
+#side-nasfeco .side-name{color:#fff}#side-nasfeco .side-name span{color:#10B981}
+#side-waterdrop .side-name{color:#fff}#side-waterdrop .side-name span{color:#00B4D8}
+.side-tagline{font-size:clamp(.95rem,1.3vw,1.15rem);color:rgba(255,255,255,.75);max-width:320px;line-height:1.7;opacity:0;transform:translateY(12px);transition:opacity .45s .15s,transform .45s .15s;text-shadow:0 2px 10px rgba(0,0,0,.5)}
+.side:hover .side-tagline{opacity:1;transform:translateY(0)}
+.side-cta{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 2.2rem;border-radius:4px;font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.5px;border:none;text-decoration:none;opacity:0;transform:translateY(14px);transition:opacity .5s .2s,transform .3s cubic-bezier(.175,.885,.32,1.275),box-shadow .3s}
+.side:hover .side-cta{opacity:1;transform:translateY(0)}
+.side-cta:hover{transform:translateY(-4px) scale(1.02)!important}
+#side-nasfeco .side-cta{background:#10B981;color:#fff;box-shadow:0 4px 20px rgba(16,185,129,.35)}#side-nasfeco .side-cta:hover{box-shadow:0 10px 30px rgba(16,185,129,.6)!important}
+#side-waterdrop .side-cta{background:#00B4D8;color:#fff;box-shadow:0 4px 20px rgba(0,180,216,.35)}#side-waterdrop .side-cta:hover{box-shadow:0 10px 30px rgba(0,180,216,.6)!important}
+.cta-arrow{transition:transform .3s}.side-cta:hover .cta-arrow{transform:translateX(5px)}
+.side-icon{width:55px;height:55px;margin-bottom:-.5rem;opacity:.9;filter:drop-shadow(0 4px 10px rgba(0,0,0,.3))}
+.portal-logo{position:fixed;top:2rem;left:50%;transform:translateX(-50%);z-index:100;color:#fff;filter:drop-shadow(0 4px 15px rgba(0,0,0,.6));animation:logoFadeIn 1s cubic-bezier(.175,.885,.32,1.275) forwards;opacity:0}
+.portal-logo:hover{transform:translateX(-50%) scale(1.05)}
+@keyframes logoFadeIn{0%{opacity:0;transform:translateX(-50%) translateY(-20px) scale(.9)}100%{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}}
+.portal-hint{position:fixed;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:.6rem;font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.6);z-index:100;animation:hintPulse 2.5s infinite}
+@keyframes hintPulse{0%,100%{opacity:.5}50%{opacity:1}}
+@media(max-width:768px){.portal{flex-direction:column}body{overflow-y:auto}.side{min-height:50vh;flex:1!important}.side-name{font-size:3rem;letter-spacing:-1px}.side-tagline,.side-badge,.side-cta{opacity:1;transform:none}.portal::after{display:none}.portal-logo{top:1.5rem}.portal-logo svg{width:140px;height:28px}}
+</style>
+</head>
+<body>
+
+<div class="preloader">
+    <svg class="pl-logo" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(5, 5)">
+            <path d="M5 5 L25 15 L5 25 Z" stroke="url(#logoGrad1)" stroke-width="4.5" stroke-linejoin="round" fill="none" />
+            <circle cx="5" cy="5" r="5" fill="#10B981" />
+            <circle cx="25" cy="15" r="5" fill="#059669" />
+            <circle cx="5" cy="25" r="5" fill="#00B4D8" />
+        </g>
+        <text x="45" y="26" font-family="'Times New Roman', serif" font-weight="bold" font-size="22" fill="#fff" letter-spacing="1">NASFECO S.A</text>
+        <defs><linearGradient id="logoGrad1" x1="5" y1="5" x2="25" y2="25" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#10B981" /><stop offset="100%" stop-color="#00B4D8" /></linearGradient></defs>
+    </svg>
+    <div class="pl-line"></div>
+</div>
+
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+
+<a href="index.html" class="portal-logo hover-target" title="Nasfeco S.A.">
+    <svg class="nasfeco-svg-logo" viewBox="0 0 200 40" width="180" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(5, 5)">
+            <path d="M5 5 L25 15 L5 25 Z" stroke="url(#logoGrad)" stroke-width="4.5" stroke-linejoin="round" fill="none" />
+            <circle cx="5" cy="5" r="5" fill="#10B981" />
+            <circle cx="25" cy="15" r="5" fill="#059669" />
+            <circle cx="5" cy="25" r="5" fill="#00B4D8" />
+        </g>
+        <text x="45" y="26" font-family="'Times New Roman', serif" font-weight="bold" font-size="22" fill="currentColor" letter-spacing="1">NASFECO S.A</text>
+        <defs><linearGradient id="logoGrad" x1="5" y1="5" x2="25" y2="25" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#10B981" /><stop offset="100%" stop-color="#00B4D8" /></linearGradient></defs>
+    </svg>
+</a>
+
+<main class="portal">
+    <div class="side hover-target" id="side-nasfeco" onclick="window.location='nasfeco.html'">
+        <div class="side-bg"></div><div class="side-overlay"></div>
+        <div class="ambient-particles"><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
+        <div class="side-content">
+            <svg class="side-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="26" cy="26" r="25" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                <path d="M16 34L20 26L26 30L32 20L36 28" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="26" cy="18" r="3" fill="#10B981" opacity="0.9"/>
+            </svg>
+            <span class="side-badge">Corporativo · B2B</span>
+            <h2 class="side-name">Nas<span>feco</span></h2>
+            <p class="side-tagline">Soluciones de tecnología limpia y energía renovable para empresas e industrias.</p>
+            <span class="side-cta">Explorar Corporación <svg class="cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+    </div>
+    <div class="side hover-target" id="side-waterdrop" onclick="window.location='waterdrop.html'">
+        <div class="side-bg"></div><div class="side-overlay"></div>
+        <div class="ambient-particles" style="filter: hue-rotate(180deg);"><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
+        <div class="side-content">
+            <svg class="side-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="26" cy="26" r="25" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                <path d="M26 14C26 14 18 22.5 18 29C18 33.4 21.6 37 26 37C30.4 37 34 33.4 34 29C34 22.5 26 14 26 14Z" fill="rgba(0,180,216,0.3)" stroke="#00B4D8" stroke-width="2"/>
+            </svg>
+            <span class="side-badge">Purificación · Hogar</span>
+            <h2 class="side-name">Water<span>drop</span></h2>
+            <p class="side-tagline">Agua cristalina e inagotable para tu hogar. Tecnología de filtración de élite.</p>
+            <span class="side-cta">Ver Productos <svg class="cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+    </div>
+</main>
+
+<div class="portal-hint">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg> Elige tu destino <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+</div>
+
+<script>
+    // PRELOADER
+    window.addEventListener('load', () => {
+        setTimeout(() => document.querySelector('.preloader').classList.add('preloader-hidden'), 600);
+    });
+
+    // MAGNETIC CURSOR
+    const dot = document.querySelector('.cursor-dot');
+    const outline = document.querySelector('.cursor-outline');
+    let mouseX = 0, mouseY = 0, outlineX = 0, outlineY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX; mouseY = e.clientY;
+        dot.style.left = `${mouseX}px`; dot.style.top = `${mouseY}px`;
+    });
+
+    // Smooth outline trailing
+    function animateCursor() {
+        outlineX += (mouseX - outlineX) * 0.15;
+        outlineY += (mouseY - outlineY) * 0.15;
+        outline.style.left = `${outlineX}px`;
+        outline.style.top = `${outlineY}px`;
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    document.querySelectorAll('.hover-target, .side-cta').forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+</script>
+</body>
+</html>

@@ -11,11 +11,7 @@ const WD = {
   },
   products: {
     x12:   { name: 'Waterdrop X12 · 1200 GPD',      price: 1099, was: 1299, code: 'NASX12',  img: 'assets/x12/ui-wd-x12-new-vis-pr-logo.webp', url: 'product-x12.html' },
-    x16:   { name: 'Waterdrop X16 · 1600 GPD',      price: 1599, was: 1999, code: 'NASX16',  img: 'assets/x16/X16-LOGO-2.webp',               url: 'product-x16.html' },
-    x8:    { name: 'Waterdrop X8-A · 800 GPD',        price: 699,  was: 799,  code: 'NASX8',   img: 'assets/x8/ui-wd-x8-a-new-vis-main.webp',     url: 'product-x8.html' },
-    g800:  { name: 'Waterdrop G3P800 · 800 GPD',    price: 849,  was: 999,  code: 'NASG800', img: 'assets/g800/G3P800-LOGO-2.webp',            url: 'product-g3p800.html' },
-    g600:  { name: 'Waterdrop G3P600 · 600 GPD',    price: 439,  was: 539,  code: 'NASG600', img: 'assets/g600/ui-wd-g3p600-product_1.png',    url: 'product-g3p600.html' },
-    k6:    { name: 'Waterdrop K6 · Agua caliente',  price: 599,  was: 799,  code: 'NASK6',   img: 'assets/k6/ui-wd-k6-product_3.webp',          url: 'product-k6.html' },
+    g5:    { name: 'Waterdrop G5P700A · 700 GPD',   price: 359,  was: 429,  code: 'NASG5',   img: 'assets/g5/ui-wd-g5p700a-product.webp',      url: 'product-g5p700a.html' },
     uf:    { name: 'Waterdrop Ultrafiltración UF',  price: 189,  was: 249,  code: 'NASUF',   img: 'assets/uf-gal-1.png.png',                    url: 'product-uf.html' },
     smart: { name: 'Waterdrop Dispensador ED01',    price: 99,   was: 129,  code: 'NASED01', img: 'assets/ed01/1_33c5e044-eb97-4485-ae99-684bc658886e.webp', url: 'product-smart.html' }
   }
@@ -415,8 +411,7 @@ const WD = {
     const pick = () => {
       if (ans[0] === 'arriendo') return ['smart', 'Sin obras ni técnicos: lo llenas, lo cargas y tienes agua filtrada en 1 segundo.'];
       if (ans[1] === 'sabor') return ['uf', 'Quita el cloro y el mal sabor conservando los minerales, sin electricidad ni desperdicio.'];
-      if (ans[2] === '6') return ['x16', 'El de mayor caudal: agua pura sin esperas aunque toda la familia la use a la vez.'];
-      if (ans[2] === '1') return ['x8', 'Ósmosis inversa completa a un precio de entrada, ideal para hogares pequeños.'];
+      if (ans[2] === '1') return ['g5', 'Ósmosis inversa con minerales alcalinos en un equipo compacto y a mejor precio.'];
       return ['x12', 'El equilibrio perfecto: máxima pureza, minerales y grifo inteligente para la familia.'];
     };
     const render = () => {

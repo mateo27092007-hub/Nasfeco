@@ -10,10 +10,10 @@ const WD = {
     end: '2026-10-31T23:59:59-05:00'   // hora de Ecuador (UTC-5)
   },
   products: {
-    x12:   { name: 'Waterdrop X12 · 1200 GPD',      price: 1099, was: 1299, code: 'NASX12',  img: 'assets/x12/ui-wd-x12-new-vis-pr-logo.webp', url: 'product-x12.html' },
-    g5:    { name: 'Waterdrop G5P700A · 700 GPD',   price: 359,  was: 429,  code: 'NASG5',   img: 'assets/g5/ui-wd-g5p700a-product.webp',      url: 'product-g5p700a.html' },
-    uf:    { name: 'Waterdrop Ultrafiltración UF',  price: 189,  was: 249,  code: 'NASUF',   img: 'assets/uf-gal-1.png.png',                    url: 'product-uf.html' },
-    smart: { name: 'Waterdrop Dispensador ED01',    price: 99,   was: 129,  code: 'NASED01', img: 'assets/ed01/1_33c5e044-eb97-4485-ae99-684bc658886e.webp', url: 'product-smart.html' }
+    x12:   { name: 'Waterdrop X12 · 1200 GPD',      price: 1999, was: 2200, code: 'NASX12',  note: 'Incluye IVA e instalación',      img: 'assets/x12/ui-wd-x12-new-vis-pr-logo.webp', url: 'product-x12.html' },
+    g5:    { name: 'Waterdrop G5P700A · 700 GPD',   price: 1399, was: 1699, code: 'NASG5',   note: 'Incluye IVA e instalación',      img: 'assets/g5/ui-wd-g5p700a-product.webp',      url: 'product-g5p700a.html' },
+    uf:    { name: 'Waterdrop Ultrafiltración UF',  price: 299,  was: 380,  code: 'NASUF',   note: 'Incluye IVA e instalación',      img: 'assets/uf/10UB-UF-NSF.png',                 url: 'product-uf.html' },
+    smart: { name: 'Waterdrop Dispensador ED01',    price: 99,   was: 129,  code: 'NASED01', note: 'Incluye IVA · envío no incluido', img: 'assets/ed01/1_33c5e044-eb97-4485-ae99-684bc658886e.webp', url: 'product-smart.html' }
   }
 };
 
@@ -35,6 +35,7 @@ const WD = {
     $$('[data-was]').forEach(e => e.textContent = money(P[e.dataset.was].was));
     $$('[data-off]').forEach(e => e.textContent = `${money(P[e.dataset.off].was - P[e.dataset.off].price).replace('.00', '')} de descuento`);
     $$('[data-code]').forEach(e => e.textContent = P[e.dataset.code].code);
+    $$('[data-note]').forEach(e => e.textContent = P[e.dataset.note].note || '');
     $$('[data-saveamt]').forEach(e => e.textContent = money(P[e.dataset.saveamt].was - P[e.dataset.saveamt].price).replace('.00', ''));
     $$('[data-promo-name]').forEach(e => e.textContent = WD.promo.name);
     $$('[data-maxoff]').forEach(e => e.textContent = money(Math.max(...Object.values(P).map(p => p.was - p.price))).replace('.00', ''));

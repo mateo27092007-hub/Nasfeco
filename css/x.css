@@ -1039,3 +1039,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (min-width:1025px){.x-cats{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .x-cmp-g[style*="--n:4"] .x-cmp-col .x-btns{flex-direction:column;gap:8px}
 .x-cmp-g[style*="--n:4"] .x-cmp-col .x-btns .x-btn{flex:none;width:100%}
+.x-pnote{flex-basis:100%;font-size:12px;font-weight:600;color:var(--gold-d);margin-top:2px}
+.x-offers .x-pnote{color:var(--gold-d)}
+.x-ci .x-pnote,.x-pop .x-pnote{font-size:11px}

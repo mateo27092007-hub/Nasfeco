@@ -1,0 +1,192 @@
+/* =========================================================
+   NASFECO · Empresas (se apoya en x.css)
+   ========================================================= */
+.nf-hero{position:relative;min-height:calc(100vh - 104px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--navy)}
+.nf-hero>img{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;animation:nfZoom 22s ease-out forwards}
+@keyframes nfZoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+.nf-hero::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(17,28,51,.92) 0%,rgba(17,28,51,.7) 45%,rgba(17,28,51,.15) 100%),linear-gradient(0deg,rgba(17,28,51,.85) 0%,rgba(17,28,51,0) 40%)}
+.nf-hero .x-wrap{position:relative;z-index:2;width:100%;padding-block:120px 56px}
+.nf-hero .x-eyebrow{color:var(--gold);letter-spacing:.16em;text-transform:uppercase;font-size:13px}
+.nf-hero h1{font-size:clamp(40px,6vw,76px);font-weight:300;line-height:1.05;max-width:900px;margin-top:12px}
+.nf-hero h1 b{font-weight:600;color:var(--gold)}
+.nf-hero p.lead{margin-top:22px;font-size:18px;color:#C9D2E3;max-width:620px}
+.nf-hero .x-btns{margin-top:32px}
+.nf-hero-m{display:flex;gap:48px;margin-top:64px;padding-top:28px;border-top:1px solid rgba(255,255,255,.18);flex-wrap:wrap}
+.nf-hero-m b{display:block;font-size:40px;font-weight:300;color:#fff;line-height:1}
+.nf-hero-m span{display:block;margin-top:6px;font-size:13px;color:#9FB0CC}
+.nf-btn-w{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.6)}
+.nf-btn-w:hover{background:rgba(255,255,255,.1)}
+
+.nf-tick{background:var(--gold);color:var(--navy);overflow:hidden;white-space:nowrap;padding:14px 0;font-size:15px;font-weight:600;letter-spacing:.04em}
+.nf-tick div{display:inline-flex;gap:40px;animation:nfTick 30s linear infinite;padding-left:40px}
+.nf-tick span::after{content:'◆';margin-left:40px;font-size:10px;vertical-align:middle}
+@keyframes nfTick{to{transform:translateX(-50%)}}
+
+/* Soluciones: paneles que se expanden */
+.nf-sol{display:flex;gap:12px;height:600px}
+.nf-sp{position:relative;flex:1;min-width:0;border-radius:var(--r-card);overflow:hidden;cursor:pointer;color:#fff;transition:flex .7s cubic-bezier(.4,0,.2,1)}
+.nf-sp.on{flex:3.4}
+.nf-sp>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.nf-sp.on>img{transform:scale(1.04)}
+.nf-sp::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(17,28,51,.95) 0%,rgba(17,28,51,.45) 45%,rgba(17,28,51,.1) 100%)}
+.nf-sp-c{position:absolute;z-index:2;left:28px;right:28px;bottom:28px}
+.nf-sp-c small{font-size:13px;font-weight:600;color:var(--gold);letter-spacing:.1em}
+.nf-sp-c h3{font-size:26px;font-weight:600;line-height:1.15;margin-top:6px}
+.nf-sp-more{max-height:0;opacity:0;overflow:hidden;transition:max-height .6s,opacity .4s}
+.nf-sp.on .nf-sp-more{max-height:320px;opacity:1;transition-delay:.25s}
+.nf-sp-more p{margin-top:12px;font-size:15px;color:#D5DCEA;max-width:520px}
+.nf-sp-more ul{list-style:none;margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.nf-sp-more li{font-size:12px;font-weight:500;border:1px solid rgba(201,164,92,.6);border-radius:20px;padding:5px 12px}
+.nf-sp-more a{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-weight:600;color:var(--gold)}
+
+/* Proceso: columna fija + pasos que se iluminan */
+.nf-proc{display:grid;grid-template-columns:1fr 1.25fr;gap:64px;align-items:start}
+.nf-proc-l{position:sticky;top:120px}
+.nf-proc-l h2{font-size:40px;font-weight:600;line-height:1.1}
+.nf-proc-l p{margin-top:16px;font-size:16px;color:var(--txt2)}
+.nf-proc-bar{margin-top:32px;height:3px;background:#E8E4DA;border-radius:2px;overflow:hidden}
+.nf-proc-bar i{display:block;height:100%;width:25%;background:var(--gold);transition:width .5s}
+.nf-step{display:grid;grid-template-columns:72px 1fr;gap:20px;padding:40px 0;border-top:1px solid #E8E4DA;opacity:.35;transition:opacity .5s}
+.nf-step.on{opacity:1}
+.nf-step b{font-size:44px;font-weight:300;color:var(--gold-d);line-height:1}
+.nf-step h3{font-size:24px;font-weight:600}
+.nf-step p{margin-top:8px;font-size:15px;color:var(--txt2)}
+.nf-step img{margin-top:20px;border-radius:var(--r-card);width:100%;aspect-ratio:16/8;object-fit:cover}
+
+/* Industrias */
+.nf-ind{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.nf-ic{position:relative;aspect-ratio:4/3;border-radius:var(--r-card);overflow:hidden;color:#fff;display:flex;align-items:flex-end;padding:22px}
+.nf-ic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.nf-ic:hover img{transform:scale(1.06)}
+.nf-ic::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(17,28,51,.9),rgba(17,28,51,0) 60%)}
+.nf-ic div{position:relative;z-index:2}
+.nf-ic h3{font-size:20px;font-weight:600}
+.nf-ic p{font-size:13px;color:#C9D2E3;margin-top:4px}
+
+/* Banda de resultados con parallax */
+.nf-band{position:relative;overflow:hidden;color:#fff;padding-block:140px;margin-top:var(--sec)}
+.nf-band>img{position:absolute;left:0;top:-15%;width:100%;height:130%;object-fit:cover;will-change:transform}
+.nf-band::before{content:'';position:absolute;inset:0;z-index:1;background:rgba(17,28,51,.78)}
+.nf-band .x-wrap{position:relative;z-index:2}
+.nf-band h2{font-size:clamp(30px,4vw,48px);font-weight:300;line-height:1.15;max-width:760px}
+.nf-band h2 b{font-weight:600;color:var(--gold)}
+.nf-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.nf-nums b{display:block;font-size:64px;font-weight:300;line-height:1;color:#fff}
+.nf-nums span{display:block;margin-top:10px;font-size:14px;color:#AEBBD3;border-top:1px solid rgba(201,164,92,.5);padding-top:10px}
+
+/* Diferenciales */
+.nf-why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.nf-why>div{background:var(--s2);border-radius:var(--r-card);padding:32px 28px;border-top:3px solid var(--gold)}
+.nf-why i{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--navy);color:var(--gold);margin-bottom:20px}
+.nf-why i svg{width:24px;height:24px}
+.nf-why h3{font-size:20px;font-weight:600;margin-bottom:8px}
+.nf-why p{font-size:15px;color:var(--txt2)}
+
+/* Banda Waterdrop */
+.nf-wd{display:grid;grid-template-columns:1.1fr 1fr;border-radius:var(--r-media);overflow:hidden;background:#F4EFE9}
+.nf-wd img{width:100%;height:100%;object-fit:cover;min-height:360px}
+.nf-wd-c{padding:56px 48px;display:flex;flex-direction:column;justify-content:center}
+.nf-wd-c h2{font-size:34px;font-weight:600;line-height:1.15}
+.nf-wd-c p{margin-top:14px;font-size:16px;color:var(--txt2)}
+.nf-wd-c .x-btns{margin-top:28px}
+
+.nf-wa{background:var(--wa)!important}
+
+@media (max-width:1024px){
+  .nf-sol{flex-direction:column;height:auto}
+  .nf-sp,.nf-sp.on{flex:none;height:420px}
+  .nf-sp .nf-sp-more{max-height:320px;opacity:1}
+  .nf-proc{grid-template-columns:1fr;gap:24px}
+  .nf-proc-l{position:static}
+  .nf-proc-l h2{font-size:28px}
+  .nf-step{opacity:1}
+  .nf-ind{grid-template-columns:1fr 1fr}
+  .nf-why{grid-template-columns:1fr}
+  .nf-wd{grid-template-columns:1fr}
+}
+@media (max-width:767px){
+  .nf-hero{min-height:auto}
+  .nf-hero .x-wrap{padding-block:96px 40px}
+  .nf-hero p.lead{font-size:16px}
+  .nf-hero-m{gap:24px;margin-top:40px}
+  .nf-hero-m b{font-size:30px}
+  .nf-sp,.nf-sp.on{height:440px}
+  .nf-sp-c{left:20px;right:20px;bottom:20px}
+  .nf-step{grid-template-columns:52px 1fr;padding:28px 0}
+  .nf-step b{font-size:32px}
+  .nf-ind{grid-template-columns:1fr}
+  .nf-band{padding-block:90px}
+  .nf-nums{grid-template-columns:1fr;gap:28px}
+  .nf-nums b{font-size:48px}
+  .nf-wd-c{padding:32px 24px}
+  .nf-wd-c h2{font-size:26px}
+}
+
+/* =========================================================
+   Un día con energía solar (sección con scroll)
+   ========================================================= */
+.nf-day{position:relative;background:var(--navy-d,#111C33);color:#fff}
+.nf-day-stage{position:relative;height:100vh;min-height:620px;overflow:hidden}
+.nf-day svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.nf-day-hud{position:absolute;z-index:2;left:max(var(--gut),calc((100vw - 1280px)/2 + var(--gut)));top:96px;max-width:420px}
+.nf-day-hud .x-eyebrow{color:var(--gold);letter-spacing:.14em;text-transform:uppercase;font-size:12px}
+.nf-day-hud h2{font-size:clamp(28px,3.4vw,44px);font-weight:300;line-height:1.1;margin-top:8px;text-shadow:0 2px 20px rgba(0,0,0,.25)}
+.nf-day-hud h2 b{font-weight:600}
+.nf-day-cap{margin-top:14px;font-size:16px;min-height:48px;color:rgba(255,255,255,.92);text-shadow:0 1px 10px rgba(0,0,0,.3)}
+.nf-day-stats{position:absolute;z-index:2;right:max(var(--gut),calc((100vw - 1280px)/2 + var(--gut)));top:96px;display:grid;gap:10px;min-width:240px}
+.nf-day-stats>div{background:rgba(17,28,51,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px 18px}
+.nf-day-stats small{display:block;font-size:12px;color:#B9C4D8}
+.nf-day-stats b{display:block;font-size:34px;font-weight:300;line-height:1.1;font-variant-numeric:tabular-nums}
+.nf-day-stats .clock b{font-size:44px;color:var(--gold)}
+.nf-day-note{position:absolute;z-index:2;left:0;right:0;bottom:18px;text-align:center;font-size:11px;color:rgba(255,255,255,.6)}
+
+/* =========================================================
+   Calculadora solar para empresas
+   ========================================================= */
+.nf-calc{display:grid;grid-template-columns:1fr 1.15fr;border-radius:var(--r-media);overflow:hidden;box-shadow:0 30px 60px rgba(17,28,51,.12)}
+.nf-calc-in{background:#fff;padding:44px;border:1px solid #ECE8DE;border-right:0;border-radius:var(--r-media) 0 0 var(--r-media)}
+.nf-calc-in h3{font-size:22px;font-weight:600}
+.nf-calc-in>p{font-size:14px;color:var(--txt2);margin:6px 0 30px}
+.nf-f{margin-bottom:26px}
+.nf-f label{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;font-weight:600;margin-bottom:12px}
+.nf-f label output{font-size:22px;font-weight:600;color:var(--navy)}
+.nf-f input[type=range]{width:100%;accent-color:var(--gold-d);height:6px}
+.nf-f .hint{display:flex;justify-content:space-between;font-size:11px;color:var(--txt3);margin-top:6px}
+.nf-seg{display:flex;flex-wrap:wrap;gap:8px}
+.nf-seg button{height:38px;padding:0 16px;border:1px solid var(--line);border-radius:20px;font-size:13px;font-weight:600;background:#fff}
+.nf-seg button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.nf-calc-out{background:var(--navy);color:#fff;padding:44px;display:flex;flex-direction:column;gap:22px;position:relative;overflow:hidden}
+.nf-calc-out::before{content:'';position:absolute;width:420px;height:420px;right:-160px;top:-160px;border-radius:50%;background:radial-gradient(circle,rgba(201,164,92,.35),transparent 70%)}
+.nf-big small{display:block;font-size:13px;color:#B9C4D8}
+.nf-big b{display:block;font-size:56px;font-weight:300;line-height:1.05;color:var(--gold);font-variant-numeric:tabular-nums}
+.nf-kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative}
+.nf-kpis div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px}
+.nf-kpis small{display:block;font-size:12px;color:#B9C4D8}
+.nf-kpis b{display:block;font-size:24px;font-weight:500;margin-top:2px;font-variant-numeric:tabular-nums}
+.nf-panels{display:flex;flex-wrap:wrap;gap:3px;min-height:30px;position:relative}
+.nf-panels i{width:14px;height:20px;border-radius:2px;background:linear-gradient(160deg,#3D5A99,#1E3463);border:1px solid rgba(201,164,92,.55);animation:pnl .35s ease-out both}
+.nf-panels em{font-style:normal;font-size:12px;color:#B9C4D8;align-self:center;margin-left:6px}
+@keyframes pnl{from{transform:scale(0);opacity:0}}
+.nf-calc-out .x-btns{position:relative}
+.nf-calc-note{font-size:11px;color:var(--txt3);margin-top:14px;text-align:center}
+
+@media (max-width:1024px){
+  .nf-calc{grid-template-columns:1fr}
+  .nf-calc-in{border-right:1px solid #ECE8DE;border-bottom:0;border-radius:var(--r-media) var(--r-media) 0 0}
+  .nf-day-stats{right:auto;left:var(--gut);top:auto;bottom:56px;grid-template-columns:repeat(3,1fr);min-width:0;width:calc(100% - 2*var(--gut))}
+  .nf-day-stats b{font-size:22px}.nf-day-stats .clock b{font-size:26px}
+}
+@media (max-width:767px){
+  .nf-day-stage{height:100svh;min-height:560px}
+  .nf-day-hud{top:40px;right:var(--gut)}
+  .nf-day-stats>div{padding:10px 12px}
+  .nf-day-stats small{font-size:10px}
+  .nf-calc-in,.nf-calc-out{padding:26px 22px}
+  .nf-big b{font-size:40px}
+  .nf-kpis b{font-size:19px}
+}
+@media (max-width:767px){
+  .nf-day-stats{grid-template-columns:1fr 1fr;gap:8px;bottom:50px}
+  .nf-day-stats b{font-size:20px}.nf-day-stats .clock b{font-size:22px}
+  .nf-day-note{font-size:10px;padding:0 16px}
+}

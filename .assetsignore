@@ -1,0 +1,13 @@
+.git
+.git/*
+.agents
+.agents/*
+.github
+node_modules
+wrangler.jsonc
+wrangler.toml
+deploy.bat
+.gitignore
+.assetsignore
+.nojekyll
+*.md

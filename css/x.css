@@ -1115,3 +1115,7 @@ a.x-bi-link em{display:block;font-style:normal;font-size:12px;font-weight:700;co
 .x-short-one{grid-template-columns:minmax(0,360px) 1fr;gap:64px;align-items:center}
 .x-short-one .x-yt-v{width:100%;max-width:360px}
 @media (max-width:1024px){.x-short-one{grid-template-columns:1fr;justify-items:center;text-align:center}.x-short-one .x-btns{justify-content:center}}
+.x-bi-price{display:block;font-size:15px;font-weight:700;color:var(--navy);margin-top:4px}
+.x-rep .x-price{margin-bottom:4px}
+.x-rep .x-price .now{font-size:26px}
+.x-rep-eq{margin-top:12px;font-size:13px;font-weight:600;color:var(--gold-d)}

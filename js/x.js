@@ -13,7 +13,15 @@ const WD = {
     x12:   { name: 'Waterdrop X12 · 1200 GPD',      price: 1999, was: 2200, code: 'NASX12',  note: 'Precio final: incluye IVA e instalación', img: 'assets/x12/ui-wd-x12-new-vis-pr-logo.webp', url: 'product-x12.html' },
     g5:    { name: 'Waterdrop G5P700A · 700 GPD',   price: 1399, was: 1699, code: 'NASG5',   note: 'Precio final: incluye IVA e instalación', img: 'assets/g5/ui-wd-g5p700a-product.webp',      url: 'product-g5p700a.html' },
     uf:    { name: 'Waterdrop Ultrafiltración UF',  price: 299,  was: 380,  code: 'NASUF',   note: 'Precio final: incluye IVA e instalación', img: 'assets/uf/10UB-UF-NSF.png',                 url: 'product-uf.html' },
-    smart: { name: 'Waterdrop Dispensador ED01',    price: 99,   was: 129,  code: 'NASED01', note: 'Precio final con IVA · envío no incluido', img: 'assets/ed01/1_33c5e044-eb97-4485-ae99-684bc658886e.webp', url: 'product-smart.html' }
+    smart: { name: 'Waterdrop Dispensador ED01',    price: 99,   was: 129,  code: 'NASED01', note: 'Precio final con IVA · envío no incluido', img: 'assets/ed01/1_33c5e044-eb97-4485-ae99-684bc658886e.webp', url: 'product-smart.html' },
+    // Filtros de repuesto (sin descuento)
+    'x12-f1a':     { name: 'Filtro F1A · Waterdrop X12',         price: 49.99,  was: 49.99,  note: 'Incluye IVA · envío no incluido', img: 'assets/x12/ui-wd-f1a-product.png',        url: 'repuestos#x12-f1a' },
+    'x12-f2':      { name: 'Filtro F2 · Waterdrop X12',          price: 39.99,  was: 39.99,  note: 'Incluye IVA · envío no incluido', img: 'assets/x12/ui-wd-f2_FILTER.webp',         url: 'repuestos#x12-f2' },
+    'x12-f3':      { name: 'Filtro X12-F3 · Waterdrop X12',      price: 159.99, was: 159.99, note: 'Incluye IVA · envío no incluido', img: 'assets/x12/ui-wd-x12-f3-fIlter.webp',     url: 'repuestos#x12-f3' },
+    'g5-cf':       { name: 'Filtro G5P700A-CF · Waterdrop G5',   price: 59.99,  was: 59.99,  note: 'Incluye IVA · envío no incluido', img: 'assets/g5/ui-wd-g5p700a-cf-product.png',  url: 'repuestos#g5-cf' },
+    'g5-ro':       { name: 'Filtro G5P700-RO · Waterdrop G5',    price: 129.99, was: 129.99, note: 'Incluye IVA · envío no incluido', img: 'assets/g5/ui-wd-g5p700-ro-product.png',   url: 'repuestos#g5-ro' },
+    'uf-rf10':     { name: 'Filtro RF10-UF · Ultrafiltración',   price: 70,     was: 70,     note: 'Incluye IVA · envío no incluido', img: 'assets/uf/WD-RF10-UF-NSF.png',            url: 'repuestos#uf-rf10' },
+    'ed01-filtro': { name: 'Filtro WD-EDF · Dispensador ED01',   price: 25.99,  was: 25.99,  note: 'Incluye IVA y envío',             img: 'assets/filtros/wd-edf.webp',              url: 'repuestos#ed01-filtro' }
   }
 };
 
@@ -32,7 +40,7 @@ const WD = {
   function paint() {
     document.documentElement.classList.toggle('promo-ended', !promoOn);
     $$('[data-price]').forEach(e => e.textContent = money(priceOf(e.dataset.price)));
-    $$('[data-was]').forEach(e => e.textContent = money(P[e.dataset.was].was));
+    $$('[data-was]').forEach(e => { const q = P[e.dataset.was]; e.textContent = q.was > q.price ? money(q.was) : ''; });
     $$('[data-off]').forEach(e => e.textContent = `${money(P[e.dataset.off].was - P[e.dataset.off].price).replace('.00', '')} de descuento`);
     $$('[data-code]').forEach(e => e.textContent = P[e.dataset.code].code);
     $$('[data-note]').forEach(e => e.textContent = P[e.dataset.note].note || '');
@@ -68,7 +76,7 @@ const WD = {
       <div class="x-ci">
         <img src="${P[id].img}" alt="">
         <div><b>${P[id].name}</b>
-          <div class="x-price"><span class="now">${money(priceOf(id))}</span>${promoOn ? `<span class="was">${money(P[id].was)}</span>` : ''}</div>
+          <div class="x-price"><span class="now">${money(priceOf(id))}</span>${promoOn && P[id].was > P[id].price ? `<span class="was">${money(P[id].was)}</span>` : ''}</div>
           <div class="x-qty"><button data-cq="${id}" data-d="-1" aria-label="Quitar uno">−</button><span>${cart[id]}</span><button data-cq="${id}" data-d="1" aria-label="Agregar uno">+</button></div>
         </div>
         <button class="x-ci-rm" data-crm="${id}">Quitar</button>
@@ -82,12 +90,12 @@ const WD = {
   }
   function checkout() {
     const ids = Object.keys(cart); if (!ids.length) return;
-    const lines = ids.map(k => `• ${cart[k]} x ${P[k].name} — ${money(priceOf(k) * cart[k])}${promoOn ? ` (código ${P[k].code})` : ''}`);
+    const lines = ids.map(k => `• ${cart[k]} x ${P[k].name} — ${money(priceOf(k) * cart[k])}${promoOn && P[k].code ? ` (código ${P[k].code})` : ''}`);
     const tot = ids.reduce((a, k) => a + priceOf(k) * cart[k], 0);
     window.open(wa(`Hola Nasfeco, quiero hacer este pedido${promoOn ? ' con la ' + WD.promo.name : ''}:\n\n${lines.join('\n')}\n\nTotal: ${money(tot)}\n\nNombre:\nCiudad:`), '_blank');
   }
   function buy(id) {
-    window.open(wa(`Hola Nasfeco, quiero comprar el ${P[id].name} a ${money(priceOf(id))}${promoOn ? ` con el código ${P[id].code} (${WD.promo.name})` : ''}. ¿Me ayudan con el pedido?`), '_blank');
+    window.open(wa(`Hola Nasfeco, quiero comprar el ${P[id].name} a ${money(priceOf(id))}${promoOn && P[id].code ? ` con el código ${P[id].code} (${WD.promo.name})` : ''}. ¿Me ayudan con el pedido?`), '_blank');
   }
   const openCart = () => { $('#x-cart')?.classList.add('open'); $('#x-cart-ov')?.classList.add('open'); };
   const closeCart = () => { $('#x-cart')?.classList.remove('open'); $('#x-cart-ov')?.classList.remove('open'); };

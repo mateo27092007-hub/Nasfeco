@@ -440,6 +440,35 @@ const WD = {
     document.addEventListener('keydown', e => { if (e.key === 'Escape') quizOv.classList.remove('open'); });
   }
 
+  /* ---------- VISOR DE CERTIFICADOS ---------- */
+  const cv = $('#x-cv');
+  if (cv) {
+    const view = $('#x-cv-view'), items = $$('.x-cv-i', cv), mobile = () => matchMedia('(max-width: 767px)').matches;
+    const show = i => {
+      const b = items[i]; items.forEach(x => x.classList.toggle('on', x === b));
+      const src = b.dataset.src, label = b.querySelector('span').firstChild.textContent;
+      if (b.dataset.type === 'pdf') {
+        view.innerHTML = mobile()
+          ? '<div style="text-align:center;padding:32px"><p style="margin-bottom:16px;color:#555">' + label + '</p><a class="x-btn x-btn-p" href="' + src + '" target="_blank" rel="noopener">Abrir documento PDF</a></div>'
+          : '<iframe src="' + src + '#view=FitH" title="' + label + '"></iframe><a class="x-btn x-btn-p x-btn-sm x-cv-open" href="' + src + '" target="_blank" rel="noopener">Abrir en otra pestaña</a>';
+      } else {
+        view.innerHTML = '<img src="' + src + '" alt="' + label + '">';
+      }
+    };
+    const open = () => { cv.classList.add('open'); document.documentElement.style.overflow = 'hidden'; if (!view.firstChild) show(0); };
+    const close = () => { cv.classList.remove('open'); document.documentElement.style.overflow = ''; };
+    items.forEach((b, i) => b.addEventListener('click', () => show(i)));
+    $$('[data-cv-open], a[href="#certificacion"]').forEach(t => {
+      t.addEventListener('click', e => { e.preventDefault(); open(); });
+      t.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); open(); } });
+    });
+    $('[data-cv-close]', cv).addEventListener('click', close);
+    cv.addEventListener('click', e => { if (e.target === cv) close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+    // precarga las imágenes para que abran al instante
+    addEventListener('load', () => items.forEach(b => { if (b.dataset.type === 'img') { const im = new Image(); im.src = b.dataset.src; } }));
+  }
+
   /* ---------- INICIO ---------- */
   paint(); tick(); renderCart();
   setInterval(tick, 1000);

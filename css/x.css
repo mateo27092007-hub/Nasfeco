@@ -1072,3 +1072,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .x-hot{transform:none;margin:-15px 0 0 -15px}
   .x-hot .x-pop,.x-hot.r .x-pop,.x-hot.l .x-pop{position:fixed;left:12px;right:12px;bottom:12px;top:auto;width:auto;z-index:500}
 }
+/* Portada: texto pegado a la izquierda, lejos de los equipos de la foto */
+@media (min-width:1025px){
+  .x-banner .x-wrap{max-width:none;padding-left:clamp(48px,6vw,140px);padding-right:0}
+  .x-banner-c{max-width:min(520px,38vw)}
+  .x-banner h1{font-size:clamp(44px,4.2vw,60px)}
+  .x-banner p{max-width:460px;font-size:15px}
+  .x-metrics{gap:18px}
+  .x-metrics div{padding-right:18px}
+  .x-metrics b{font-size:22px}
+  .x-metrics span{font-size:12px}
+  .x-banner .x-btns .x-btn{padding:0 18px}
+}
+@media (min-width:1025px) and (max-width:1500px){.x-banner-bg img{object-position:12% center}}

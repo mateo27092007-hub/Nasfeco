@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /product-ro
+Disallow: /product-x16
+Disallow: /product-x8
+Disallow: /product-g3p800
+Disallow: /product-g3p600
+Disallow: /product-k6
+
+Sitemap: https://nasfeco.com/sitemap.xml

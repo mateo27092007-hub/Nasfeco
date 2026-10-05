@@ -1060,3 +1060,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .x-pcd .x-cd span{background:#fff;color:var(--navy)}
 .x-cart-promo{background:var(--gold-l);color:var(--gold-d)}
 .x-off{background:var(--gold-l);color:#047857}
+.x-scene img.bg{display:block!important}
+@media (max-width:767px){.x-hot>button{width:30px;height:30px}.x-hot>button svg{width:14px;height:14px}}
+/* Escenas: la foto define el tamaño y los puntos quedan sobre ella */
+.x-scene-wrap{background:transparent;overflow:visible;border-radius:0;padding-bottom:64px}
+.x-scene.on{display:block;width:fit-content;max-width:100%;margin:0 auto;border-radius:var(--r-media);overflow:visible}
+.x-scene img.bg{max-height:min(74vh,700px);width:auto;max-width:100%;border-radius:var(--r-media)}
+.x-scene-tabs{bottom:0}
+@media (max-width:767px){
+  .x-scene-wrap{padding-bottom:56px}
+  .x-hot{transform:none;margin:-15px 0 0 -15px}
+  .x-hot .x-pop,.x-hot.r .x-pop,.x-hot.l .x-pop{position:fixed;left:12px;right:12px;bottom:12px;top:auto;width:auto;z-index:500}
+}

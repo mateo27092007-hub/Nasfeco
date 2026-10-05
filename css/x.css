@@ -1031,3 +1031,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .x-cv-list{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid #eee}
   .x-cv-i{flex:none;max-width:220px}
 }
+.x-metric-btn{cursor:pointer;border-radius:6px;transition:background .2s}
+.x-metric-btn:hover{background:rgba(255,255,255,.55)}
+.x-metric-btn span{text-decoration:underline;text-underline-offset:3px}

@@ -34,6 +34,9 @@ const WD = {
   const money = n => '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const priceOf = id => promoOn ? P[id].price : P[id].was;
   const wa = t => `https://wa.me/${WD.whatsapp}?text=${encodeURIComponent(t)}`;
+  // Google Ads: conversión "Contacto WhatsApp" (enlaces wa.me y pedidos por WhatsApp)
+  const waConv = () => { if (typeof gtag === 'function') gtag('event', 'conversion', { send_to: 'AW-18496630945/Aj2XCIyswpMdEKHh8PNE', transport_type: 'beacon' }); };
+  document.addEventListener('click', e => { if (e.target.closest?.('a[href*="wa.me/"], a[href*="whatsapp.com/"]')) waConv(); }, true);
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- PRECIOS ---------- */
@@ -93,10 +96,10 @@ const WD = {
     const ids = Object.keys(cart); if (!ids.length) return;
     const lines = ids.map(k => `• ${cart[k]} x ${P[k].name} — ${money(priceOf(k) * cart[k])}${promoOn && P[k].code ? ` (código ${P[k].code})` : ''}`);
     const tot = ids.reduce((a, k) => a + priceOf(k) * cart[k], 0);
-    window.open(wa(`Hola Nasfeco, quiero hacer este pedido${promoOn ? ' con la ' + WD.promo.name : ''}:\n\n${lines.join('\n')}\n\nTotal: ${money(tot)}\n\nNombre:\nCiudad:`), '_blank');
+    waConv(); window.open(wa(`Hola Nasfeco, quiero hacer este pedido${promoOn ? ' con la ' + WD.promo.name : ''}:\n\n${lines.join('\n')}\n\nTotal: ${money(tot)}\n\nNombre:\nCiudad:`), '_blank');
   }
   function buy(id) {
-    window.open(wa(`Hola Nasfeco, quiero comprar el ${P[id].name} a ${money(priceOf(id))}${promoOn && P[id].code ? ` con el código ${P[id].code} (${WD.promo.name})` : ''}. ¿Me ayudan con el pedido?`), '_blank');
+    waConv(); window.open(wa(`Hola Nasfeco, quiero comprar el ${P[id].name} a ${money(priceOf(id))}${promoOn && P[id].code ? ` con el código ${P[id].code} (${WD.promo.name})` : ''}. ¿Me ayudan con el pedido?`), '_blank');
   }
   const openCart = () => { $('#x-cart')?.classList.add('open'); $('#x-cart-ov')?.classList.add('open'); };
   const closeCart = () => { $('#x-cart')?.classList.remove('open'); $('#x-cart-ov')?.classList.remove('open'); };

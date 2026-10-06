@@ -84,7 +84,7 @@ def head(title, desc, canonical, og, ld):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/x.css?v=21">
+<link rel="stylesheet" href="css/x.css?v=22">
 </head>
 <body>
 '''
@@ -217,7 +217,7 @@ def bottom(extra=""):
 </div>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/x.js?v=21"></script>
+<script src="js/x.js?v=22"></script>
 {extra}
 </body>
 </html>

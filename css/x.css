@@ -1119,3 +1119,5 @@ a.x-bi-link em{display:block;font-style:normal;font-size:12px;font-weight:700;co
 .x-rep .x-price{margin-bottom:4px}
 .x-rep .x-price .now{font-size:26px}
 .x-rep-eq{margin-top:12px;font-size:13px;font-weight:600;color:var(--gold-d)}
+.wd-brand .wd-logo{height:27px;width:auto;display:block}
+@media (max-width:767px){.wd-brand .wd-logo{height:22px}}

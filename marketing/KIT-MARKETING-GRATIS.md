@@ -26,7 +26,7 @@ Es lo que más clientes locales trae gratis: cuando alguien busca "purificador d
 
 **Descripción (pegar tal cual, 748 caracteres):**
 
-> Nasfeco es el distribuidor exclusivo oficial de Waterdrop Filter en Ecuador. Vendemos e instalamos purificadores de agua originales para hogares, oficinas y negocios en Quito, Guayaquil, Cuenca y Loja, y trabajamos en todo el Ecuador. Equipos de ósmosis inversa sin tanque (Waterdrop X12 y G5P700A con minerales alcalinos), ultrafiltración sin electricidad y dispensadores portátiles. Precios finales con IVA e instalación incluida, garantía y repuestos originales con soporte local. Deja los botellones: agua pura directo del grifo. También ofrecemos soluciones de energía solar y tratamiento de agua para empresas e industrias. Asesoría gratuita por WhatsApp.
+> Nasfeco es el distribuidor exclusivo oficial de Waterdrop Filter en Ecuador. Vendemos e instalamos purificadores de agua originales para hogares, oficinas y negocios en Quito, Guayaquil, Cuenca y Loja, y trabajamos en todo el Ecuador. Equipos de ósmosis inversa sin tanque (Waterdrop X12, G2P600 y G5P700A con minerales alcalinos), ultrafiltración sin electricidad y dispensadores portátiles. Precios finales con IVA e instalación incluida, garantía y repuestos originales con soporte local. Deja los botellones: agua pura directo del grifo. También ofrecemos soluciones de energía solar y tratamiento de agua para empresas e industrias. Asesoría gratuita por WhatsApp.
 
 **Productos (sección "Productos"):**
 
@@ -34,6 +34,7 @@ Es lo que más clientes locales trae gratis: cuando alguien busca "purificador d
 |---|---|---|
 | Waterdrop X12 · Ósmosis inversa 1200 GPD | $1,999 | Sin tanque, 11 etapas, minerales alcalinos y grifo inteligente. Incluye IVA e instalación. |
 | Waterdrop G5P700A · Ósmosis inversa alcalina | $1,399 | 700 GPD, 8 etapas, minerales alcalinos, grifo con pantalla TDS. Incluye IVA e instalación. |
+| Waterdrop G2P600 · Ósmosis inversa 600 GPD | $900 | Sin tanque, 7 etapas, relación 2:1. Incluye IVA e instalación. |
 | Waterdrop Ultrafiltración UF | $299 | Sin electricidad, 0% desperdicio, conserva minerales. Incluye IVA e instalación. |
 | Waterdrop Dispensador ED01 | $99 | Portátil, sin instalación, agua filtrada en 1 segundo. Precio con IVA, envío no incluido. |
 
@@ -69,9 +70,10 @@ Hace que Google encuentre y muestre la página en búsquedas.
 **A. Lista de difusión / contactos (oferta):**
 
 > Hola 👋 Te cuento que en Nasfeco somos los **distribuidores exclusivos oficiales de Waterdrop Filter en Ecuador** 💧
-> Este mes tenemos la **Oferta de Octubre**: purificadores con hasta **$300 de descuento**, precio final con IVA e **instalación incluida** en Quito, Guayaquil, Cuenca y Loja.
+> Este mes tenemos la **Oferta de Octubre**: purificadores con hasta **$400 de descuento**, precio final con IVA e **instalación incluida** en Quito, Guayaquil, Cuenca y Loja.
 > ✅ Dispensador portátil desde **$99**
 > ✅ Ultrafiltración sin electricidad **$299**
+> ✅ Ósmosis inversa G2P600 **$900**
 > ✅ Ósmosis inversa alcalina G5P700A **$1,399**
 > ✅ Ósmosis inversa X12 **$1,999**
 > Mira los equipos aquí 👉 https://nasfeco.com/waterdrop
@@ -81,7 +83,7 @@ Hace que Google encuentre y muestre la página en búsquedas.
 1. "¿Sigues comprando botellones? 🫗 Agua pura ilimitada directo del grifo. Instalación incluida 👉 nasfeco.com/waterdrop"
 2. "Dispensador purificador portátil a $99. Sin instalación, agua filtrada en 1 segundo 💧 nasfeco.com/waterdrop"
 3. "Distribuidores exclusivos oficiales de Waterdrop Filter en Ecuador 🇪🇨 Garantía y repuestos originales."
-4. "Oferta de Octubre: hasta $300 de descuento en purificadores. ¡Termina el 31! ⏳"
+4. "Oferta de Octubre: hasta $400 de descuento en purificadores. ¡Termina el 31! ⏳"
 
 **C. Respuesta rápida para quien escribe (guárdala en WhatsApp Business → Respuestas rápidas, atajo `/hola`):**
 
@@ -116,7 +118,7 @@ Hashtags base (mezcla 5 a 8 por post): `#AguaPura #PurificadorDeAgua #Waterdrop 
 | 6 | Historia con encuesta | "¿Tomas agua del grifo o de botellón?" | Encuesta + link a la tienda |
 | 7 | Carrusel | 5 cosas que puede traer el agua del grifo (cloro, sarro, sedimentos, metales, olor) | "El agua llega potable, pero en el camino recoge esto 👇" |
 | 8 | Reel | Cambio de filtro en 3 segundos | "Cambiar el filtro te toma 3 segundos. Literal ⏱️" |
-| 9 | Post | Oferta de Octubre con cuenta regresiva | "Hasta $300 de descuento. Solo hasta el 31 de octubre ⏳" |
+| 9 | Post | Oferta de Octubre con cuenta regresiva | "Hasta $400 de descuento. Solo hasta el 31 de octubre ⏳" |
 | 10 | Reel | Instalación real de su equipo (time-lapse) | "Así instalamos en [ciudad]. Limpio, rápido y listo para tomar." |
 | 11 | Carrusel | G5P700A: minerales alcalinos, pH 7.5 | "Pura, pero no vacía: agua con minerales alcalinos 💧" |
 | 12 | Historia | Testimonio o foto de cliente | Pide permiso al cliente y etiqueta |

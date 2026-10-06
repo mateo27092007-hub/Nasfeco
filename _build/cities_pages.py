@@ -22,22 +22,22 @@ CITIES = {
 def page(slug, c):
     city, prov, intro, zones = c
     title = f"Purificadores de Agua en {city} | Waterdrop Ecuador · Nasfeco"
-    desc = f"Purificadores de agua Waterdrop en {city} con instalación incluida: ósmosis inversa X12 y G5P700A, ultrafiltración y dispensador ED01. Nasfeco, distribuidor exclusivo oficial en Ecuador."
+    desc = f"Purificadores de agua Waterdrop en {city} con instalación incluida: ósmosis inversa X12, G5P700A y G2P600, ultrafiltración y dispensador ED01. Nasfeco, distribuidor exclusivo oficial en Ecuador."
     url = f"https://nasfeco.com/purificadores-agua-{slug}"
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "LocalBusiness", "name": f"Nasfeco · Purificadores Waterdrop {city}", "url": url, "telephone": "+593 99 731 2362",
          "description": f"Distribuidor exclusivo oficial de Waterdrop Filter en Ecuador. Venta e instalación de purificadores de agua en {city}.",
          "areaServed": {"@type": "City", "name": city}, "address": {"@type": "PostalAddress", "addressLocality": city, "addressRegion": prov, "addressCountry": "EC"}},
         {"@type": "FAQPage", "mainEntity": [
-            {"@type": "Question", "name": f"¿Instalan purificadores de agua en {city}?", "acceptedAnswer": {"@type": "Answer", "text": f"Sí. Los técnicos de Nasfeco instalan en {city}. El precio de la X12, el G5P700A y la Ultrafiltración incluye IVA e instalación."}},
-            {"@type": "Question", "name": f"¿Cuánto cuesta un purificador de agua en {city}?", "acceptedAnswer": {"@type": "Answer", "text": "Desde $99 el Dispensador ED01, $299 la Ultrafiltración UF, $1,399 el G5P700A y $1,999 la X12, con IVA incluido."}}]}]}
+            {"@type": "Question", "name": f"¿Instalan purificadores de agua en {city}?", "acceptedAnswer": {"@type": "Answer", "text": f"Sí. Los técnicos de Nasfeco instalan en {city}. El precio de la X12, el G5P700A, el G2P600 y la Ultrafiltración incluye IVA e instalación."}},
+            {"@type": "Question", "name": f"¿Cuánto cuesta un purificador de agua en {city}?", "acceptedAnswer": {"@type": "Answer", "text": "Desde $99 el Dispensador ED01, $299 la Ultrafiltración UF, $900 el G2P600, $1,399 el G5P700A y $1,999 la X12, con IVA incluido."}}]}]}
     h = g["head"](title, desc, url, "https://nasfeco.com/assets/x/wd-page-1016-new-2-pc.jpg", ld)
     body = g["top"]()
     body += g["banner"](f"Purificadores de agua<br>en {city}", f"{intro} Nasfeco, distribuidor exclusivo oficial de Waterdrop Filter en Ecuador, instala en {city}.",
                         [("Instalación", f"En {city}"), ("Precio final", "IVA incluido"), ("Garantía", "Soporte local")],
                         bg=(g["A"]("wd-page-1016-new-2-pc.jpg"), g["A"]("wd-page-1016-new-2-mo.jpg")),
                         btns=f'<div class="x-btns"><a href="#ofertas" class="x-btn x-btn-p">Ver precios</a><a href="https://wa.me/593997312362?text=Hola%20Nasfeco%2C%20estoy%20en%20{city}%20y%20quiero%20informaci%C3%B3n%20sobre%20los%20purificadores" target="_blank" rel="noopener" class="x-btn x-btn-o">Cotizar por WhatsApp</a></div>')
-    body += g["picks"](["x12", "g5", "g600", "uf", "smart"], title=f"Purificadores con instalación en {city}",
+    body += g["picks"](["x12", "g5", "g2", "uf", "smart"], title=f"Purificadores con instalación en {city}",
                        sub=f"Precios finales en dólares: incluyen IVA e instalación en {city}. El Dispensador ED01 no necesita instalación.")
     z = "".join(f"<li>{x}</li>" for x in zones)
     body += f'''
@@ -53,8 +53,8 @@ def page(slug, c):
     body += g["servicio"](video=False)
     body += g["cmp_cats"](None)
     body += g["faq"]([
-        (f"¿Instalan purificadores de agua en {city}?", f"Sí. Los técnicos de Nasfeco instalan en {city}. El precio de la X12, el G5P700A y la Ultrafiltración UF es precio final: incluye IVA e instalación."),
-        (f"¿Cuánto cuesta un purificador de agua en {city}?", "Dispensador ED01 $99 (envío no incluido), Ultrafiltración UF $299, G5P700A $1,399 y X12 $1,999. Precios finales con IVA."),
+        (f"¿Instalan purificadores de agua en {city}?", f"Sí. Los técnicos de Nasfeco instalan en {city}. El precio de la X12, el G5P700A, el G2P600 y la Ultrafiltración UF es precio final: incluye IVA e instalación."),
+        (f"¿Cuánto cuesta un purificador de agua en {city}?", "Dispensador ED01 $99 (envío no incluido), Ultrafiltración UF $299, G2P600 $900, G5P700A $1,399 y X12 $1,999. Precios finales con IVA."),
         ("¿Son equipos originales?", "Sí. Nasfeco es el distribuidor exclusivo oficial de Waterdrop Filter en Ecuador: equipos originales con garantía y repuestos."),
         (f"¿El agua de {city} necesita purificador?", "El agua de la red llega potabilizada, pero en las tuberías recoge sedimentos y sarro y conserva el cloro. Un purificador elimina todo eso y mejora el sabor."),
         ("¿Cómo pago?", "Arma tu pedido y envíalo por WhatsApp; un asesor confirma disponibilidad, fecha de instalación y formas de pago.")])

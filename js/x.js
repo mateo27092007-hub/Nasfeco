@@ -12,6 +12,7 @@ const WD = {
   products: {
     x12:   { name: 'Waterdrop X12 · 1200 GPD',      price: 1999, was: 2200, code: 'NASX12',  note: 'Precio final: incluye IVA e instalación', img: 'assets/x12/ui-wd-x12-new-vis-pr-logo.webp', url: 'product-x12.html' },
     g5:    { name: 'Waterdrop G5P700A · 700 GPD',   price: 1399, was: 1699, code: 'NASG5',   note: 'Precio final: incluye IVA e instalación', img: 'assets/g5/ui-wd-g5p700a-product.webp',      url: 'product-g5p700a.html' },
+    g2:    { name: 'Waterdrop G2P600 · 600 GPD',    price: 900,  was: 1300, code: 'NASG2',   note: 'Precio final: incluye IVA e instalación', img: 'assets/g2/WD-G2P600-W-NSF.png', url: 'product-g2p600.html' },
     uf:    { name: 'Waterdrop Ultrafiltración UF',  price: 299,  was: 380,  code: 'NASUF',   note: 'Precio final: incluye IVA e instalación', img: 'assets/uf/10UB-UF-NSF.png',                 url: 'product-uf.html' },
     smart: { name: 'Waterdrop Dispensador ED01',    price: 99,   was: 129,  code: 'NASED01', note: 'Precio final con IVA · envío no incluido', img: 'assets/ed01/1_33c5e044-eb97-4485-ae99-684bc658886e.webp', url: 'product-smart.html' },
     // Filtros de repuesto (sin descuento)
@@ -425,7 +426,8 @@ const WD = {
     const pick = () => {
       if (ans[0] === 'arriendo') return ['smart', 'Sin obras ni técnicos: lo llenas, lo cargas y tienes agua filtrada en 1 segundo.'];
       if (ans[1] === 'sabor') return ['uf', 'Quita el cloro y el mal sabor conservando los minerales, sin electricidad ni desperdicio.'];
-      if (ans[2] === '1') return ['g5', 'Ósmosis inversa con minerales alcalinos en un equipo compacto y a mejor precio.'];
+      if (ans[2] === '1') return ['g2', 'Ósmosis inversa sin tanque al mejor precio: 7 etapas y 600 GPD, ideal para hogares pequeños.'];
+      if (ans[2] === '3') return ['g5', 'Ósmosis inversa con minerales alcalinos en un equipo compacto, con 700 GPD para toda la familia.'];
       return ['x12', 'El equilibrio perfecto: máxima pureza, minerales y grifo inteligente para la familia.'];
     };
     const render = () => {

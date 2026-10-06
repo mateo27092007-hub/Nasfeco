@@ -21,6 +21,8 @@ const WD = {
     'x12-f3':      { name: 'Filtro X12-F3 · Waterdrop X12',      price: 159.99, was: 159.99, note: 'Incluye IVA · envío no incluido', img: 'assets/x12/ui-wd-x12-f3-fIlter.webp',     url: 'repuestos#x12-f3' },
     'g5-cf':       { name: 'Filtro G5P700A-CF · Waterdrop G5',   price: 59.99,  was: 59.99,  note: 'Incluye IVA · envío no incluido', img: 'assets/g5/ui-wd-g5p700a-cf-product.png',  url: 'repuestos#g5-cf' },
     'g5-ro':       { name: 'Filtro G5P700-RO · Waterdrop G5',    price: 129.99, was: 129.99, note: 'Incluye IVA · envío no incluido', img: 'assets/g5/ui-wd-g5p700-ro-product.png',   url: 'repuestos#g5-ro' },
+    'g2-cf':       { name: 'Filtro G2CF · Waterdrop G2P600',      price: 60,     was: 60,     note: 'Incluye IVA · envío no incluido', img: 'assets/g2/G2CF.png',                     url: 'repuestos#g2-cf' },
+    'g2-ro':       { name: 'Filtro G2P6MRO · Waterdrop G2P600',   price: 130,    was: 130,    note: 'Incluye IVA · envío no incluido', img: 'assets/g2/WD-G2P6MRO.png',               url: 'repuestos#g2-ro' },
     'uf-rf10':     { name: 'Filtro RF10-UF · Ultrafiltración',   price: 70,     was: 70,     note: 'Incluye IVA · envío no incluido', img: 'assets/uf/WD-RF10-UF-NSF.png',            url: 'repuestos#uf-rf10' },
     'ed01-filtro': { name: 'Filtro WD-EDF · Dispensador ED01',   price: 25.99,  was: 25.99,  note: 'Incluye IVA y envío',             img: 'assets/filtros/wd-edf.webp',              url: 'repuestos#ed01-filtro' }
   }

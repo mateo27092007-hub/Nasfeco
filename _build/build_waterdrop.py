@@ -93,7 +93,7 @@ def head(title, desc, canonical, og, ld):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/x.css?v=25">
+<link rel="stylesheet" href="css/x.css?v=26">
 </head>
 <body>
 '''
@@ -229,7 +229,7 @@ def bottom(extra=""):
 </div>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/x.js?v=25"></script>
+<script src="js/x.js?v=26"></script>
 {extra}
 </body>
 </html>
@@ -931,9 +931,9 @@ def cert_modal(key, title):
 # =====================================================================
 #  v11 · Shorts, repuestos
 # =====================================================================
-SHORTS = [("x12", "26BQXx1PgIE", "Waterdrop X12"), ("g5", "TrO42mLP9z0", "Waterdrop G5P700A"),
+SHORTS = [("x12", "26BQXx1PgIE", "Waterdrop X12"), ("g5", "TrO42mLP9z0", "Waterdrop G5P700A"), ("g2", "8OztpiA46eg", "Waterdrop G2P600"),
           ("uf", "tL_2gSpSn20", "Ultrafiltración UF"), ("smart", "Nm090TXf6oM", "Dispensador ED01")]
-FID = {"F1A": "x12-f1a", "F2": "x12-f2", "X12-F3": "x12-f3", "G5P700A-CF": "g5-cf", "G5P700-RO": "g5-ro", "RF10-UF": "uf-rf10", "WD-EDF": "ed01-filtro"}
+FID = {"F1A": "x12-f1a", "F2": "x12-f2", "X12-F3": "x12-f3", "G5P700A-CF": "g5-cf", "G5P700-RO": "g5-ro", "RF10-UF": "uf-rf10", "WD-EDF": "ed01-filtro", "G2CF": "g2-cf", "G2P6MRO": "g2-ro"}
 
 def shorts(first=None, title="Míralos en acción", lead="Así funcionan los equipos que instalamos."):
     items = [x for x in SHORTS if x[0] == first] if first else SHORTS
@@ -961,12 +961,14 @@ FILTERS = [
                                        ("x12-f3", "X12-F3", "assets/x12/ui-wd-x12-f3-fIlter.webp", "Membrana de ósmosis inversa 0.0001 μm", "Hasta 24 meses")]),
     ("Waterdrop G5P700A", "product-g5p700a", [("g5-cf", "G5P700A-CF", "assets/g5/ui-wd-g5p700a-cf-product.png", "Filtro compuesto con minerales alcalinos", "Hasta 6 meses"),
                                                ("g5-ro", "G5P700-RO", "assets/g5/ui-wd-g5p700-ro-product.png", "Membrana de ósmosis inversa 0.0001 μm", "Hasta 24 meses")]),
+    ("Waterdrop G2P600", "product-g2p600", [("g2-cf", "G2CF", "assets/g2/G2CF.png", "Filtro compuesto de algodón PP y carbón activado", "Hasta 12 meses"),
+                                             ("g2-ro", "G2P6MRO", "assets/g2/WD-G2P6MRO.png", "Membrana de ósmosis inversa 0.0001 μm", "Hasta 24 meses")]),
     ("Ultrafiltración UF", "product-uf", [("uf-rf10", "RF10-UF", "assets/uf/WD-RF10-UF-NSF.png", "Filtro de ultrafiltración 0.01 μm", "Hasta 12 meses")]),
     ("Dispensador ED01", "product-smart", [("ed01-filtro", "WD-EDF", "assets/filtros/wd-edf.webp", "Filtro de repuesto original para el Dispensador ED01", "Hasta 3 meses o 200 galones")]),
 ]
 
 def page_repuestos():
-    desc = "Filtros de repuesto originales Waterdrop en Ecuador: X12, G5P700A, Ultrafiltración UF y Dispensador ED01. Nasfeco, distribuidor exclusivo oficial."
+    desc = "Filtros de repuesto originales Waterdrop en Ecuador: X12, G5P700A, G2P600, Ultrafiltración UF y Dispensador ED01. Nasfeco, distribuidor exclusivo oficial."
     h = head("Filtros de repuesto Waterdrop | Waterdrop Ecuador · Nasfeco", desc, SITE + "repuestos", SITE + "assets/x12/ui-wd-f1a-product.png",
              {"@context": "https://schema.org", "@type": "ItemList", "name": "Filtros de repuesto Waterdrop",
               "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": f"Filtro {n} para {eq}"} for i, (eq, _u, fs) in enumerate(FILTERS) for (_i, n, *_r) in fs[:1]]})
@@ -1259,7 +1261,7 @@ def premium(c):
     </div>
   </div>
 </section>'''
-    body += shorts(pid, title="Míralo en acción", lead=f"Así funciona la {c['short']} en una casa real: instalación, uso del grifo y agua pura al instante. En Ecuador la instalan los técnicos de Nasfeco.")
+    body += shorts(pid, title="Míralo en acción", lead=f"Así funciona {c.get('art', 'la')} {c['short']} en una casa real: instalación, uso del grifo y agua pura al instante. En Ecuador la instalan los técnicos de Nasfeco.")
     if c.get("sp"):
         spc = "".join(f'<div class="{cls} x-rv">{media(src, t)}<div class="t"><b>{t}</b><span>{d}</span></div></div>' for cls, src, t, d in c["sp"])
         body += f'''
@@ -1675,7 +1677,7 @@ def page_k6(): return premium(K6)
 
 # --------------------------------------------------------------- G5P700A
 GZ = "assets/g5/"
-G5P = dict(pid="g5", file="product-g5p700a.html", short="Waterdrop G5P700A", ld_name="Waterdrop G5P700A Ósmosis Inversa Alcalina 700 GPD",
+G5P = dict(pid="g5", art="el", file="product-g5p700a.html", short="Waterdrop G5P700A", ld_name="Waterdrop G5P700A Ósmosis Inversa Alcalina 700 GPD",
     title="Waterdrop G5P700A · 700 GPD Alcalino | Waterdrop Ecuador · Nasfeco",
     desc="Waterdrop G5P700A en Ecuador: ósmosis inversa sin tanque de 700 GPD con minerales alcalinos, 8 etapas y grifo con pantalla TDS. Distribuidor exclusivo oficial: Nasfeco.",
     gallery=[GZ + "ui-wd-g5p700a-product.webp"] + [GZ + f"wd-g5p700a-product_{n}.jpg" for n in (2, 3, 1, 4, 5, 6, 7, 9)] + [GZ + "ui-wd-g5p700a-nsf-vis.jpg", GZ + "ui-wd-g5p700a-w.jpg"],
@@ -1722,13 +1724,14 @@ PRICES["g2"] = (900, 1300)
 OFFER["g2"] = ("Mejor precio", "Serie G · 600 GPD", "Waterdrop G2P600", ["600 GPD", "7 etapas", "Sin tanque", "Relación 2:1"])
 OFFER_IMG["g2"] = G2D + "WD-G2P600-W-NSF.png"
 OFFER_URL["g2"] = "product-g2p600.html"
-G2P = dict(pid="g2", file="product-g2p600.html", short="Waterdrop G2P600", ld_name="Waterdrop G2P600 Ósmosis Inversa 600 GPD",
+G2P = dict(pid="g2", art="el", file="product-g2p600.html", short="Waterdrop G2P600", ld_name="Waterdrop G2P600 Ósmosis Inversa 600 GPD",
     title="Waterdrop G2P600 · 600 GPD | Waterdrop Ecuador · Nasfeco",
     desc="Waterdrop G2P600 en Ecuador: ósmosis inversa sin tanque de 600 GPD, 7 etapas y relación 2:1. Precio final con IVA e instalación. Distribuidor exclusivo oficial: Nasfeco.",
     gallery=[G2D + "WD-G2P600-W-NSF.png", G2N(5), G2N(6), G2N(1), G2N(4), G2N(7), G2N(2), G2N(3), G2D + "ui-wd-g2p600-w-cz-no.png"],
     eyebrow="Serie G · Ósmosis inversa al mejor precio", h1="Waterdrop G2P600 · Ósmosis inversa sin tanque",
     sub="600 galones por día, 7 etapas de filtración y relación 2:1 en un equipo compacto y sin tanque. La forma más accesible de tener ósmosis inversa en casa.",
     metrics=[("600", "GPD"), ("2:1", "Agua pura / desecho"), ("7", "Etapas")],
+    filters=[(G2D + "G2CF.png", "G2CF", "Hasta 12 meses"), (G2D + "WD-G2P6MRO.png", "G2P6MRO", "Hasta 24 meses")],
     ba_title="Pásate al G2P600",
     ba=[("Sabor", G2V(10), G2V(11), "Agua del grifo", "Agua G2P600"), ("Bienestar", G2V(12), G2V(13), "Antes", "Con G2P600"),
         ("Tranquilidad", G2V(14), G2V(15), "Antes", "Con G2P600"), ("En familia", G2V(8), G2V(9), "Antes", "Con G2P600")],

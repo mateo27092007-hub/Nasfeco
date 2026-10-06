@@ -81,7 +81,7 @@ def head(title, desc, canonical, og, ld):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/x.css?v=19">
+<link rel="stylesheet" href="css/x.css?v=20">
 </head>
 <body>
 '''
@@ -109,7 +109,7 @@ def nf_logo(sub=True):
 
 
 def wd_brand():
-    return '<a href="waterdrop.html" class="wd-brand"><span class="wd-lockup"><img class="wd-logo" src="assets/brand/waterdrop-logo.png" alt="Waterdrop Filter" width="140" height="27"><span class="wd-filter">Filter</span></span><em><b>ECUADOR</b>Distribuidor exclusivo oficial</em></a>'
+    return '<a href="waterdrop.html" class="wd-brand"><img class="wd-logo" src="assets/brand/waterdrop-logo.png" alt="Waterdrop" width="140" height="27"><em><b>ECUADOR</b>Distribuidor exclusivo oficial</em></a>'
 
 I_TRUCK2 = I_TRUCK
 def trust():
@@ -214,7 +214,7 @@ def bottom(extra=""):
 </div>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/x.js?v=19"></script>
+<script src="js/x.js?v=20"></script>
 {extra}
 </body>
 </html>
@@ -459,7 +459,7 @@ def page_ro():
 
     body += flow("Sin tanque. Sin esperas.",
                  "El agua pasa directo por los filtros y sale lista para tomar. Con la Serie X, una taza se llena en 2 a 3 segundos.",
-                 "77c38a7052694b8783f1ed958242d847", "cdf34b274a4f4038a953a7e2414abac0", sid="capacidad", cap="<span><b>Izquierda:</b> Serie X de 1600 GPD</span><span><b>Derecha:</b> purificador común de 600 GPD</span>")
+                 "77c38a7052694b8783f1ed958242d847", "cdf34b274a4f4038a953a7e2414abac0", sid="capacidad", cap="<span><b>Izquierda:</b> Waterdrop X12 de 1200 GPD</span><span><b>Derecha:</b> purificador común de 600 GPD</span>")
 
     body += speed("Lo que antes tomaba minutos", "Tiempos medidos con la X16 de 1600 galones por día", [
         ("wd-product-1016-page-banner-flux-1.jpg", "2 s", "Una taza para el café de la mañana"),
@@ -1023,9 +1023,9 @@ def page_store():
     body += faq([
         ("¿Por qué necesito un purificador si el agua de mi ciudad es potable?", "El agua de la red llega potabilizada, pero en el camino puede recoger sedimentos y sarro de las tuberías, y lleva cloro, que se nota en el sabor. Un purificador elimina todo eso."),
         ("¿Nasfeco es distribuidor oficial de Waterdrop?", "Sí. Nasfeco es el distribuidor exclusivo oficial de Waterdrop Filter en Ecuador. Vendemos equipos originales con garantía, repuestos y soporte técnico local."),
-        ("¿Qué purificador me conviene?", "Si quieres la máxima pureza y caudal, elige la Waterdrop X12. Si buscas ósmosis inversa con minerales alcalinos a mejor precio, la G5P700A. Si tu agua de red es de buena calidad y prefieres algo sin electricidad, la Ultrafiltración UF es ideal. Si vives en departamento o arriendo y no quieres instalar nada, el Dispensador ED01 es perfecto."),
+        ("¿Qué purificador me conviene?", "Si quieres la máxima pureza y caudal, elige la Waterdrop X12. Si buscas ósmosis inversa con minerales alcalinos a mejor precio, el G5P700A. Si tu agua de red es de buena calidad y prefieres algo sin electricidad, la Ultrafiltración UF es ideal. Si vives en departamento o arriendo y no quieres instalar nada, el Dispensador ED01 es perfecto."),
         ("¿Hacen envíos a todo Ecuador?", "Sí. Trabajamos en todo el Ecuador. En Quito, Guayaquil, Cuenca y Loja coordinamos la instalación con nuestros técnicos; en otras ciudades te acompañamos por WhatsApp."),
-        ("¿Qué incluye el precio?", "El precio que ves es el precio final, sin costos adicionales. En la X12, la G5P700A y la Ultrafiltración UF incluye todo: IVA e instalación. El Dispensador ED01 no necesita instalación; su precio incluye IVA y el envío se cotiza aparte."),
+        ("¿Qué incluye el precio?", "El precio que ves es el precio final, sin costos adicionales. En la X12, el G5P700A y la Ultrafiltración UF incluye todo: IVA e instalación. El Dispensador ED01 no necesita instalación; su precio incluye IVA y el envío se cotiza aparte."),
         ("¿Cómo pago mi pedido?", "Agrega tus productos al carrito y finaliza el pedido por WhatsApp. Un asesor confirma disponibilidad y te indica las formas de pago."),
         ("¿Cómo uso el código de descuento?", "Los códigos se incluyen automáticamente en tu pedido de WhatsApp. El descuento es válido hasta que termine la cuenta regresiva."),
         ("¿Cada cuánto se cambian los filtros?", "Depende del modelo y de tu consumo. Todos los equipos te avisan cuándo cambiarlos y Nasfeco mantiene repuestos originales en stock."),
@@ -1453,7 +1453,7 @@ UF = dict(pid="uf", file="product-uf.html", short="Ultrafiltración UF", ld_name
            ("Medidas", "9 × 10 × 31 cm"), ("Peso", "1.7 kg"), ("Temperatura del agua", "2 a 38 °C"), ("Electricidad", "No necesita"), ("Grifo", "Acero inoxidable 304 sin plomo, incluido")],
     spec_img="assets/uf/10UB-UF-NSF.png",
     faq=[("¿La UF necesita electricidad?", "No. Funciona con la presión de agua de tu casa, así que no gasta luz."),
-         ("¿Cuál es la diferencia con la ósmosis inversa?", "La UF retiene bacterias, óxido y sedimentos y conserva los minerales, pero no reduce las sales disueltas (TDS). Para eso te recomendamos la X12 o la G5P700A."),
+         ("¿Cuál es la diferencia con la ósmosis inversa?", "La UF retiene bacterias, óxido y sedimentos y conserva los minerales, pero no reduce las sales disueltas (TDS). Para eso te recomendamos la X12 o el G5P700A."),
          ("¿Cada cuánto se cambia el filtro?", "Hasta 12 meses u 8000 galones, según tu consumo."),
          ("¿El precio incluye instalación?", "Sí. Es el precio final: incluye IVA e instalación, sin costos adicionales."),
          ("¿Quién responde por la garantía?", "Nasfeco, distribuidor exclusivo oficial de Waterdrop Filter en Ecuador.")])
@@ -1662,7 +1662,7 @@ G5P = dict(pid="g5", file="product-g5p700a.html", short="Waterdrop G5P700A", ld_
     sub="700 galones por día, 8 etapas y minerales alcalinos en un equipo compacto y sin tanque. Agua pura y equilibrada a un precio accesible.",
     metrics=[("700", "GPD"), ("2:1", "Agua pura / desecho"), ("pH+", "Alcalina")],
     filters=[(GZ + "ui-wd-g5p700a-cf-product.png", "G5P700A-CF", "Hasta 6 meses"), (GZ + "ui-wd-g5p700-ro-product.png", "G5P700-RO", "Hasta 24 meses")],
-    rows_title="Por qué elegir la G5P700A",
+    rows_title="Por qué elegir el G5P700A",
     rows=[(GZ + "wd-g5p700a-product_3.jpg", "Salud", "Agua con minerales alcalinos", "Después de purificar, le devuelve minerales al agua para un sabor suave y un pH equilibrado.", ["Minerales alcalinos", "pH equilibrado", "Mejor sabor"]),
           (GZ + "wd-g5p700a-product_2.jpg", "Filtración", "8 etapas con membrana de 0.0001 μm", "Reduce PFOA, PFOS, cloro, plomo, flúor, metales pesados y sales disueltas.", ["Membrana de 0.0001 μm", "Reduce TDS", "Certificada NSF/ANSI 58"]),
           (GZ + "wd-g5p700a-product_4.jpg", "Grifo con pantalla", "Calidad del agua a la vista", "El grifo muestra el TDS en tiempo real y te avisa cuándo cambiar los filtros.", ["Monitor de TDS", "Aviso de cambio de filtro", "Giro de 360°"]),
@@ -1685,7 +1685,7 @@ G5P = dict(pid="g5", file="product-g5p700a.html", short="Waterdrop G5P700A", ld_
          ("wd-g5p700-faucet.png", "Grifo con pantalla"), ("X_Power_adapter.png", "Adaptador de corriente"), ("X_Red_14_PE_tubing60.png", "Manguera de desagüe"),
          ("Feed_water_adapter_inlet_water_tubing.png", "Conector de entrada"), ("x8-in_the_box-Drain_saddle.png", "Abrazadera de desagüe"),
          ("wd-page-1016-collection-x8-a-inthebox-img7.webp", "Plantilla para el grifo"), ("X_Teflon_tape.png", "Cinta de teflón ×2")]],
-    faq=[("¿Qué diferencia hay con la X12?", "La X12 tiene más caudal (1200 GPD), 11 etapas y grifo con volumen programable. La G5P700A ofrece ósmosis inversa con minerales alcalinos en un equipo más compacto y a mejor precio."),
+    faq=[("¿Qué diferencia hay con la X12?", "La X12 tiene más caudal (1200 GPD), 11 etapas y grifo con volumen programable. El G5P700A ofrece ósmosis inversa con minerales alcalinos en un equipo más compacto y a mejor precio."),
          ("¿Reduce PFOA y PFOS?", "Sí. Sus 8 etapas con membrana de ósmosis inversa reducen PFOA, PFOS, cloro, plomo, flúor y metales pesados."),
          ("¿Cada cuánto se cambian los filtros?", "El filtro CF cada 6 meses y el RO cada 24 meses, según el uso. El equipo te avisa cuando toca cambiarlos."),
          ("¿Necesita instalación profesional?", "No es obligatoria: se instala en unos 30 minutos. En Quito, Guayaquil, Cuenca y Loja, los técnicos de Nasfeco la instalan por ti."),

@@ -37,7 +37,7 @@ def page(slug, c):
                         [("Instalación", f"En {city}"), ("Precio final", "IVA incluido"), ("Garantía", "Soporte local")],
                         bg=(g["A"]("wd-page-1016-new-2-pc.jpg"), g["A"]("wd-page-1016-new-2-mo.jpg")),
                         btns=f'<div class="x-btns"><a href="#ofertas" class="x-btn x-btn-p">Ver precios</a><a href="https://wa.me/593997312362?text=Hola%20Nasfeco%2C%20estoy%20en%20{city}%20y%20quiero%20informaci%C3%B3n%20sobre%20los%20purificadores" target="_blank" rel="noopener" class="x-btn x-btn-o">Cotizar por WhatsApp</a></div>')
-    body += g["picks"](["x12", "g5", "uf", "smart"], title=f"Purificadores con instalación en {city}",
+    body += g["picks"](["x12", "g5", "g600", "uf", "smart"], title=f"Purificadores con instalación en {city}",
                        sub=f"Precios finales en dólares: incluyen IVA e instalación en {city}. El Dispensador ED01 no necesita instalación.")
     z = "".join(f"<li>{x}</li>" for x in zones)
     body += f'''

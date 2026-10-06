@@ -42,6 +42,7 @@ const WD = {
   /* ---------- PRECIOS ---------- */
   function paint() {
     document.documentElement.classList.toggle('promo-ended', !promoOn);
+    const $$ = (q, r) => [...(r || document).querySelectorAll(q)].filter(e => { const k = Object.keys(e.dataset).find(x => /^(price|was|off|code|note|saveamt)$/.test(x)); return !k || P[e.dataset[k]]; });
     $$('[data-price]').forEach(e => e.textContent = money(priceOf(e.dataset.price)));
     $$('[data-was]').forEach(e => { const q = P[e.dataset.was]; e.textContent = q.was > q.price ? money(q.was) : ''; });
     $$('[data-off]').forEach(e => e.textContent = `${money(P[e.dataset.off].was - P[e.dataset.off].price).replace('.00', '')} de descuento`);

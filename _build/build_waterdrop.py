@@ -1,3 +1,4 @@
+from urllib.parse import quote as quote_url
 import itertools
 # -*- coding: utf-8 -*-
 """Genera las páginas Waterdrop Ecuador con la estructura de waterdropfilter.com (Serie X)."""
@@ -40,13 +41,21 @@ I_CHAT = "M21 12a8.5 8.5 0 01-12.4 7.5L3 21l1.5-5.6A8.5 8.5 0 1121 12z"
 I_PIN = "M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12zM12 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"
 WA = f'<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="{WA_PATH}"/></svg>'
 
+# Productos sin precio publicado: se cotizan por WhatsApp.
+QUOTE = {"g600": "Waterdrop G3P600"}
+def wa_quote(pid):
+    return "https://wa.me/593997312362?text=" + quote_url(f"Hola Nasfeco, quiero cotizar el {QUOTE[pid]}. ¿Me ayudan con el precio?")
 def price(pid, cls=""):
+    if pid in QUOTE: return f'<div class="x-price {cls}">{price_in(pid)}</div>'
     return f'<div class="x-price {cls}"><span class="now" data-price="{pid}"></span><span class="was" data-was="{pid}"></span><small class="x-pnote" data-note="{pid}"></small></div>'
 def price_in(pid):
+    if pid in QUOTE: return '<span class="now" style="font-size:22px">Consulta el precio</span><small class="x-pnote">Cotiza por WhatsApp: te respondemos al momento</small>'
     return f'<span class="now" data-price="{pid}"></span><span class="was" data-was="{pid}"></span><small class="x-pnote" data-note="{pid}"></small>'
 def code(pid):
+    if pid in QUOTE: return ""
     return f'<button class="x-code" data-copy="{pid}" data-promo>Código: <b data-code="{pid}"></b>{svg(I_COPY, 14)}</button>'
 def buttons(pid, buy_label="Comprar ahora"):
+    if pid in QUOTE: return f'<div class="x-btns"><a class="x-btn x-btn-p" href="{wa_quote(pid)}" target="_blank" rel="noopener">Cotizar por WhatsApp</a></div>'
     return f'<div class="x-btns"><button class="x-btn x-btn-p" data-add="{pid}">Agregar al carrito</button><button class="x-btn x-btn-o" data-buy="{pid}">{buy_label}</button></div>'
 def cd():
     return '<span class="x-cd" data-cd data-promo>' + "".join(f'<span><b data-{k}>00</b><small>{l}</small></span>' for k, l in [("d", "Días"), ("h", "Horas"), ("m", "Min"), ("s", "Seg")]) + "</span>"
@@ -84,12 +93,14 @@ def head(title, desc, canonical, og, ld):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/x.css?v=22">
+<link rel="stylesheet" href="css/x.css?v=24">
 </head>
 <body>
 '''
 
 def offer_ld(pid, name, desc, imgs, url):
+    if pid in QUOTE:
+        return {"@type": "Product", "name": name, "description": desc, "brand": {"@type": "Brand", "name": "Waterdrop"}, "image": [SITE + i for i in imgs]}
     now, was = PRICES[pid]
     return {"@type": "Product", "name": name, "description": desc, "brand": {"@type": "Brand", "name": "Waterdrop"},
             "image": [SITE + i for i in imgs],
@@ -100,6 +111,7 @@ def offer_ld(pid, name, desc, imgs, url):
 MEGA = [
     ("product-x12.html", "assets/x12/ui-wd-x12-new-vis-pr-logo.webp", "Waterdrop X12", "1200 GPD, el más completo"),
     ("product-g5p700a.html", "assets/g5/ui-wd-g5p700a-product.webp", "Waterdrop G5P700A", "700 GPD, alcalino"),
+    ("product-g3p600.html", "assets/g600/ui-wd-g3p600-product_1.png", "Waterdrop G3P600", "600 GPD, sin tanque"),
     ("product-uf.html", "assets/uf/10UB-UF-NSF.png", "Ultrafiltración UF", "Sin electricidad"),
     ("product-smart.html", "assets/ed01/1_33c5e044-eb97-4485-ae99-684bc658886e.webp", "Dispensador ED01", "Sin instalación"),
 ]
@@ -175,7 +187,7 @@ def top(subnav=None, side=None):
         name, links, pid = subnav
         ls = "".join(f'<a href="{h}">{t}</a>' for h, t in links)
         out += f'''
-<div class="x-subnav"><div class="x-wrap"><b>{name}</b><nav>{ls}<a href="#comparar" class="x-btn x-btn-p x-btn-sm">Comprar ahora</a></nav></div></div>'''
+<div class="x-subnav"><div class="x-wrap"><b>{name}</b><nav>{ls}{f'<a href="{wa_quote(pid)}" target="_blank" rel="noopener" class="x-btn x-btn-p x-btn-sm">Cotizar</a>' if pid in QUOTE else '<a href="#comparar" class="x-btn x-btn-p x-btn-sm">Comprar ahora</a>'}</nav></div></div>'''
     if side:
         out += '<aside class="x-side" aria-label="Secciones"><div class="x-side-rail">' + "".join("<i></i>" for _ in side) + '</div><ul>' + \
                "".join(f'<li><a href="#{i}">{t}</a></li>' for i, t in side) + '</ul></aside>'
@@ -189,7 +201,7 @@ def bottom(extra=""):
       <div>{nf_logo()}
         <p>Nasfeco es una empresa de servicios en agua y energía para hogares y empresas, y <b style="color:#fff">distribuidor exclusivo oficial de Waterdrop Filter en Ecuador</b>: equipos originales, garantía y repuestos con respaldo local.</p></div>
       <div><h4>Purificadores</h4>
-        <a href="product-x12.html">Waterdrop X12</a><a href="product-g5p700a.html">Waterdrop G5P700A</a><a href="product-uf.html">Ultrafiltración UF</a><a href="product-smart.html">Dispensador ED01</a><a href="waterdrop.html#comparar">Comparar modelos</a></div>
+        <a href="product-x12.html">Waterdrop X12</a><a href="product-g5p700a.html">Waterdrop G5P700A</a><a href="product-g3p600.html">Waterdrop G3P600</a><a href="product-uf.html">Ultrafiltración UF</a><a href="product-smart.html">Dispensador ED01</a><a href="waterdrop.html#comparar">Comparar modelos</a></div>
       <div><h4>Servicio Nasfeco</h4>
         <a href="repuestos">Filtros de repuesto</a><a href="waterdrop.html#faq">Preguntas frecuentes</a><a href="waterdrop.html#contacto">Agendar instalación</a>
         <a href="https://wa.me/593997312362?text=Hola%2C%20necesito%20soporte%20t%C3%A9cnico%20con%20mi%20equipo%20Waterdrop" target="_blank" rel="noopener">Soporte técnico</a><a href="nasfeco.html">Soluciones para empresas</a></div>
@@ -217,7 +229,7 @@ def bottom(extra=""):
 </div>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/x.js?v=22"></script>
+<script src="js/x.js?v=24"></script>
 {extra}
 </body>
 </html>
@@ -921,6 +933,8 @@ FID = {"F1A": "x12-f1a", "F2": "x12-f2", "X12-F3": "x12-f3", "G5P700A-CF": "g5-c
 
 def shorts(first=None, title="Míralos en acción", lead="Así funcionan los equipos que instalamos."):
     items = [x for x in SHORTS if x[0] == first] if first else SHORTS
+    if first and not items:
+        return ""
     if first and items:
         pid, vid, name = items[0]
         return f'''
@@ -992,10 +1006,11 @@ def page_store():
         '<div><b>Certificados</b><span>NSF/ANSI</span></div>',
         '<div class="x-metric-btn" data-cv-open role="button" tabindex="0" title="Ver certificaciones"><b>Certificados</b><span>NSF/ANSI · Ver documentos ›</span></div>', 1)
     body += cert_modal("all", "Certificaciones · Waterdrop Ecuador")[0]
-    body += picks(["x12", "g5", "uf", "smart"])
+    body += picks(["x12", "g5", "g600", "uf", "smart"])
     body += shorts()
     cats_items = [("product-x12.html", A("X__X12-mo.jpg"), "Waterdrop<br>X12", "Máxima pureza y caudal"),
                   ("product-g5p700a.html", "assets/g5/wd-g5p700a-product_6.jpg", "Waterdrop<br>G5P700A", "Alcalino y compacto"),
+                  ("product-g3p600.html", "assets/g600/ui-wd-g3p600-product_3.jpg", "Waterdrop<br>G3P600", "Ósmosis inversa de 600 GPD"),
                   ("product-uf.html", "assets/uf/UB-UF_6.jpg", "Ultrafiltración<br>UF", "Sin luz y sin desperdicio de agua"),
                   ("product-smart.html", "assets/smart-gal-1.png.jpg", "Dispensador<br>ED01", "Para departamentos y arriendos")]
     ci = "".join(f'<a href="{u}" class="x-cat x-rv"><img src="{i}" alt="" loading="lazy"><div><h3>{t}</h3><span>{d}</span></div><span class="go">{svg(I_RIGHT, 14, 2.5)}</span></a>' for u, i, t, d in cats_items)
@@ -1044,7 +1059,7 @@ def page_store():
       <div class="x-fg"><label for="w_name">Nombre</label><input id="w_name" required placeholder="Ej. María García"></div>
       <div class="x-fg"><label for="w_email">Email</label><input id="w_email" type="email" required placeholder="maria@gmail.com"></div>
       <div class="x-fg"><label for="w_phone">Teléfono / WhatsApp</label><input id="w_phone" type="tel" required placeholder="Ej. 0999999999"></div>
-      <div class="x-fg"><label for="w_interest">Me interesa</label><select id="w_interest"><option>Waterdrop X12</option><option>Waterdrop G5P700A</option><option>Ultrafiltración UF</option><option>Dispensador ED01</option><option>Filtros de repuesto</option><option>No sé, quiero asesoría</option></select></div>
+      <div class="x-fg"><label for="w_interest">Me interesa</label><select id="w_interest"><option>Waterdrop X12</option><option>Waterdrop G5P700A</option><option>Waterdrop G3P600</option><option>Ultrafiltración UF</option><option>Dispensador ED01</option><option>Filtros de repuesto</option><option>No sé, quiero asesoría</option></select></div>
       <div class="x-fg"><label for="w_context">Cuéntanos de tu hogar</label><textarea id="w_context" required placeholder="Familia de 4 personas en casa, Cumbayá..."></textarea></div>
       <button type="submit" class="x-btn x-btn-p x-btn-block">Solicitar asesoría gratuita</button>
     </form>
@@ -1161,7 +1176,7 @@ def pick(pid):
     badge, kick, name, specs = OFFER[pid]
     sp = "".join(f"<li>{x}</li>" for x in specs)
     return f'''<article class="x-of">
-      <span class="x-of-badge">{badge}</span><span class="x-of-save" data-promo>Ahorras <b data-saveamt="{pid}"></b></span>
+      <span class="x-of-badge">{badge}</span>{"" if pid in QUOTE else f'<span class="x-of-save" data-promo>Ahorras <b data-saveamt="{pid}"></b></span>'}
       <a class="x-of-img" href="{OFFER_URL[pid]}"><img src="{OFFER_IMG[pid]}" alt="{name}" loading="lazy"></a>
       <div class="x-of-b"><span class="x-of-k">{kick}</span><h3><a href="{OFFER_URL[pid]}">{name}</a></h3><ul class="x-of-specs">{sp}</ul>
         <div class="x-price">{price_in(pid)}</div>{code(pid)}{buttons(pid)}
@@ -1231,9 +1246,8 @@ def premium(c):
     <div class="x-pinfo">
       <p class="x-eyebrow">{c["eyebrow"]}</p><h1>{c["h1"]}</h1><p>{c["sub"]}</p>
       <div class="x-metrics">{m}</div>
-      <div class="x-price">{price_in(pid)}<span class="x-off" data-off="{pid}" data-promo></span></div>
-      <div style="margin-top:12px">{code(pid)}</div>
-      <div class="x-pcd" data-promo><span><span data-promo-name></span> · termina en</span>{cd()}</div>
+      <div class="x-price">{price_in(pid)}{"" if pid in QUOTE else f'<span class="x-off" data-off="{pid}" data-promo></span>'}</div>
+      {"" if pid in QUOTE else f'<div style="margin-top:12px">{code(pid)}</div><div class="x-pcd" data-promo><span><span data-promo-name></span> · termina en</span>{cd()}</div>'}
       {buttons(pid)}
       {PERKS}
       {fl}
@@ -1498,7 +1512,7 @@ def page_smart(): return premium(ED)
 PRICES.update({"g800": (849, 999), "g600": (439, 539), "k6": (599, 799)})
 OFFER.update({
     "g800": ("Más vendido", "Serie G · 800 GPD", "Waterdrop G3P800", ["800 GPD", "10 etapas", "UV incluido", "Grifo con pantalla"]),
-    "g600": ("Mejor precio", "Serie G · 600 GPD", "Waterdrop G3P600", ["600 GPD", "8 etapas", "Sin tanque", "Grifo con pantalla"]),
+    "g600": ("Nuevo", "Serie G · 600 GPD", "Waterdrop G3P600", ["600 GPD", "8 etapas", "Sin tanque", "Grifo con pantalla"]),
     "k6":   ("Agua caliente", "Serie K · 600 GPD", "Waterdrop K6", ["Agua caliente al instante", "40–95 °C", "600 GPD", "Doble pantalla"]),
 })
 OFFER["x8"] = ("Accesible", "Serie X · 800 GPD", "Waterdrop X8-A", ["800 GPD", "10 etapas", "pH 7.5", "Grifo con pantalla"])
@@ -1566,22 +1580,21 @@ G6 = "assets/g600/"
 G6P = lambda n: f"{G6}wd-product-new-vis-G3P600-Point_of_pain-img{n}.webp"
 G3P600 = dict(pid="g600", file="product-g3p600.html", short="Waterdrop G3P600", ld_name="Waterdrop G3P600 Ósmosis Inversa 600 GPD",
     title="Waterdrop G3P600 · 600 GPD | Waterdrop Ecuador · Nasfeco",
-    desc="Waterdrop G3P600 en Ecuador: ósmosis inversa sin tanque de 600 GPD, 8 etapas y grifo con pantalla TDS. La forma más accesible de tener agua pura en casa, con soporte de Nasfeco.",
+    desc="Waterdrop G3P600 en Ecuador: ósmosis inversa sin tanque de 600 GPD, 8 etapas y grifo con pantalla TDS. Distribuidor exclusivo oficial: Nasfeco, con instalación en Quito, Guayaquil, Cuenca y Loja.",
     gallery=[G6 + "ui-wd-g3p600-product_1.png"] + [G6 + f"ui-wd-g3p600-product_{n}.jpg" for n in range(1, 9)] + [G6 + "WD-G3P600-NSF.webp", G6 + "WD-G3P600-W-NSF.webp"],
-    eyebrow="Serie G · Mejor precio", h1="Waterdrop G3P600 · Ósmosis inversa sin tanque",
-    sub="Ósmosis inversa completa a un precio de entrada: 600 galones por día, 8 etapas y un grifo que te muestra la calidad del agua.",
+    eyebrow="Serie G · Ósmosis inversa sin tanque", h1="Waterdrop G3P600 · Ósmosis inversa sin tanque",
+    sub="Ósmosis inversa completa y compacta: 600 galones por día, 8 etapas y un grifo que te muestra la calidad del agua.",
     metrics=[("600", "GPD"), ("2:1", "Agua pura / desecho"), ("8", "Etapas")],
-    filters=[(G6 + "ui-wd-g3-n1cf-new.png", "CF", "Hasta 6 meses"), (G6 + "ui-wd-g3-n3cb-new.png", "CB", "Hasta 12 meses"), (G6 + "WD-G3P600-RO.webp", "G3P600-RO", "Hasta 24 meses")],
-    sp_title="Todo lo que hace la G3P600",
-    sp=[("wide", G6 + "c9a5a9d2f6b04f588ceed80f0810fbd3.mp4", "600 GPD", "Más rápida que un RO tradicional de 400 GPD"),
+    sp_title="Todo lo que hace el G3P600",
+    sp=[("wide", G6 + "c9a5a9d2f6b04f588ceed80f0810fbd3.mp4", "600 GPD", "Más rápido que un RO tradicional de 400 GPD"),
         ("", G6 + "wd-product-new-vis-G3P600-set-img1.jpg", "Certificada", "NSF/ANSI 42, 58 y 372"),
         ("", G6 + "wd-new-vis-product-overview-smart-img1.jpg", "2:1", "2 litros puros por cada litro desechado"),
         ("", G6 + "wd-new-vis-X16-Set_of_selling_points-img4.jpg", "8 etapas", "Membrana de 0.0001 μm"),
         ("", G6 + "wd-product-new-vis-G3P600-set-img4.jpg", "Sin tanque", "Cabe en casi cualquier mueble")],
-    ba_title="Pásate a la G3P600",
+    ba_title="Pásate al G3P600",
     ba=[("Pura", G6P(1), G6P(2), "Agua sin tratar", "Agua G3P600"), ("Saludable", G6P(3), G6P(4), "Antes", "Con G3P600"),
         ("Inteligente", G6P(5), G6P(6), "Grifo común", "Grifo con pantalla"), ("Fácil", G6P(7), G6P(8), "Sistema con tanque", "G3P600 sin tanque")],
-    flow=("Más rápida de lo que esperas", "Con 600 galones por día, llena un vaso en unos 6.5 segundos, mucho más rápido que un purificador tradicional.",
+    flow=("Más rápido de lo que esperas", "Con 600 galones por día, llena un vaso en unos 6.5 segundos, mucho más rápido que un purificador tradicional.",
           G6 + "63de709a824d4dc1bb7bb47c5f8970c5", G6 + "c9a5a9d2f6b04f588ceed80f0810fbd3", "velocidad"),
     mt=[(G6 + "d3c6b4513e1c4fb0b75f68aa6c8f4eb4.mp4", "Filtración", "8 etapas de filtración avanzada", "Membrana de ósmosis inversa de 0.0001 μm que reduce TDS, PFOA, PFOS, cloro, flúor, arsénico, plomo y más.", False),
         (G6 + "aa2ca2b375794b279598a2aeba3ec07f.mp4", "Instalación", "Lista en unos 30 minutos", "Instalación simple, sin plomero. En Quito, Guayaquil, Cuenca y Loja, los técnicos de Nasfeco la dejan funcionando.", True),
@@ -1598,11 +1611,11 @@ G3P600 = dict(pid="g600", file="product-g3p600.html", short="Waterdrop G3P600", 
     spec_img=G6 + "wd-g3p600-product-img_1.jpg",
     box=[(G6 + f"wd-g3p600-product-img_{n}.png", t) for n, t in [(1, "Equipo G3P600"), (2, "Juego de filtros"), (3, "Grifo"), (10, "Adaptador de corriente"), (4, "Manguera"),
          (5, "Conector de entrada"), (6, "Seguros ×5"), (7, "Cinta de teflón"), (8, "Abrazadera de desagüe"), (9, "Accesorios")]],
-    faq=[("¿Por qué elegir la G3P600?", "Es la forma más accesible de tener ósmosis inversa sin tanque, con 8 etapas y grifo con pantalla."),
+    faq=[("¿Por qué elegir el G3P600?", "Es ósmosis inversa sin tanque con 8 etapas, relación 2:1 y grifo con pantalla, en un equipo compacto."),
          ("¿Qué es la relación 2:1?", "Por cada 2 vasos de agua pura, solo 1 se va al desagüe. Los purificadores tradicionales desperdician mucho más."),
          ("¿Cada cuánto se cambian los filtros?", "CF cada 6 meses, CB cada 12 meses y G3P600-RO cada 24 meses, según el uso."),
          ("¿Necesita electricidad?", "Sí, un tomacorriente bajo el fregadero."),
-         ("¿Quién responde por la garantía?", "Nasfeco, aquí en Ecuador.")])
+         ("¿Quién responde por la garantía?", "Nasfeco, distribuidor exclusivo oficial de Waterdrop Filter en Ecuador.")])
 
 # ---------- K6
 GK = "assets/k6/"
@@ -1696,7 +1709,7 @@ G5P = dict(pid="g5", file="product-g5p700a.html", short="Waterdrop G5P700A", ld_
 
 def page_g5(): return premium(G5P)
 
-for name, fn in [("product-x12.html", page_x12), ("product-g5p700a.html", page_g5), ("waterdrop.html", page_store), ("product-uf.html", page_uf), ("product-smart.html", page_smart), ("repuestos.html", page_repuestos)]:
+for name, fn in [("product-x12.html", page_x12), ("product-g5p700a.html", page_g5), ("product-g3p600.html", page_g600), ("waterdrop.html", page_store), ("product-uf.html", page_uf), ("product-smart.html", page_smart), ("repuestos.html", page_repuestos)]:
     with open(os.path.join(ROOT, name), "w", encoding="utf-8", newline="\n") as f:
         f.write(fn())
     print("ok", name)

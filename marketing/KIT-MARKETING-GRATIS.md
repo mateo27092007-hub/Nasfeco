@@ -70,7 +70,7 @@ Hace que Google encuentre y muestre la página en búsquedas.
 **A. Lista de difusión / contactos (oferta):**
 
 > Hola 👋 Te cuento que en Nasfeco somos los **distribuidores exclusivos oficiales de Waterdrop Filter en Ecuador** 💧
-> Este mes tenemos la **Oferta de Octubre**: purificadores con hasta **$400 de descuento**, precio final con IVA e **instalación incluida** en Quito, Guayaquil, Cuenca y Loja.
+> Este mes tenemos la **Oferta de Octubre**: purificadores con hasta **$300 de descuento**, precio final con IVA e **instalación incluida** en Quito, Guayaquil, Cuenca y Loja.
 > ✅ Dispensador portátil desde **$99**
 > ✅ Ultrafiltración sin electricidad **$299**
 > ✅ Ósmosis inversa G2P600 **$900**
@@ -83,7 +83,7 @@ Hace que Google encuentre y muestre la página en búsquedas.
 1. "¿Sigues comprando botellones? 🫗 Agua pura ilimitada directo del grifo. Instalación incluida 👉 nasfeco.com/waterdrop"
 2. "Dispensador purificador portátil a $99. Sin instalación, agua filtrada en 1 segundo 💧 nasfeco.com/waterdrop"
 3. "Distribuidores exclusivos oficiales de Waterdrop Filter en Ecuador 🇪🇨 Garantía y repuestos originales."
-4. "Oferta de Octubre: hasta $400 de descuento en purificadores. ¡Termina el 31! ⏳"
+4. "Oferta de Octubre: hasta $300 de descuento en purificadores. ¡Termina el 31! ⏳"
 
 **C. Respuesta rápida para quien escribe (guárdala en WhatsApp Business → Respuestas rápidas, atajo `/hola`):**
 
@@ -118,7 +118,7 @@ Hashtags base (mezcla 5 a 8 por post): `#AguaPura #PurificadorDeAgua #Waterdrop 
 | 6 | Historia con encuesta | "¿Tomas agua del grifo o de botellón?" | Encuesta + link a la tienda |
 | 7 | Carrusel | 5 cosas que puede traer el agua del grifo (cloro, sarro, sedimentos, metales, olor) | "El agua llega potable, pero en el camino recoge esto 👇" |
 | 8 | Reel | Cambio de filtro en 3 segundos | "Cambiar el filtro te toma 3 segundos. Literal ⏱️" |
-| 9 | Post | Oferta de Octubre con cuenta regresiva | "Hasta $400 de descuento. Solo hasta el 31 de octubre ⏳" |
+| 9 | Post | Oferta de Octubre con cuenta regresiva | "Hasta $300 de descuento. Solo hasta el 31 de octubre ⏳" |
 | 10 | Reel | Instalación real de su equipo (time-lapse) | "Así instalamos en [ciudad]. Limpio, rápido y listo para tomar." |
 | 11 | Carrusel | G5P700A: minerales alcalinos, pH 7.5 | "Pura, pero no vacía: agua con minerales alcalinos 💧" |
 | 12 | Historia | Testimonio o foto de cliente | Pide permiso al cliente y etiqueta |

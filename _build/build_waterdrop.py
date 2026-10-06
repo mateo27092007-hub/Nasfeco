@@ -93,7 +93,7 @@ def head(title, desc, canonical, og, ld):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/x.css?v=26">
+<link rel="stylesheet" href="css/x.css?v=27">
 </head>
 <body>
 '''
@@ -229,7 +229,7 @@ def bottom(extra=""):
 </div>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/x.js?v=26"></script>
+<script src="js/x.js?v=27"></script>
 {extra}
 </body>
 </html>
@@ -1720,7 +1720,7 @@ def page_g5(): return premium(G5P)
 G2D = "assets/g2/"
 G2V = lambda n, e="png": f"{G2D}wd-product-g2p600-vis-img{n}.{e}"
 G2N = lambda n: f"{G2D}ui-wd-g2p600-product-new-vis_{n}.jpg"
-PRICES["g2"] = (900, 1300)
+PRICES["g2"] = (900, 1200)
 OFFER["g2"] = ("Mejor precio", "Serie G · 600 GPD", "Waterdrop G2P600", ["600 GPD", "7 etapas", "Sin tanque", "Relación 2:1"])
 OFFER_IMG["g2"] = G2D + "WD-G2P600-W-NSF.png"
 OFFER_URL["g2"] = "product-g2p600.html"

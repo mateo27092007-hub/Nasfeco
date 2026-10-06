@@ -12,7 +12,7 @@ const WD = {
   products: {
     x12:   { name: 'Waterdrop X12 · 1200 GPD',      price: 1999, was: 2200, code: 'NASX12',  note: 'Precio final: incluye IVA e instalación', img: 'assets/x12/ui-wd-x12-new-vis-pr-logo.webp', url: 'product-x12.html' },
     g5:    { name: 'Waterdrop G5P700A · 700 GPD',   price: 1399, was: 1699, code: 'NASG5',   note: 'Precio final: incluye IVA e instalación', img: 'assets/g5/ui-wd-g5p700a-product.webp',      url: 'product-g5p700a.html' },
-    g2:    { name: 'Waterdrop G2P600 · 600 GPD',    price: 900,  was: 1300, code: 'NASG2',   note: 'Precio final: incluye IVA e instalación', img: 'assets/g2/WD-G2P600-W-NSF.png', url: 'product-g2p600.html' },
+    g2:    { name: 'Waterdrop G2P600 · 600 GPD',    price: 900,  was: 1200, code: 'NASG2',   note: 'Precio final: incluye IVA e instalación', img: 'assets/g2/WD-G2P600-W-NSF.png', url: 'product-g2p600.html' },
     uf:    { name: 'Waterdrop Ultrafiltración UF',  price: 299,  was: 380,  code: 'NASUF',   note: 'Precio final: incluye IVA e instalación', img: 'assets/uf/10UB-UF-NSF.png',                 url: 'product-uf.html' },
     smart: { name: 'Waterdrop Dispensador ED01',    price: 99,   was: 129,  code: 'NASED01', note: 'Precio final con IVA · envío no incluido', img: 'assets/ed01/1_33c5e044-eb97-4485-ae99-684bc658886e.webp', url: 'product-smart.html' },
     // Filtros de repuesto (sin descuento)

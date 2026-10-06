@@ -65,7 +65,8 @@ const WD = {
   Object.keys(cart).forEach(k => { if (!P[k]) delete cart[k]; });
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(cart)); } catch (e) {} };
 
-  function add(id, q = 1) { cart[id] = Math.min(20, (cart[id] || 0) + q); save(); renderCart(); toast(`${P[id].name} se agregó al carrito`); }
+  function add(id, q = 1) { cart[id] = Math.min(20, (cart[id] || 0) + q); save(); renderCart(); toast(`${P[id].name} se agregó al carrito`);
+    if (typeof gtag === 'function') gtag('event', 'conversion', { send_to: 'AW-18496630945/ZtMkCOPkvpIdEKHh8PNE', value: P[id].price * q, currency: 'USD' }); }
   function setQ(id, q) { if (q <= 0) delete cart[id]; else cart[id] = Math.min(20, q); save(); renderCart(); }
 
   function renderCart() {

@@ -81,7 +81,7 @@ def head(title, desc, canonical, og, ld):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/x.css?v=18">
+<link rel="stylesheet" href="css/x.css?v=19">
 </head>
 <body>
 '''
@@ -109,7 +109,7 @@ def nf_logo(sub=True):
 
 
 def wd_brand():
-    return '<a href="waterdrop.html" class="wd-brand"><img class="wd-logo" src="assets/brand/waterdrop-logo.png" alt="Waterdrop Filter" width="140" height="27"><em><b>ECUADOR</b>Distribuidor exclusivo oficial</em></a>'
+    return '<a href="waterdrop.html" class="wd-brand"><span class="wd-lockup"><img class="wd-logo" src="assets/brand/waterdrop-logo.png" alt="Waterdrop Filter" width="140" height="27"><span class="wd-filter">Filter</span></span><em><b>ECUADOR</b>Distribuidor exclusivo oficial</em></a>'
 
 I_TRUCK2 = I_TRUCK
 def trust():
@@ -214,7 +214,7 @@ def bottom(extra=""):
 </div>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/x.js?v=18"></script>
+<script src="js/x.js?v=19"></script>
 {extra}
 </body>
 </html>

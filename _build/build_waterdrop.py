@@ -93,7 +93,7 @@ def head(title, desc, canonical, og, ld):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/x.css?v=28">
+<link rel="stylesheet" href="css/x.css?v=29">
 </head>
 <body>
 '''
@@ -118,6 +118,20 @@ MEGA = [
 
 LOGO_SVG = '<svg viewBox="0 0 200 40" width="{w}" height="{h}" aria-label="Nasfeco S.A." role="img"><g transform="translate(5,5)"><path d="M5 5 L25 15 L5 25 Z" stroke="url(#lg{uid})" stroke-width="4.5" stroke-linejoin="round" fill="none"/><circle cx="5" cy="5" r="5" fill="#10B981"/><circle cx="25" cy="15" r="5" fill="#059669"/><circle cx="5" cy="25" r="5" fill="#00B4D8"/></g><text x="45" y="26" font-family="Times New Roman, serif" font-weight="bold" font-size="22" fill="currentColor" letter-spacing="1">NASFECO S.A</text><defs><linearGradient id="lg{uid}" x1="5" y1="5" x2="25" y2="25" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#10B981"/><stop offset="100%" stop-color="#00B4D8"/></linearGradient></defs></svg>'
 _LG = itertools.count()
+_SEAL = itertools.count()
+def seal(where):
+    """Sello giratorio de NASFECO. where: 'hero' (portada de la tienda) o 'gal' (foto principal de un producto)."""
+    k = next(_SEAL)
+    mark = ('<svg class="s-mark" viewBox="0 0 40 40" aria-hidden="true"><g transform="translate(5,5)">'
+            f'<path d="M5 5 L25 15 L5 25 Z" stroke="url(#sg{k})" stroke-width="4.5" stroke-linejoin="round" fill="none"/>'
+            '<circle cx="5" cy="5" r="5" fill="#10B981"/><circle cx="25" cy="15" r="5" fill="#059669"/><circle cx="5" cy="25" r="5" fill="#00B4D8"/></g>'
+            f'<defs><linearGradient id="sg{k}" x1="5" y1="5" x2="25" y2="25" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#10B981"/><stop offset="100%" stop-color="#00B4D8"/></linearGradient></defs></svg>')
+    return (f'<div class="seal-n hw-seal hw-seal-{where}" aria-hidden="true"><svg viewBox="0 0 200 200">'
+            f'<defs><path id="sp{k}" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>'
+            '<circle cx="100" cy="100" r="99" class="s-bg"/><circle cx="100" cy="100" r="64" class="s-in"/>'
+            f'<g class="s-rot"><text><textPath href="#sp{k}" textLength="498">NASFECO · DISTRIBUIDOR EXCLUSIVO OFICIAL · WATERDROP ECUADOR · </textPath></text></g>'
+            f'</svg>{mark}</div>')
+
 def nf_logo(sub=True):
     w, h = (150, 30) if sub else (120, 24)
     return '<span class="nf-logo">' + LOGO_SVG.format(w=w, h=h, uid=next(_LG)) + '</span>'
@@ -229,21 +243,21 @@ def bottom(extra=""):
 </div>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/x.js?v=28"></script>
+<script src="js/x.js?v=29"></script>
 {extra}
 </body>
 </html>
 '''
 
 # =========================================================== SECCIONES
-def banner(title, sub, metrics, bg=None, prod=None, btns="", card=False):
+def banner(title, sub, metrics, bg=None, prod=None, btns="", card=False, extra=""):
     m = "".join(f"<div><b>{b}</b><span>{s}</span></div>" for b, s in metrics)
     bgh = f'<div class="x-banner-bg">{pic(bg[0], bg[1], "", lazy=False)}</div>' if bg else '<div class="x-banner-bg"></div>'
     ph = f'<div class="x-banner-prod{" card" if card else ""}"><img src="{prod}" alt=""></div>' if prod else ""
     return f'''
 <section class="x-banner">
   <div class="x-banner-in">
-    {bgh}{ph}
+    {bgh}{ph}{extra}
     <div class="x-wrap"><div class="x-banner-c">
       <h1>{title}</h1><p>{sub}</p>
       <div class="x-metrics">{m}</div>{btns}
@@ -1009,7 +1023,7 @@ def page_store():
     body += banner("Deja los botellones.<br>Toma agua pura.", "Nasfeco es el distribuidor exclusivo oficial de Waterdrop Filter en Ecuador, con presencia en Miami, Florida (EE. UU.): equipos originales, con instalación en Quito, Guayaquil, Cuenca y Loja y envíos a todo el país.",
                    [("Certificados", "NSF/ANSI"), ("Instalación", "En 4 ciudades"), ("Envíos", "A todo Ecuador")],
                    bg=(A("wd-page-1016-new-2-pc.jpg"), A("wd-page-1016-new-2-mo.jpg")),
-                   btns='<div class="x-btns"><a href="#ofertas" class="x-btn x-btn-p">Ver ofertas</a><a href="#ahorro" class="x-btn x-btn-o">Calcular mi ahorro</a><button type="button" class="x-btn x-btn-g" data-cv-open>' + svg(I_DOC, 18, 1.8) + ' Ver certificados NSF/ANSI</button></div>').replace(
+                   btns='<div class="x-btns"><a href="#ofertas" class="x-btn x-btn-p">Ver ofertas</a><a href="#ahorro" class="x-btn x-btn-o">Calcular mi ahorro</a><button type="button" class="x-btn x-btn-g" data-cv-open>' + svg(I_DOC, 18, 1.8) + ' Ver certificados NSF/ANSI</button></div>', extra=seal("hero")).replace(
         '<div><b>Certificados</b><span>NSF/ANSI</span></div>',
         '<div class="x-metric-btn" data-cv-open role="button" tabindex="0" title="Ver certificados NSF/ANSI"><b>Certificados</b><span>NSF/ANSI · Ver documentos ›</span></div>', 1)
     body += cert_modal("all", "Certificaciones · Waterdrop Ecuador")[0]
@@ -1249,7 +1263,7 @@ def premium(c):
     body += f'''
 <section class="x-sec" id="ofertas" style="padding-top:40px">
   <div class="x-wrap x-pbuy">
-    <div><div class="x-gal-main"><img id="x-gal-main" src="{c["gallery"][0]}" alt="{c["h1"]}"></div><div class="x-gal-th">{thumbs}</div></div>
+    <div><div class="x-gal-main"><img id="x-gal-main" src="{c["gallery"][0]}" alt="{c["h1"]}">{seal("gal") if c.get("seal") else ""}</div><div class="x-gal-th">{thumbs}</div></div>
     <div class="x-pinfo">
       <p class="x-eyebrow">{c["eyebrow"]}</p><h1>{c["h1"]}</h1><p>{c["sub"]}</p>
       <div class="x-metrics">{m}</div>
@@ -1368,10 +1382,10 @@ X16 = dict(pid="x16", file="product-x16.html", short="Waterdrop X16", ld_name="W
 
 # --------------------------------------------------------------- X12
 G12 = "assets/x12/"
-X12 = dict(pid="x12", file="product-x12.html", short="Waterdrop X12", ld_name="Waterdrop X12 Ósmosis Inversa 1200 GPD",
+X12 = dict(pid="x12", seal=True, file="product-x12.html", short="Waterdrop X12", ld_name="Waterdrop X12 Ósmosis Inversa 1200 GPD",
     title="Waterdrop X12 · 1200 GPD | Waterdrop Ecuador · Nasfeco",
     desc="Waterdrop X12 en Ecuador: ósmosis inversa sin tanque de 1200 GPD, 11 etapas, minerales alcalinos y grifo inteligente. Instalación y soporte de Nasfeco en Quito, Guayaquil, Cuenca y Loja.",
-    gallery=[G12 + f for f in ["ui-wd-x12-new-vis-pr-logo.webp", "ui-wd-x12-b-new-vis-main.webp", "ui-wd-x12-new-vis-pr-logo-white.jpg", "WD_X12_new.webp", "1226-WD-_1016-1200g__2.jpg",
+    gallery=[G12 + f for f in ["ui-wd-x12-main-sello.webp", "ui-wd-x12-b-new-vis-main.webp", "ui-wd-x12-new-vis-pr-logo-white.jpg", "WD_X12_new.webp", "1226-WD-_1016-1200g__2.jpg",
                                "1226-WD-_1016-1200g__3.jpg", "X12_3.jpg", "X12_4.jpg", "1226-WD-_1016-1200g__7.jpg", "X12_8.jpg", "X12-NSF_ANTI-4258372.jpg", "RO_reduce_lead.jpg", "X12-Spec.jpg"]],
     eyebrow="Serie X · El más vendido", h1="Waterdrop X12 · Ósmosis inversa sin tanque",
     sub="El equilibrio perfecto para la mayoría de familias: agua pura al instante, minerales alcalinos y grifo inteligente.",

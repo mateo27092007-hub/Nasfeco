@@ -93,7 +93,7 @@ def head(title, desc, canonical, og, ld):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/x.css?v=27">
+<link rel="stylesheet" href="css/x.css?v=28">
 </head>
 <body>
 '''
@@ -229,7 +229,7 @@ def bottom(extra=""):
 </div>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/x.js?v=27"></script>
+<script src="js/x.js?v=28"></script>
 {extra}
 </body>
 </html>
@@ -520,7 +520,7 @@ def page_ro():
       <h4>Qué reduce</h4>
       <p>Sales disueltas (TDS), PFOA, PFOS, cloro, flúor, bario, arsénico, sedimentos, cromo VI, plomo, microplásticos y olores, entre otros.</p>
       <small>Certificación emitida por IAPMO R&amp;T: NSF/ANSI 58 para las sustancias indicadas en la hoja de rendimiento del equipo y NSF/ANSI 372 para materiales bajos en plomo (≤0.25%).</small>
-      <div class="x-btns" style="margin-top:22px"><button type="button" class="x-btn x-btn-p" data-cv-open>{svg(I_DOC, 18, 1.8)} Ver certificados</button></div>
+      <div class="x-btns" style="margin-top:22px"><button type="button" class="x-btn x-btn-p" data-cv-open>{svg(I_DOC, 18, 1.8)} Ver certificados NSF/ANSI</button></div>
     </div>
     <div class="x-cert-img x-rv x-cert-click" data-cv-open role="button" tabindex="0">{pic(A("wd-product-x16-wd-new-vis-authentication-img-pc.jpg"), A("wd-product-x16-wd-new-vis-authentication-img-mo.jpg"), "Certificados NSF/ANSI e IAPMO de la Serie X")}<span class="x-cert-zoom">{svg(I_DOC, 18, 1.8)} Ver certificados</span></div>
   </div>
@@ -924,7 +924,7 @@ def cert_modal(key, title):
     <div class="x-cv-b"><nav class="x-cv-list">{items}</nav><div class="x-cv-view" id="x-cv-view"></div></div>
   </div>
 </div>'''
-    btn = f'<div class="x-btns" style="margin-top:22px"><button type="button" class="x-btn x-btn-p" data-cv-open>{svg(I_DOC, 18, 1.8)} Ver certificados</button></div>'
+    btn = f'<div class="x-btns" style="margin-top:22px"><button type="button" class="x-btn x-btn-p" data-cv-open>{svg(I_DOC, 18, 1.8)} Ver certificados NSF/ANSI</button></div>'
     return modal, btn
 
 
@@ -1009,9 +1009,9 @@ def page_store():
     body += banner("Deja los botellones.<br>Toma agua pura.", "Nasfeco es el distribuidor exclusivo oficial de Waterdrop Filter en Ecuador, con presencia en Miami, Florida (EE. UU.): equipos originales, con instalación en Quito, Guayaquil, Cuenca y Loja y envíos a todo el país.",
                    [("Certificados", "NSF/ANSI"), ("Instalación", "En 4 ciudades"), ("Envíos", "A todo Ecuador")],
                    bg=(A("wd-page-1016-new-2-pc.jpg"), A("wd-page-1016-new-2-mo.jpg")),
-                   btns='<div class="x-btns"><a href="#ofertas" class="x-btn x-btn-p">Ver ofertas</a><a href="#ahorro" class="x-btn x-btn-o">Calcular mi ahorro</a><button type="button" class="x-btn x-btn-g" data-cv-open>' + svg(I_DOC, 18, 1.8) + ' Ver certificaciones</button></div>').replace(
+                   btns='<div class="x-btns"><a href="#ofertas" class="x-btn x-btn-p">Ver ofertas</a><a href="#ahorro" class="x-btn x-btn-o">Calcular mi ahorro</a><button type="button" class="x-btn x-btn-g" data-cv-open>' + svg(I_DOC, 18, 1.8) + ' Ver certificados NSF/ANSI</button></div>').replace(
         '<div><b>Certificados</b><span>NSF/ANSI</span></div>',
-        '<div class="x-metric-btn" data-cv-open role="button" tabindex="0" title="Ver certificaciones"><b>Certificados</b><span>NSF/ANSI · Ver documentos ›</span></div>', 1)
+        '<div class="x-metric-btn" data-cv-open role="button" tabindex="0" title="Ver certificados NSF/ANSI"><b>Certificados</b><span>NSF/ANSI · Ver documentos ›</span></div>', 1)
     body += cert_modal("all", "Certificaciones · Waterdrop Ecuador")[0]
     body += picks(["x12", "g5", "g2", "uf", "smart"])
     body += shorts()
@@ -1173,7 +1173,7 @@ OFFER = {
     "x16": ("El más rápido", "Serie X · 1600 GPD", "Waterdrop X16", ["1600 GPD", "Taza en 2 s", "pH 7.5", "Familias grandes"]),
     "x8":  ("Para empezar", "Serie X · 800 GPD", "Waterdrop X8", ["800 GPD", "10 etapas", "pH 7.5", "Grifo con pantalla"]),
     "uf":  ("Sin electricidad", "Bajo el fregadero", "Ultrafiltración UF", ["0.01 μm", "0% desperdicio", "Conserva minerales"]),
-    "smart": ("Sin instalación", "Sobre la mesa", "Dispensador ED01", ["Agua en 1 s", "Alcalina", "Portátil"]),
+    "smart": ("Sin instalación", "Sobre la mesa", "Dispensador ED01", ["Agua en 1 s", "30+ contaminantes", "Portátil"]),
 }
 OFFER_IMG = {"x12": "assets/x12/ui-wd-x12-new-vis-pr-logo.webp", "x16": "assets/x16/X16-LOGO-2.webp", "x8": "assets/x8/ui-wd-x8-a-new-vis-main.webp",
              "uf": "assets/uf-gal-1.png.png", "smart": "assets/ed01/1_33c5e044-eb97-4485-ae99-684bc658886e.webp"}
@@ -1300,7 +1300,7 @@ def premium(c):
     if c.get("cert"):
         pc, mo, t, d = c["cert"]
         modal, btn = cert_modal(pid, "Certificados · " + c["short"])
-        zoom = '<span class="x-cert-zoom">' + svg(I_DOC, 18, 1.8) + ' Ver certificados</span>' if modal else ""
+        zoom = '<span class="x-cert-zoom">' + svg(I_DOC, 18, 1.8) + ' Ver certificados NSF/ANSI</span>' if modal else ""
         body += f'''
 <section class="x-sec" id="certificacion"><div class="x-wrap x-cert">
   <div class="x-rv"><p class="x-eyebrow">Calidad comprobada</p><h2>{t}</h2><p>{d}</p>{btn}</div>
@@ -1487,21 +1487,20 @@ GE = "assets/ed01/"
 EB = lambda n: f"{GE}wd-product-countertop-electric-water-pitcher-ed01a-pc-img{n}.jpg"
 ED = dict(pid="smart", file="product-smart.html", short="Dispensador ED01", ld_name="Waterdrop Dispensador ED01",
     title="Dispensador ED01 | Waterdrop Ecuador · Nasfeco",
-    desc="Dispensador purificador eléctrico Waterdrop ED01 en Ecuador: agua filtrada y alcalina en 1 segundo, reduce más de 30 contaminantes, portátil y sin instalación.",
-    gallery=[GE + f for f in ["1_33c5e044-eb97-4485-ae99-684bc658886e.webp", "319IZ2UmO8L.jpg", "4169zvwxdlL.jpg", "41Au5hMvngL.jpg", "41EJ36kf5JL.jpg", "41nY5J2sudL.jpg", "51ii-WXfo8L.jpg",
+    desc="Dispensador purificador eléctrico Waterdrop ED01 en Ecuador: agua filtrada en 1 segundo, reduce más de 30 contaminantes, portátil y sin instalación.",
+    gallery=[GE + f for f in ["1_33c5e044-eb97-4485-ae99-684bc658886e.webp", "319IZ2UmO8L.jpg", "41Au5hMvngL.jpg", "51ii-WXfo8L.jpg",
                              "White-AlkalineAlkaline-02.jpg", "White-AlkalineAlkaline-08.jpg", "White-AlkalineAlkaline-09.jpg"]],
     eyebrow="Sobre la mesa · Sin instalación", h1="Dispensador Inteligente ED01", filters=[("assets/filtros/wd-edf.webp", "WD-EDF", "Hasta 3 meses")],
-    sub="Agua filtrada y alcalina en 1 segundo, donde la necesites. Sin tuberías ni técnicos: lo llenas, tocas el botón y sirves.",
-    metrics=[("1 s", "Agua al instante"), ("30+", "Contaminantes"), ("pH+", "Alcalina")],
+    sub="Agua filtrada en 1 segundo, donde la necesites. Sin tuberías ni técnicos: lo llenas, tocas el botón y sirves.",
+    metrics=[("1 s", "Agua al instante"), ("30+", "Contaminantes"), ("15", "Tazas de capacidad")],
     detail_title="Conócelo en detalle",
-    detail=[EB(1), EB(2), EB(3), EB(4), EB(5), EB(6), EB(7), EB(8), EB(9), EB(10), EB(11)], detail_two=True,
+    detail=[EB(3), EB(10), EB(11), EB(6), EB(7), EB(8), EB(9)], detail_two=True,
     cert=(GE + "White-AlkalineAlkaline-02.jpg", GE + "White-AlkalineAlkaline-02.jpg", "Certificado NSF/ANSI 42 y 372",
           "Probado por laboratorios independientes: reduce cloro, PFOA/PFOS, plomo, sabor y olor, entre más de 30 contaminantes."),
     specs=[("Modelo", "WD-ED01A"), ("Caudal", "Hasta 0.8 L/min"), ("Capacidad", "15 tazas"), ("Vida del filtro", "Filtro WD-EDF: 3 meses o 200 galones"), ("Medidas", "18 × 25 × 26 cm"),
            ("Instalación", "No necesita"), ("Alimentación", "Batería recargable")],
     spec_img=GE + "1_33c5e044-eb97-4485-ae99-684bc658886e.webp",
     faq=[("¿Necesita instalación?", "No. Solo llénalo con agua del grifo, cárgalo y úsalo. Ideal si vives en arriendo."),
-         ("¿Sube el pH del agua?", "Sí. Su filtro tiene ingredientes alcalinos que aumentan el pH del agua."),
          ("¿Cuándo cambio el filtro?", "Cuando el indicador parpadee en rojo y suene. Cada filtro WD-EDF dura hasta 3 meses o 200 galones."),
          ("¿Reduce el TDS?", "No. Para reducir sales disueltas te recomendamos la Serie X de ósmosis inversa."),
          ("¿Quién responde por la garantía?", "Nasfeco, aquí en Ecuador.")])

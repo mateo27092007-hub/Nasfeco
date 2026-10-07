@@ -93,7 +93,7 @@ def head(title, desc, canonical, og, ld):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/x.css?v=29">
+<link rel="stylesheet" href="css/x.css?v=31">
 </head>
 <body>
 '''
@@ -111,7 +111,7 @@ def offer_ld(pid, name, desc, imgs, url):
 MEGA = [
     ("product-x12.html", "assets/x12/ui-wd-x12-new-vis-pr-logo.webp", "Waterdrop X12", "1200 GPD, el más completo"),
     ("product-g5p700a.html", "assets/g5/ui-wd-g5p700a-product.webp", "Waterdrop G5P700A", "700 GPD, alcalino"),
-    ("product-g2p600.html", "assets/g2/WD-G2P600-W-NSF.png", "Waterdrop G2P600", "600 GPD, mejor precio"),
+    ("product-g2p600.html", "assets/g2/WD-G2P600-W-NSF.webp", "Waterdrop G2P600", "600 GPD, mejor precio"),
     ("product-uf.html", "assets/uf/10UB-UF-NSF.png", "Ultrafiltración UF", "Sin electricidad"),
     ("product-smart.html", "assets/ed01/1_33c5e044-eb97-4485-ae99-684bc658886e.webp", "Dispensador ED01", "Sin instalación"),
 ]
@@ -126,10 +126,11 @@ def seal(where):
             f'<path d="M5 5 L25 15 L5 25 Z" stroke="url(#sg{k})" stroke-width="4.5" stroke-linejoin="round" fill="none"/>'
             '<circle cx="5" cy="5" r="5" fill="#10B981"/><circle cx="25" cy="15" r="5" fill="#059669"/><circle cx="5" cy="25" r="5" fill="#00B4D8"/></g>'
             f'<defs><linearGradient id="sg{k}" x1="5" y1="5" x2="25" y2="25" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#10B981"/><stop offset="100%" stop-color="#00B4D8"/></linearGradient></defs></svg>')
-    return (f'<div class="seal-n hw-seal hw-seal-{where}" aria-hidden="true"><svg viewBox="0 0 200 200">'
+    # El anillo con el texto es un <svg> propio y gira entero (animación en la GPU, no depende del resto de la página).
+    return (f'<div class="seal-n hw-seal hw-seal-{where}" aria-hidden="true"><svg class="s-ring" viewBox="0 0 200 200">'
             f'<defs><path id="sp{k}" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>'
-            '<circle cx="100" cy="100" r="99" class="s-bg"/><circle cx="100" cy="100" r="64" class="s-in"/>'
-            f'<g class="s-rot"><text><textPath href="#sp{k}" textLength="498">NASFECO · DISTRIBUIDOR EXCLUSIVO OFICIAL · WATERDROP ECUADOR · </textPath></text></g>'
+            '<circle cx="100" cy="100" r="64" class="s-in"/>'
+            f'<text><textPath href="#sp{k}" textLength="498">NASFECO · DISTRIBUIDOR EXCLUSIVO OFICIAL · WATERDROP ECUADOR · </textPath></text>'
             f'</svg>{mark}</div>')
 
 def nf_logo(sub=True):
@@ -150,7 +151,7 @@ def trust():
 def top(subnav=None, side=None):
     mega = "".join(f'<a href="{u}"><img src="{i}" alt="" loading="lazy">{t}<small>{s}</small></a>' for u, i, t, s in MEGA)
     mega += '<button type="button" class="x-mega-side" data-quiz><small>¿No sabes cuál elegir?</small><b>Responde 3 preguntas y te recomendamos uno →</b></button>'
-    mnav = "".join(f'<a href="{u}"><img src="{i}" alt="">{t}</a>' for u, i, t, s in MEGA)
+    mnav = "".join(f'<a href="{u}"><img src="{i}" alt="" loading="lazy">{t}</a>' for u, i, t, s in MEGA)
     out = f'''
 <div class="x-group">
   <div class="x-wrap">
@@ -243,7 +244,7 @@ def bottom(extra=""):
 </div>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/x.js?v=29"></script>
+<script src="js/x.js?v=31"></script>
 {extra}
 </body>
 </html>
@@ -354,7 +355,7 @@ def cmp_cats(hl):
              [("Tecnología", "Ósmosis inversa + remineralización"), ("Filtrado", "0.0001 μm · 11 etapas"), ("Instalación", "Bajo el fregadero, sin tanque"), ("Ideal para", "Familias que quieren máxima pureza y caudal")]),
             ("g5", "assets/g5/ui-wd-g5p700a-product.webp", "Waterdrop G5P700A", "product-g5p700a.html",
              [("Tecnología", "Ósmosis inversa + minerales alcalinos"), ("Filtrado", "0.0001 μm · 8 etapas"), ("Instalación", "Bajo el fregadero, sin tanque"), ("Ideal para", "Agua alcalina a mejor precio")]),
-            ("g2", "assets/g2/WD-G2P600-W-NSF.png", "Waterdrop G2P600", "product-g2p600.html",
+            ("g2", "assets/g2/WD-G2P600-W-NSF.webp", "Waterdrop G2P600", "product-g2p600.html",
              [("Tecnología", "Ósmosis inversa"), ("Filtrado", "0.0001 μm · 7 etapas"), ("Instalación", "Bajo el fregadero, sin tanque"), ("Ideal para", "Ósmosis inversa al mejor precio")]),
             ("uf", "assets/uf/10UB-UF-NSF.png", "Ultrafiltración UF", "product-uf.html",
              [("Tecnología", "Membrana de ultrafiltración"), ("Filtrado", "0.01 μm · conserva minerales"), ("Instalación", "Bajo el fregadero, sin electricidad"), ("Ideal para", "Agua de red en buen estado")]),
@@ -1013,7 +1014,7 @@ def page_store():
     ld = {"@context": "https://schema.org", "@graph": [
         offer_ld("x12", "Waterdrop X12 Ósmosis Inversa", desc, [A("ui-wd-x12-new-vis-pr-logo.png")], "product-x12.html"),
         offer_ld("g5", "Waterdrop G5P700A Ósmosis Inversa Alcalina", desc, ["assets/g5/ui-wd-g5p700a-product.webp"], "product-g5p700a.html"),
-        offer_ld("g2", "Waterdrop G2P600 Ósmosis Inversa 600 GPD", desc, ["assets/g2/WD-G2P600-W-NSF.png"], "product-g2p600.html"),
+        offer_ld("g2", "Waterdrop G2P600 Ósmosis Inversa 600 GPD", desc, ["assets/g2/WD-G2P600-W-NSF.webp"], "product-g2p600.html"),
         offer_ld("uf", "Waterdrop Ultrafiltración UF", desc, ["assets/uf-gal-1.png.png"], "product-uf.html"),
         offer_ld("smart", "Waterdrop Dispensador ED01", desc, ["assets/smart-gal-1.png.jpg"], "product-smart.html"),
         {"@type": "LocalBusiness", "name": "Waterdrop Ecuador · Nasfeco", "description": "Distribuidor exclusivo oficial de Waterdrop Filter en Ecuador", "telephone": "+593 99 731 2362", "url": SITE + "waterdrop",
@@ -1285,7 +1286,7 @@ def premium(c):
     if c.get("ba"):
         tabs = "".join(f'<button class="x-tab{" on" if i == 0 else ""}" data-ba-tab="ba{i}">{t}</button>' for i, (t, *_r) in enumerate(c["ba"]))
         knob = svg(I_ARROWS, 20, 2.2)
-        bas = "".join(f'<div class="x-ba{" on" if i == 0 else ""}" id="ba{i}"><img src="{i1}" alt="{a}"><img class="after" src="{i2}" alt="{b}"><span class="bar"></span><span class="knob">{knob}</span><span class="lab a">{a}</span><span class="lab b">{b}</span></div>'
+        bas = "".join(f'<div class="x-ba{" on" if i == 0 else ""}" id="ba{i}"><img src="{i1}" alt="{a}" loading="lazy"><img class="after" src="{i2}" alt="{b}" loading="lazy"><span class="bar"></span><span class="knob">{knob}</span><span class="lab a">{a}</span><span class="lab b">{b}</span></div>'
                       for i, (t, i1, i2, a, b) in enumerate(c["ba"]))
         body += f'''
 <section class="x-sec" data-ba><div class="x-wrap"><div class="x-head x-rv"><h2 class="x-h2">{c["ba_title"]}</h2><p class="x-lead">Desliza para comparar con lo que tienes hoy.</p></div>
@@ -1735,12 +1736,12 @@ G2V = lambda n, e="png": f"{G2D}wd-product-g2p600-vis-img{n}.{e}"
 G2N = lambda n: f"{G2D}ui-wd-g2p600-product-new-vis_{n}.jpg"
 PRICES["g2"] = (900, 1200)
 OFFER["g2"] = ("Mejor precio", "Serie G · 600 GPD", "Waterdrop G2P600", ["600 GPD", "7 etapas", "Sin tanque", "Relación 2:1"])
-OFFER_IMG["g2"] = G2D + "WD-G2P600-W-NSF.png"
+OFFER_IMG["g2"] = G2D + "WD-G2P600-W-NSF.webp"
 OFFER_URL["g2"] = "product-g2p600.html"
 G2P = dict(pid="g2", art="el", file="product-g2p600.html", short="Waterdrop G2P600", ld_name="Waterdrop G2P600 Ósmosis Inversa 600 GPD",
     title="Waterdrop G2P600 · 600 GPD | Waterdrop Ecuador · Nasfeco",
     desc="Waterdrop G2P600 en Ecuador: ósmosis inversa sin tanque de 600 GPD, 7 etapas y relación 2:1. Precio final con IVA e instalación. Distribuidor exclusivo oficial: Nasfeco.",
-    gallery=[G2D + "WD-G2P600-W-NSF.png", G2N(5), G2N(6), G2N(1), G2N(4), G2N(7), G2N(2), G2N(3), G2D + "ui-wd-g2p600-w-cz-no.png"],
+    gallery=[G2D + "WD-G2P600-W-NSF.webp", G2N(5), G2N(6), G2N(1), G2N(4), G2N(7), G2N(2), G2N(3), G2D + "ui-wd-g2p600-w-cz-no.png"],
     eyebrow="Serie G · Ósmosis inversa al mejor precio", h1="Waterdrop G2P600 · Ósmosis inversa sin tanque",
     sub="600 galones por día, 7 etapas de filtración y relación 2:1 en un equipo compacto y sin tanque. La forma más accesible de tener ósmosis inversa en casa.",
     metrics=[("600", "GPD"), ("2:1", "Agua pura / desecho"), ("7", "Etapas")],

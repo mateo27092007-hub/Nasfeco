@@ -1125,17 +1125,14 @@ a.x-bi-link em{display:block;font-style:normal;font-size:12px;font-weight:700;co
 /* =========================================================
    Sello giratorio NASFECO (colores del logo NASFECO S.A.)
    ========================================================= */
-.seal-n{position:relative;width:150px;aspect-ratio:1;display:grid;place-items:center;filter:drop-shadow(0 18px 30px rgba(3,18,36,.25));pointer-events:none}
-.seal-n svg{position:absolute;inset:0;width:100%;height:100%}
-.seal-n .s-bg{fill:var(--navy)}
+.seal-n{position:relative;width:150px;aspect-ratio:1;display:grid;place-items:center;border-radius:50%;background:var(--navy);box-shadow:0 14px 28px rgba(3,18,36,.28);pointer-events:none;contain:layout paint}
+.seal-n .s-ring{position:absolute;inset:0;width:100%;height:100%;animation:sealSpin 28s linear infinite;will-change:transform}
 .seal-n .s-in{fill:none;stroke:var(--green);stroke-width:1.2}
 .seal-n text{fill:var(--green);font-family:'Montserrat',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.02em}
-.seal-n .s-rot{transform-origin:100px 100px;animation:sealSpin 28s linear infinite}
-@keyframes sealSpin{to{transform:rotate(360deg)}}
-.seal-n > .s-mark{position:relative;width:40%;height:auto;inset:auto}
+@keyframes sealSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.seal-n > .s-mark{position:relative;width:40%;height:auto}
 .hw-seal{position:absolute;z-index:3;width:clamp(110px,10vw,150px)}
 .hw-seal-hero{right:clamp(16px,4vw,64px);top:clamp(28px,5%,56px)}
 .x-gal-main{position:relative}
 .hw-seal.hw-seal-gal{width:20%;right:2.5%;top:2.5%}
 @media (max-width:680px){.hw-seal{width:84px}.hw-seal-hero{right:16px;top:auto;bottom:36px}.hw-seal.hw-seal-gal{width:84px;right:1.5%;top:1.5%}}
-@media (prefers-reduced-motion:reduce){.seal-n .s-rot{animation:none}}

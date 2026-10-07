@@ -1136,3 +1136,9 @@ a.x-bi-link em{display:block;font-style:normal;font-size:12px;font-weight:700;co
 .x-gal-main{position:relative}
 .hw-seal.hw-seal-gal{width:20%;right:2.5%;top:2.5%}
 @media (max-width:680px){.hw-seal{width:84px}.hw-seal-hero{right:16px;top:auto;bottom:36px}.hw-seal.hw-seal-gal{width:84px;right:1.5%;top:1.5%}}
+/* "Lo que antes tomaba minutos": el texto va debajo de la foto (no encima del grifo) */
+.x-speed figure{aspect-ratio:auto;display:flex;flex-direction:column;background:var(--s2,#f4f4f4)}
+.x-speed img{height:auto;aspect-ratio:1;display:block}
+.x-speed figcaption{position:static;padding:18px 22px 22px}
+.x-speed span{margin-top:6px}
+@media (max-width:767px){.x-speed figure{aspect-ratio:auto}.x-speed img{aspect-ratio:16/10;object-position:50% 30%}.x-speed figcaption{padding:14px 18px 18px}}

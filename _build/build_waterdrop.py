@@ -93,7 +93,7 @@ def head(title, desc, canonical, og, ld):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/x.css?v=33">
+<link rel="stylesheet" href="css/x.css?v=34">
 </head>
 <body>
 '''
@@ -244,7 +244,7 @@ def bottom(extra=""):
 </div>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/x.js?v=33"></script>
+<script src="js/x.js?v=34"></script>
 {extra}
 </body>
 </html>
@@ -1251,7 +1251,8 @@ def drop(video, title, sub, ph=7.5):
 
 def req_modal(img, short):
     """Botón y ventana con los requisitos de instalación (imagen)."""
-    btn = f'<button type="button" class="x-btn x-btn-o x-req-btn" data-req-open>{svg(I_DOC, 18, 1.8)} Revisar antes de comprar</button>'
+    warn = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18.2A2 2 0 0 0 3.5 21h17a2 2 0 0 0 1.7-2.8L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>'
+    btn = f'<button type="button" class="x-btn x-req-btn" data-req-open>{warn}<span>Revisar antes de comprar</span><em>Importante</em></button>'
     modal = f'''
 <div class="x-cv-ov" id="x-req" role="dialog" aria-modal="true" aria-label="Revisar antes de comprar">
   <div class="x-cv x-req">

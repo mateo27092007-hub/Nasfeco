@@ -1144,11 +1144,17 @@ a.x-bi-link em{display:block;font-style:normal;font-size:12px;font-weight:700;co
 @media (max-width:767px){.x-speed figure{aspect-ratio:auto}.x-speed img{aspect-ratio:16/10;object-position:50% 30%}.x-speed figcaption{padding:14px 18px 18px}}
 
 /* Revisar antes de comprar (requisitos de instalación) */
-.x-req-btn{width:100%;margin-top:12px;gap:8px;border-color:var(--gold-d);color:var(--gold-d)}
-.x-req-btn:hover{background:var(--gold-l);color:var(--gold-d)}
+.x-req-btn{width:100%;margin-top:12px;gap:10px;height:auto;min-height:54px;padding:12px 18px;background:var(--gold-l);border:2px solid var(--gold);color:#047857;font-weight:700;font-size:16px;animation:reqPulse 2.4s ease-out 1s 4}
+.x-req-btn svg{flex:none;color:var(--gold-d)}
+.x-req-btn em{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--gold);color:#fff;padding:4px 8px;border-radius:999px}
+.x-req-btn:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.x-req-btn:hover svg{color:#fff}
+.x-req-btn:hover em{background:#fff;color:var(--gold-d)}
+@keyframes reqPulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.55)}70%{box-shadow:0 0 0 12px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
 .x-req{height:auto;max-height:min(92vh,980px);width:min(1000px,100%)}
 .x-req-b{overflow:auto;background:#f6f8fb;padding:16px}
 .x-req-b img{display:block;width:100%;height:auto;border-radius:12px}
 @media (max-width:767px){.x-req{max-height:100%;height:100%}.x-req-b{padding:8px;flex:1}}
 .x-req-hint{display:none;margin:10px 4px 0;font-size:13px;color:#667;text-align:center}
 @media (max-width:767px){.x-req-hint{display:block}}
+@media (max-width:767px){.x-req-btn{font-size:15px;gap:8px;padding:10px 12px}.x-req-btn em{font-size:10px;padding:3px 7px}.x-req-btn svg{width:18px;height:18px}}

@@ -1158,3 +1158,14 @@ a.x-bi-link em{display:block;font-style:normal;font-size:12px;font-weight:700;co
 .x-req-hint{display:none;margin:10px 4px 0;font-size:13px;color:#667;text-align:center}
 @media (max-width:767px){.x-req-hint{display:block}}
 @media (max-width:767px){.x-req-btn{font-size:15px;gap:8px;padding:10px 12px}.x-req-btn em{font-size:10px;padding:3px 7px}.x-req-btn svg{width:18px;height:18px}}
+
+/* Enlace a NASFECO US (Miami) en la barra superior */
+.x-group-l .x-group-sep{color:#b8bec8;font-weight:300;margin:0 -8px}
+.x-group-l a.x-group-us{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:13px;letter-spacing:1px;color:#9A7A2E}
+.x-group-l a.x-group-us:hover{color:#7A5E1E;border-color:#C9A24D}
+.x-group-r a.x-mia{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.x-group-r a.x-mia:hover{color:var(--navy)}
+@media (max-width:767px){.x-group-l .x-group-sep{margin:0 -5px}.x-group-l a.x-group-us{font-size:11px;letter-spacing:.5px}}
+.x-group-l a{white-space:nowrap}
+.x-group-us .us-s{display:none}
+@media (max-width:767px){.x-group-us .us-l{display:none}.x-group-us .us-s{display:inline}.x-group-l{gap:10px}}

@@ -8,7 +8,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HERE = os.path.dirname(os.path.abspath(__file__))
 WA_PATH = re.sub(r'^<path d="|"$', "", open(os.path.join(HERE, "wa_path.txt"), encoding="utf-8").read().strip())
 WA = f'<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="{WA_PATH}"/></svg>'
-V = "?v=34"
+V = "?v=35"
 
 def svg(d, w=24, sw=1.8):
     return f'<svg viewBox="0 0 24 24" width="{w}" height="{w}" fill="none" stroke="currentColor" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{d}"/></svg>'
@@ -84,9 +84,9 @@ FAQ = [("¿En qué ciudades trabajan?", "Trabajamos en todo el Ecuador, con pres
 def group(active):
     return f'''
 <div class="x-group"><div class="x-wrap">
-  <div class="x-group-l"><a href="index.html">{nf_logo(sub=False)}</a>
+  <div class="x-group-l"><a href="index.html">{nf_logo(sub=False)}</a><span class="x-group-sep" aria-hidden="true">/</span><a href="https://nasfecousa.com/" class="x-group-us" title="NASFECO Miami (EE. UU.)"><span class="us-l">NASFECO US</span><span class="us-s">USA</span></a>
     <a href="nasfeco.html"{' class="on"' if active == "nf" else ""}>Empresas</a><a href="waterdrop.html"{' class="on"' if active == "wd" else ""}>Waterdrop Hogar</a></div>
-  <div class="x-group-r"><b style="color:var(--gold-d)">Distribuidor exclusivo oficial de Waterdrop Filter</b> · Ecuador y Miami, Florida (EE. UU.) · WhatsApp +593 99 731 2362</div>
+  <div class="x-group-r"><b style="color:var(--gold-d)">Distribuidor exclusivo oficial de Waterdrop Filter</b> · Ecuador y <a href="https://nasfecousa.com/" class="x-mia">Miami, Florida (EE. UU.)</a> · WhatsApp +593 99 731 2362</div>
 </div></div>'''
 
 def page_nf():
@@ -209,7 +209,7 @@ def page_nf():
     <div>{nf_logo("#ffffff")}<p style="margin-top:14px">Energía solar, purificación y tratamiento de agua para empresas e industrias en Ecuador. Distribuidor exclusivo oficial de Waterdrop Filter en Ecuador.</p></div>
     <div><h4>Soluciones</h4><a href="#soluciones">Energía solar</a><a href="#soluciones">Purificación de agua</a><a href="#soluciones">Tratamiento químico</a><a href="#soluciones">Consultoría técnica</a></div>
     <div><h4>Nasfeco</h4><a href="#nosotros">Nosotros</a><a href="#proceso">Cómo trabajamos</a><a href="waterdrop.html">Waterdrop Hogar</a><a href="index.html">Inicio</a></div>
-    <div><h4>Contacto</h4><p style="margin-bottom:8px">nasfeco@gmail.com</p><p style="margin-bottom:8px">Ecuador · Miami (EE. UU.)</p><p style="margin-bottom:8px">WhatsApp +593 99 731 2362</p><p>Quito, Ecuador</p></div>
+    <div><h4>Contacto</h4><p style="margin-bottom:8px">nasfeco@gmail.com</p><p style="margin-bottom:8px">Ecuador · <a href="https://nasfecousa.com/" style="display:inline">Miami (EE. UU.)<br><b style="font-weight:600">nasfecousa.com ↗</b></a></p><p style="margin-bottom:8px">WhatsApp +593 99 731 2362</p><p>Quito, Ecuador</p></div>
   </div>
   <div class="x-foot-b"><span>&copy; 2026 Nasfeco · Ecuador. Todos los derechos reservados.</span><span>Creado por <strong>Mateo Perez</strong></span></div>
 </div></footer>

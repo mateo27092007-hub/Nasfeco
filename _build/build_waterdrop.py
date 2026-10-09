@@ -93,7 +93,7 @@ def head(title, desc, canonical, og, ld):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/x.css?v=34">
+<link rel="stylesheet" href="css/x.css?v=35">
 </head>
 <body>
 '''
@@ -156,11 +156,11 @@ def top(subnav=None, side=None):
 <div class="x-group">
   <div class="x-wrap">
     <div class="x-group-l">
-      <a href="index.html">{nf_logo(False)}</a>
+      <a href="index.html">{nf_logo(False)}</a><span class="x-group-sep" aria-hidden="true">/</span><a href="https://nasfecousa.com/" class="x-group-us" title="NASFECO Miami (EE. UU.)"><span class="us-l">NASFECO US</span><span class="us-s">USA</span></a>
       <a href="nasfeco.html">Empresas</a>
       <a href="waterdrop.html" class="on">Waterdrop Hogar</a>
     </div>
-    <div class="x-group-r"><b style="color:var(--gold-d)">Distribuidor exclusivo oficial de Waterdrop Filter</b> · Ecuador y Miami, Florida (EE. UU.) · WhatsApp +593 99 731 2362</div>
+    <div class="x-group-r"><b style="color:var(--gold-d)">Distribuidor exclusivo oficial de Waterdrop Filter</b> · Ecuador y <a href="https://nasfecousa.com/" class="x-mia">Miami, Florida (EE. UU.)</a> · WhatsApp +593 99 731 2362</div>
   </div>
 </div>
 <div class="x-ann" data-promo>
@@ -220,7 +220,7 @@ def bottom(extra=""):
       <div><h4>Servicio Nasfeco</h4>
         <a href="repuestos">Filtros de repuesto</a><a href="waterdrop.html#faq">Preguntas frecuentes</a><a href="waterdrop.html#contacto">Agendar instalación</a>
         <a href="https://wa.me/593997312362?text=Hola%2C%20necesito%20soporte%20t%C3%A9cnico%20con%20mi%20equipo%20Waterdrop" target="_blank" rel="noopener">Soporte técnico</a><a href="nasfeco.html">Soluciones para empresas</a></div>
-      <div><h4>Contacto</h4><p style="margin-bottom:10px"><a href="purificadores-agua-quito">Quito</a> · <a href="purificadores-agua-guayaquil">Guayaquil</a> · <a href="purificadores-agua-cuenca">Cuenca</a> · <a href="purificadores-agua-loja">Loja</a></p><p style="margin-bottom:8px">Miami, Florida (EE. UU.)</p><p style="margin-bottom:8px">Ecuador: Quito, Guayaquil, Cuenca y Loja · Trabajamos en todo el país</p><p>WhatsApp: +593 99 731 2362</p></div>
+      <div><h4>Contacto</h4><p style="margin-bottom:10px"><a href="purificadores-agua-quito">Quito</a> · <a href="purificadores-agua-guayaquil">Guayaquil</a> · <a href="purificadores-agua-cuenca">Cuenca</a> · <a href="purificadores-agua-loja">Loja</a></p><p style="margin-bottom:8px"><a href="https://nasfecousa.com/">Miami, Florida (EE. UU.)<br><b style="font-weight:600">nasfecousa.com ↗</b></a></p><p style="margin-bottom:8px">Ecuador: Quito, Guayaquil, Cuenca y Loja · Trabajamos en todo el país</p><p>WhatsApp: +593 99 731 2362</p></div>
     </div>
     <div class="x-foot-b"><span>&copy; 2026 Nasfeco · Ecuador. Nasfeco, distribuidor exclusivo oficial de Waterdrop Filter en Ecuador. Waterdrop es una marca registrada de su fabricante.</span><span>Creado por <strong>Mateo Perez</strong></span></div>
   </div>
@@ -244,7 +244,7 @@ def bottom(extra=""):
 </div>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/x.js?v=34"></script>
+<script src="js/x.js?v=35"></script>
 {extra}
 </body>
 </html>

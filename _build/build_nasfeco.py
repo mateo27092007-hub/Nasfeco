@@ -261,7 +261,7 @@ def page_index():
 html,body{height:100%}
 body{font-family:var(--f);background:var(--navy-d);color:#fff;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-.p-top{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:center;padding:calc(22px + env(safe-area-inset-top,0px)) 24px 0;pointer-events:none}
+.p-top{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;flex-direction:column;align-items:center;gap:10px;padding:calc(22px + env(safe-area-inset-top,0px)) 24px 0;pointer-events:none}
 .p-top .nf-logo{pointer-events:auto;background:rgba(10,25,47,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14);border-radius:40px;padding:10px 20px 10px 14px}
 .nf-logo{display:inline-flex;align-items:center;gap:10px;line-height:1}
 .nf-logo b{display:block;font-size:17px;font-weight:700;letter-spacing:.04em}
@@ -292,6 +292,10 @@ a{color:inherit;text-decoration:none}
 .s-wd .cta{background:var(--navy);color:#fff}
 .side:hover .cta{gap:16px}
 .cta svg{width:16px;height:16px}
+.p-us{pointer-events:auto;display:flex;align-items:center;gap:12px;background:rgba(10,25,47,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(201,162,77,.45);border-radius:40px;padding:8px 16px 8px 14px;color:#fff;text-decoration:none;transition:background .2s,border-color .2s,transform .2s}
+.p-us img{height:30px;width:auto;display:block}
+.p-us span{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#E6C77A;display:flex;align-items:center;gap:6px;border-left:1px solid rgba(255,255,255,.2);padding-left:12px}
+.p-us:hover{background:rgba(10,25,47,.9);border-color:#C9A24D;transform:translateY(-1px)}
 .p-bot{position:fixed;left:0;right:0;bottom:calc(26px + env(safe-area-inset-bottom,0px));z-index:20;text-align:center;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.7);pointer-events:none}
 .p-bot span{background:rgba(10,25,47,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:8px 16px;border-radius:20px}
 .divider{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(transparent,rgba(16,185,129,.7),transparent);z-index:5;pointer-events:none}
@@ -307,7 +311,7 @@ a{color:inherit;text-decoration:none}
   .divider{display:none}
   .p-bot{display:none}
   .p-top{position:absolute}
-  .side:first-child .side-c{padding-top:110px}
+  .side:first-child .side-c{padding-top:170px}
 }
 </style>'''
     h = head("Nasfeco | Energía y Agua para Empresas y Hogares en Ecuador",
@@ -315,7 +319,7 @@ a{color:inherit;text-decoration:none}
              "https://nasfeco.com/", "https://nasfeco.com/assets/nf/portal.jpg", ld, css)
     arrow = svg("M5 12h14M13 6l6 6-6 6", 16, 2)
     body = f'''
-<div class="p-top"><a href="index.html" aria-label="Nasfeco">{nf_logo("#ffffff")}</a></div>
+<div class="p-top"><a href="index.html" aria-label="Nasfeco">{nf_logo("#ffffff")}</a><a class="p-us" href="https://nasfecousa.com/" aria-label="NASFECO Miami: ir a nasfecousa.com"><img src="assets/brand/nasfeco-us-white.png" alt="NASFECO US International" width="104" height="36"><span>Miami, FL<b aria-hidden="true">↗</b></span></a></div>
 <main class="portal">
   <a class="side s-nf" href="nasfeco.html">
     <img src="assets/nf/portal.jpg" alt="Planta de energía solar">

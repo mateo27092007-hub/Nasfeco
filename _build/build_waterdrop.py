@@ -93,7 +93,7 @@ def head(title, desc, canonical, og, ld):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/x.css?v=32">
+<link rel="stylesheet" href="css/x.css?v=33">
 </head>
 <body>
 '''
@@ -244,7 +244,7 @@ def bottom(extra=""):
 </div>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/x.js?v=32"></script>
+<script src="js/x.js?v=33"></script>
 {extra}
 </body>
 </html>
@@ -1249,12 +1249,25 @@ def drop(video, title, sub, ph=7.5):
   </div>
 </section>'''
 
+def req_modal(img, short):
+    """Botón y ventana con los requisitos de instalación (imagen)."""
+    btn = f'<button type="button" class="x-btn x-btn-o x-req-btn" data-req-open>{svg(I_DOC, 18, 1.8)} Revisar antes de comprar</button>'
+    modal = f'''
+<div class="x-cv-ov" id="x-req" role="dialog" aria-modal="true" aria-label="Revisar antes de comprar">
+  <div class="x-cv x-req">
+    <div class="x-cv-h"><div><p class="x-eyebrow">Revisar antes de comprar</p><h3>Requisitos de instalación · {short}</h3></div><button class="x-icon" data-req-close aria-label="Cerrar">{svg(I_X, 22)}</button></div>
+    <div class="x-req-b"><a href="{img}" target="_blank" rel="noopener" title="Ver en grande"><img src="{img}" alt="Requisitos para instalar el {short}: tomas de agua visibles debajo del lavaplatos" loading="lazy"></a><p class="x-req-hint">Toca la imagen para verla en grande.</p></div>
+  </div>
+</div>'''
+    return btn, modal
+
 def premium(c):
     """c: dict con la configuración del producto."""
     pid = c["pid"]
     ld = {"@context": "https://schema.org", **offer_ld(pid, c["ld_name"], c["desc"], c["gallery"][:3], c["file"])}
     h = head(c["title"], c["desc"], SITE + c["file"], SITE + c["gallery"][0], ld)
     body = top((c["short"], [("#resumen", "Resumen"), ("#comparar", "Comparar"), ("#faq", "Preguntas")], pid))
+    req_btn, req_box = req_modal(c["req"], c["short"]) if c.get("req") else ("", "")
     thumbs = "".join(f'<button class="{"on" if i == 0 else ""}" data-thumb="{g}" aria-label="Imagen {i+1}"><img src="{g}" alt="" loading="lazy"></button>' for i, g in enumerate(c["gallery"]))
     m = "".join(f"<div><b>{a}</b><span>{b}</span></div>" for a, b in c["metrics"])
     fl = ""
@@ -1271,6 +1284,7 @@ def premium(c):
       <div class="x-price">{price_in(pid)}{"" if pid in QUOTE else f'<span class="x-off" data-off="{pid}" data-promo></span>'}</div>
       {"" if pid in QUOTE else f'<div style="margin-top:12px">{code(pid)}</div><div class="x-pcd" data-promo><span><span data-promo-name></span> · termina en</span>{cd()}</div>'}
       {buttons(pid)}
+      {req_btn}
       {PERKS}
       {fl}
     </div>
@@ -1333,6 +1347,7 @@ def premium(c):
     body += bubbles()
     body += b2b()
     body += faq(c["faq"])
+    body += req_box
     return h + body + bottom()
 
 # --------------------------------------------------------------- X16
@@ -1383,7 +1398,7 @@ X16 = dict(pid="x16", file="product-x16.html", short="Waterdrop X16", ld_name="W
 
 # --------------------------------------------------------------- X12
 G12 = "assets/x12/"
-X12 = dict(pid="x12", seal=True, file="product-x12.html", short="Waterdrop X12", ld_name="Waterdrop X12 Ósmosis Inversa 1200 GPD",
+X12 = dict(pid="x12", seal=True, req="assets/req/requisitos-instalacion.jpg",  file="product-x12.html", short="Waterdrop X12", ld_name="Waterdrop X12 Ósmosis Inversa 1200 GPD",
     title="Waterdrop X12 · 1200 GPD | Waterdrop Ecuador · Nasfeco",
     desc="Waterdrop X12 en Ecuador: ósmosis inversa sin tanque de 1200 GPD, 11 etapas, minerales alcalinos y grifo inteligente. Instalación y soporte de Nasfeco en Quito, Guayaquil, Cuenca y Loja.",
     gallery=[G12 + f for f in ["ui-wd-x12-main-sello.webp", "ui-wd-x12-b-new-vis-main.webp", "ui-wd-x12-new-vis-pr-logo-white.jpg", "WD_X12_new.webp", "1226-WD-_1016-1200g__2.jpg",
@@ -1466,7 +1481,7 @@ X8 = dict(pid="x8", file="product-x8.html", short="Waterdrop X8", ld_name="Water
          ("¿Quién responde por la garantía?", "Nasfeco, aquí en Ecuador.")])
 
 # --------------------------------------------------------------- UF
-UF = dict(pid="uf", file="product-uf.html", short="Ultrafiltración UF", ld_name="Waterdrop Ultrafiltración UF 10UB",
+UF = dict(pid="uf", req="assets/req/requisitos-instalacion-uf.jpg", file="product-uf.html", short="Ultrafiltración UF", ld_name="Waterdrop Ultrafiltración UF 10UB",
     title="Ultrafiltración UF | Waterdrop Ecuador · Nasfeco",
     desc="Sistema de ultrafiltración Waterdrop 10UB-UF en Ecuador: membrana de 0.01 μm, sin electricidad, sin desperdicio y conserva los minerales. Incluye grifo de acero inoxidable e instalación.",
     gallery=["assets/uf/10UB-UF-NSF-feed.jpg", "assets/uf/10UB-UF-NSF.png", "assets/uf/UB-UF_6.jpg", "assets/uf/UB-UF_7.jpg", "assets/uf/UB-UF_4.jpg", "assets/uf/UB-UF_3.jpg", "assets/uf/UB-UF_9.jpg", "assets/uf/UB-UF_8.jpg", "assets/uf/WD-RF10-UF-NSF.png", "assets/uf/dedicated-faucet-ultrafiltration.png"],
@@ -1691,7 +1706,7 @@ def page_k6(): return premium(K6)
 
 # --------------------------------------------------------------- G5P700A
 GZ = "assets/g5/"
-G5P = dict(pid="g5", art="el", file="product-g5p700a.html", short="Waterdrop G5P700A", ld_name="Waterdrop G5P700A Ósmosis Inversa Alcalina 700 GPD",
+G5P = dict(pid="g5", art="el", req="assets/req/requisitos-instalacion.jpg",  file="product-g5p700a.html", short="Waterdrop G5P700A", ld_name="Waterdrop G5P700A Ósmosis Inversa Alcalina 700 GPD",
     title="Waterdrop G5P700A · 700 GPD Alcalino | Waterdrop Ecuador · Nasfeco",
     desc="Waterdrop G5P700A en Ecuador: ósmosis inversa sin tanque de 700 GPD con minerales alcalinos, 8 etapas y grifo con pantalla TDS. Distribuidor exclusivo oficial: Nasfeco.",
     gallery=[GZ + "ui-wd-g5p700a-product.webp"] + [GZ + f"wd-g5p700a-product_{n}.jpg" for n in (2, 3, 1, 4, 5, 6, 7, 9)] + [GZ + "ui-wd-g5p700a-nsf-vis.jpg", GZ + "ui-wd-g5p700a-w.jpg"],
@@ -1738,7 +1753,7 @@ PRICES["g2"] = (900, 1200)
 OFFER["g2"] = ("Mejor precio", "Serie G · 600 GPD", "Waterdrop G2P600", ["600 GPD", "7 etapas", "Sin tanque", "Relación 2:1"])
 OFFER_IMG["g2"] = G2D + "WD-G2P600-W-NSF.webp"
 OFFER_URL["g2"] = "product-g2p600.html"
-G2P = dict(pid="g2", art="el", file="product-g2p600.html", short="Waterdrop G2P600", ld_name="Waterdrop G2P600 Ósmosis Inversa 600 GPD",
+G2P = dict(pid="g2", art="el", req="assets/req/requisitos-instalacion.jpg",  file="product-g2p600.html", short="Waterdrop G2P600", ld_name="Waterdrop G2P600 Ósmosis Inversa 600 GPD",
     title="Waterdrop G2P600 · 600 GPD | Waterdrop Ecuador · Nasfeco",
     desc="Waterdrop G2P600 en Ecuador: ósmosis inversa sin tanque de 600 GPD, 7 etapas y relación 2:1. Precio final con IVA e instalación. Distribuidor exclusivo oficial: Nasfeco.",
     gallery=[G2D + "WD-G2P600-W-NSF.webp", G2N(5), G2N(6), G2N(1), G2N(4), G2N(7), G2N(2), G2N(3), G2D + "ui-wd-g2p600-w-cz-no.png"],

@@ -454,6 +454,17 @@ const WD = {
   }
 
   /* ---------- VISOR DE CERTIFICADOS ---------- */
+  /* ---------- REVISAR ANTES DE COMPRAR ---------- */
+  const reqBox = $('#x-req');
+  if (reqBox) {
+    const reqOpen = () => { reqBox.classList.add('open'); document.documentElement.style.overflow = 'hidden'; };
+    const reqClose = () => { reqBox.classList.remove('open'); document.documentElement.style.overflow = ''; };
+    $$('[data-req-open]').forEach(b => b.addEventListener('click', reqOpen));
+    $('[data-req-close]', reqBox).addEventListener('click', reqClose);
+    reqBox.addEventListener('click', e => { if (e.target === reqBox) reqClose(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && reqBox.classList.contains('open')) reqClose(); });
+  }
+
   const cv = $('#x-cv');
   if (cv) {
     const view = $('#x-cv-view'), items = $$('.x-cv-i', cv), mobile = () => matchMedia('(max-width: 767px)').matches;

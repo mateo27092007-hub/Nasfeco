@@ -1104,7 +1104,7 @@ def page_store():
   <div class="x-wrap x-ct">
     <div class="x-rv"><p class="x-eyebrow">Asesoría gratuita</p><h2>Hablemos de tu agua</h2>
       <p>Cuéntanos cuántos son en casa y dónde viven. Un asesor de Nasfeco te recomienda el equipo ideal y coordina la instalación contigo.</p>
-      <div class="x-ct-line">{WA} +593 99 731 2362</div><div class="x-ct-line">{svg(I_PIN, 22, 1.8)} Miami, Florida (EE. UU.)</div><div class="x-ct-line">{svg(I_PIN, 22, 1.8)} Ecuador: Quito, Guayaquil, Cuenca y Loja · Trabajamos en todo el país</div></div>
+      <div class="x-ct-line">{WA} +593 99 731 2362</div><div class="x-ct-line">{svg(I_PIN, 22, 1.8)} Ecuador: Quito, Guayaquil, Cuenca y Loja · Trabajamos en todo el país</div><div class="x-ct-line">{svg(I_PIN, 22, 1.8)} Miami, Florida (EE. UU.)</div><div class="x-ct-line">{svg(I_PIN, 22, 1.8)} Madrid, España</div><div class="x-ct-line">{svg(I_PIN, 22, 1.8)} Medellín, Colombia</div></div>
     <form class="x-form x-rv" id="wdf">
       <div class="x-fg"><label for="w_name">Nombre</label><input id="w_name" required placeholder="Ej. María García"></div>
       <div class="x-fg"><label for="w_email">Email</label><input id="w_email" type="email" required placeholder="maria@gmail.com"></div>

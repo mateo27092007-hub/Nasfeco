@@ -3,3 +3,9 @@ node_modules/
 .DS_Store
 Thumbs.db
 *.log
+
+.wrangler/
+__pycache__/
+desktop.ini
+PROMPT-*.md
+.claude/

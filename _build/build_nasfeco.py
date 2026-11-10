@@ -4,11 +4,12 @@ import itertools
 import os, re, json, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from nf_wow import DAY, CALC, JS as WOWJS
+import nf_consent as CK
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HERE = os.path.dirname(os.path.abspath(__file__))
 WA_PATH = re.sub(r'^<path d="|"$', "", open(os.path.join(HERE, "wa_path.txt"), encoding="utf-8").read().strip())
 WA = f'<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="{WA_PATH}"/></svg>'
-V = "?v=35"
+V = CK.VER
 
 def svg(d, w=24, sw=1.8):
     return f'<svg viewBox="0 0 24 24" width="{w}" height="{w}" fill="none" stroke="currentColor" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{d}"/></svg>'
@@ -26,8 +27,7 @@ def nf_logo(color="#0A192F", sub=True, size=30):
     return '<span class="nf-logo" style="color:' + color + '">' + LOGO_SVG.format(w=w, h=h, uid=next(_LG)) + '</span>'
 
 
-FONTS = '''<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">'''
+FONTS = CK.HEAD   # Montserrat local + cookies (antes Google Fonts)
 
 def head(title, desc, canonical, og, ld, css):
     return f'''<!DOCTYPE html>
@@ -35,9 +35,7 @@ def head(title, desc, canonical, og, ld, css):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18496630945"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','AW-18496630945');</script>
+<!-- Google Ads (AW-18496630945): lo carga js/consent.js solo si se aceptan las cookies -->
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <meta name="robots" content="index, follow">
@@ -190,7 +188,7 @@ def page_nf():
   <div class="x-wrap x-ct">
     <div class="x-rv"><p class="x-eyebrow">Contacto</p><h2>Potenciemos juntos tu proyecto</h2>
       <p>Cuéntanos qué necesitas y un especialista de Nasfeco te contactará para agendar el diagnóstico.</p>
-      <div class="x-ct-line">{WA} +593 99 731 2362</div><div class="x-ct-line">{svg(I_MAIL, 22)} nasfeco@gmail.com</div><div class="x-ct-line">{svg(I_PIN, 22)} Quito, Guayaquil, Cuenca y Loja · Proyectos en todo el Ecuador</div><div class="x-ct-line">{svg(I_PIN, 22)} También en Miami, Florida (EE. UU.)</div>
+      <div class="x-ct-line">{WA} +593 99 731 2362</div><div class="x-ct-line">{svg(I_MAIL, 22)} nasfeco@gmail.com</div><div class="x-ct-line">{svg(I_PIN, 22)} Quito, Guayaquil, Cuenca y Loja · Proyectos en todo el Ecuador</div><div class="x-ct-line">{svg(I_PIN, 22)} Miami, Florida (EE. UU.)</div><div class="x-ct-line">{svg(I_PIN, 22)} Madrid, España</div><div class="x-ct-line">{svg(I_PIN, 22)} Medellín, Colombia</div>
       <div class="x-btns" style="margin-top:20px"><a class="x-btn x-btn-wa" href="https://wa.me/593997312362?text=Hola%20Nasfeco%2C%20quiero%20cotizar%20un%20proyecto%20para%20mi%20empresa" target="_blank" rel="noopener">{WA} Escribir por WhatsApp</a></div></div>
     <form class="x-form x-rv" id="nf">
       <div class="x-fg"><label for="n_name">Nombre</label><input id="n_name" required placeholder="Ej. Juan Pérez"></div>
@@ -208,12 +206,13 @@ def page_nf():
   <div class="x-foot-g">
     <div>{nf_logo("#ffffff")}<p style="margin-top:14px">Energía solar, purificación y tratamiento de agua para empresas e industrias en Ecuador. Distribuidor exclusivo oficial de Waterdrop Filter en Ecuador.</p></div>
     <div><h4>Soluciones</h4><a href="#soluciones">Energía solar</a><a href="#soluciones">Purificación de agua</a><a href="#soluciones">Tratamiento químico</a><a href="#soluciones">Consultoría técnica</a></div>
-    <div><h4>Nasfeco</h4><a href="#nosotros">Nosotros</a><a href="#proceso">Cómo trabajamos</a><a href="waterdrop.html">Waterdrop Hogar</a><a href="index.html">Inicio</a></div>
+    <div><h4>Nasfeco</h4><a href="#nosotros">Nosotros</a><a href="#proceso">Cómo trabajamos</a><a href="waterdrop.html">Waterdrop Hogar</a><a href="index.html">Inicio</a>{CK.FOOT}</div>
     <div><h4>Contacto</h4><p style="margin-bottom:8px">nasfeco@gmail.com</p><p style="margin-bottom:8px">Ecuador · <a href="https://nasfecousa.com/" style="display:inline">Miami (EE. UU.)<br><b style="font-weight:600">nasfecousa.com ↗</b></a></p><p style="margin-bottom:8px">WhatsApp +593 99 731 2362</p><p>Quito, Ecuador</p></div>
   </div>
   <div class="x-foot-b"><span>&copy; 2026 Nasfeco · Ecuador. Todos los derechos reservados.</span><span>Creado por <strong>Mateo Perez</strong></span></div>
 </div></footer>
 <a href="https://wa.me/593997312362?text=Hola%20Nasfeco%2C%20quiero%20informaci%C3%B3n%20para%20mi%20empresa" target="_blank" rel="noopener" class="x-wa" aria-label="Escríbenos por WhatsApp">{WA}</a>
+{CK.BAR}
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
 <script src="js/x.js{V}"></script>
@@ -303,6 +302,10 @@ a{color:inherit;text-decoration:none}
 .side-c>*:nth-child(2){animation-delay:.1s}.side-c>*:nth-child(3){animation-delay:.2s}.side-c>*:nth-child(4){animation-delay:.3s}.side-c>*:nth-child(5){animation-delay:.4s}
 .s-wd .side-c>*{animation-delay:.25s}.s-wd .side-c>*:nth-child(2){animation-delay:.35s}.s-wd .side-c>*:nth-child(3){animation-delay:.45s}.s-wd .side-c>*:nth-child(4){animation-delay:.55s}.s-wd .side-c>*:nth-child(5){animation-delay:.65s}
 @keyframes pIn{to{opacity:1;transform:none}}
+.p-legal{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;gap:6px;font-size:11px;color:rgba(255,255,255,.75);background:rgba(10,25,47,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:7px 14px;border-radius:20px}
+.p-legal a,.p-legal .ck-set{display:inline;margin:0;color:inherit}
+.p-legal a:hover,.p-legal .ck-set:hover{color:#fff}
+.ck-on .p-legal{display:none}
 @media (prefers-reduced-motion:reduce){.side-c>*{animation:none;opacity:1;transform:none}}
 @media (max-width:860px){
   .portal{flex-direction:column;height:auto}
@@ -312,6 +315,7 @@ a{color:inherit;text-decoration:none}
   .p-bot{display:none}
   .p-top{position:absolute}
   .side:first-child .side-c{padding-top:170px}
+  .p-legal{position:static;justify-content:center;border-radius:0;padding:16px;background:var(--navy-d)}
 }
 </style>'''
     h = head("Nasfeco | Energía y Agua para Empresas y Hogares en Ecuador",
@@ -344,6 +348,8 @@ a{color:inherit;text-decoration:none}
   <div class="divider"></div>
 </main>
 <div class="p-bot"><span>Elige tu destino</span></div>
+<div class="p-legal"><a href="{CK.COOKIES_URL}">Política de cookies</a><span aria-hidden="true">·</span><button type="button" class="ck-set" data-cookie-settings>Configurar cookies</button></div>
+{CK.BAR}
 </body>
 </html>
 '''

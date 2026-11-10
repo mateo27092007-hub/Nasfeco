@@ -41,6 +41,7 @@ const WD = {
   const waConv = () => { if (typeof gtag === 'function') gtag('event', 'conversion', { send_to: 'AW-18496630945/Aj2XCIyswpMdEKHh8PNE', transport_type: 'beacon' }); };
   document.addEventListener('click', e => { if (e.target.closest?.('a[href*="wa.me/"], a[href*="whatsapp.com/"]')) waConv(); }, true);
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ytOK = () => !!(window.NFConsent && NFConsent.ok());   // YouTube solo con consentimiento (js/consent.js)
 
   /* ---------- PRECIOS ---------- */
   function paint() {
@@ -144,7 +145,7 @@ const WD = {
       const m = $('#x-gal-main'); $$('[data-thumb]').forEach(b => b.classList.toggle('on', b === t));
       m.style.opacity = 0; setTimeout(() => { m.src = d.thumb; m.style.opacity = 1; }, 150);
     }
-    else if (d.yt && !t.querySelector('iframe')) {
+    else if (d.yt && ytOK() && !t.querySelector('iframe')) {
       t.insertAdjacentHTML('beforeend', `<iframe src="https://www.youtube-nocookie.com/embed/${d.yt}?autoplay=1&rel=0" title="Video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`);
     }
     else if (d.q !== undefined) { pressGo(+d.q); pressStop(); }
@@ -493,11 +494,12 @@ const WD = {
     addEventListener('load', () => items.forEach(b => { if (b.dataset.type === 'img') { const im = new Image(); im.src = b.dataset.src; } }));
   }
 
-  /* ---------- SHORTS: reproducción automática silenciada ---------- */
+  /* ---------- SHORTS: reproducción automática silenciada (solo con consentimiento de cookies, ver js/consent.js) ---------- */
   const ytSrc = id => 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&mute=1&loop=1&playlist=' + id + '&controls=1&playsinline=1&rel=0&modestbranding=1&enablejsapi=1';
   const ytCmd = (f, cmd) => { try { f.contentWindow.postMessage(JSON.stringify({ event: 'command', func: cmd, args: [] }), '*'); } catch (e) {} };
   const yio = new IntersectionObserver(es => es.forEach(en => {
     const box = en.target; let f = box.querySelector('iframe');
+    if (!ytOK()) return;
     if (en.isIntersecting) {
       if (!f) { f = document.createElement('iframe'); f.src = ytSrc(box.dataset.ytauto); f.title = box.getAttribute('aria-label') || 'Video';
         f.allow = 'autoplay; encrypted-media; picture-in-picture'; f.setAttribute('allowfullscreen', ''); box.appendChild(f); }
@@ -505,7 +507,7 @@ const WD = {
     } else if (f) ytCmd(f, 'pauseVideo');
   }), { threshold: .35 });
   $$('[data-ytauto]').forEach(b => yio.observe(b));
-  const ytCheck = () => $$('[data-ytauto]').forEach(box => {
+  const ytCheck = () => ytOK() && $$('[data-ytauto]').forEach(box => {
     if (box.querySelector('iframe')) return;
     const r = box.getBoundingClientRect();
     if (r.top < innerHeight * .9 && r.bottom > innerHeight * .1) yio.unobserve(box), yio.observe(box), (box.querySelector('iframe') || (() => {
@@ -513,6 +515,8 @@ const WD = {
       f.allow = 'autoplay; encrypted-media; picture-in-picture'; f.setAttribute('allowfullscreen', ''); box.appendChild(f); })());
   });
   addEventListener('scroll', () => setTimeout(ytCheck, 60), { passive: true }); setInterval(ytCheck, 800);
+  // al aceptar se cargan en el momento los que están en pantalla (al rechazar, consent.js quita los iframes)
+  document.addEventListener('nf-consent', e => { if (e.detail === 'yes') { $$('[data-ytauto]').forEach(b => { yio.unobserve(b); yio.observe(b); }); ytCheck(); } });
 
   /* ---------- INICIO ---------- */
   paint(); tick(); renderCart();

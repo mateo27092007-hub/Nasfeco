@@ -14,3 +14,6 @@ deploy.bat
 marketing
 _build
 _build/*
+
+.claude
+.claude/*

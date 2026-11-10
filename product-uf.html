@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18496630945"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-18496630945');</script>
+<!-- Google Ads (AW-18496630945): lo carga js/consent.js solo si se aceptan las cookies -->
 <title>Ultrafiltración UF | Waterdrop Ecuador · Nasfeco</title>
 <meta name="description" content="Sistema de ultrafiltración Waterdrop 10UB-UF en Ecuador: membrana de 0.01 μm, sin electricidad, sin desperdicio y conserva los minerales. Incluye grifo de acero inoxidable e instalación.">
 <meta name="robots" content="index, follow">
@@ -47,10 +45,9 @@
  }
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/x.css?v=35">
+<link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/consent.css?v=36">
+<link rel="stylesheet" href="css/x.css?v=36">
 </head>
 <body>
 
@@ -119,7 +116,7 @@
   </div>
 </section>
 <section class="x-sec" id="videos"><div class="x-wrap x-mt x-short-one">
-  <div class="x-yt x-yt-v x-rv" data-ytauto="tL_2gSpSn20" aria-label="Video de Ultrafiltración UF"><img src="https://i.ytimg.com/vi/tL_2gSpSn20/oardefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/tL_2gSpSn20/hqdefault.jpg'" alt="Video de Ultrafiltración UF" loading="lazy"></div>
+  <div class="x-yt x-yt-v x-rv" data-ytauto="tL_2gSpSn20" aria-label="Video de Ultrafiltración UF"><img src="assets/img/yt/tL_2gSpSn20.webp" alt="Video de Ultrafiltración UF" loading="lazy"><div class="yt-gate"><p>Este video está en YouTube, que usa cookies.</p><button type="button" data-consent="yes">Aceptar y ver</button></div></div>
   <div class="x-rv"><p class="x-eyebrow">Video</p><h2>Míralo en acción</h2><p>Así funciona la Ultrafiltración UF en una casa real: instalación, uso del grifo y agua pura al instante. En Ecuador la instalan los técnicos de Nasfeco.</p>
     <div class="x-btns" style="margin-top:22px"><button class="x-btn x-btn-p" data-add="uf">Agregar al carrito</button><button class="x-btn x-btn-o" data-buy="uf">Comprar ahora</button></div></div>
 </div></section><span id="resumen"></span>
@@ -185,7 +182,7 @@
         <a href="product-x12.html">Waterdrop X12</a><a href="product-g5p700a.html">Waterdrop G5P700A</a><a href="product-g2p600.html">Waterdrop G2P600</a><a href="product-uf.html">Ultrafiltración UF</a><a href="product-smart.html">Dispensador ED01</a><a href="waterdrop.html#comparar">Comparar modelos</a></div>
       <div><h4>Servicio Nasfeco</h4>
         <a href="repuestos">Filtros de repuesto</a><a href="waterdrop.html#faq">Preguntas frecuentes</a><a href="waterdrop.html#contacto">Agendar instalación</a>
-        <a href="https://wa.me/593997312362?text=Hola%2C%20necesito%20soporte%20t%C3%A9cnico%20con%20mi%20equipo%20Waterdrop" target="_blank" rel="noopener">Soporte técnico</a><a href="nasfeco.html">Soluciones para empresas</a></div>
+        <a href="https://wa.me/593997312362?text=Hola%2C%20necesito%20soporte%20t%C3%A9cnico%20con%20mi%20equipo%20Waterdrop" target="_blank" rel="noopener">Soporte técnico</a><a href="nasfeco.html">Soluciones para empresas</a><a href="politica-cookies.html">Política de cookies</a><button type="button" class="ck-set" data-cookie-settings>Configurar cookies</button></div>
       <div><h4>Contacto</h4><p style="margin-bottom:10px"><a href="purificadores-agua-quito">Quito</a> · <a href="purificadores-agua-guayaquil">Guayaquil</a> · <a href="purificadores-agua-cuenca">Cuenca</a> · <a href="purificadores-agua-loja">Loja</a></p><p style="margin-bottom:8px"><a href="https://nasfecousa.com/">Miami, Florida (EE. UU.)<br><b style="font-weight:600">nasfecousa.com ↗</b></a></p><p style="margin-bottom:8px">Ecuador: Quito, Guayaquil, Cuenca y Loja · Trabajamos en todo el país</p><p>WhatsApp: +593 99 731 2362</p></div>
     </div>
     <div class="x-foot-b"><span>&copy; 2026 Nasfeco · Ecuador. Nasfeco, distribuidor exclusivo oficial de Waterdrop Filter en Ecuador. Waterdrop es una marca registrada de su fabricante.</span><span>Creado por <strong>Mateo Perez</strong></span></div>
@@ -208,9 +205,14 @@
 <div class="x-quiz-ov" id="x-quiz-ov" role="dialog" aria-modal="true" aria-label="Encuentra tu purificador">
   <div class="x-quiz"><button class="x-icon" data-quiz-close aria-label="Cerrar"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div id="x-quiz-body"></div></div>
 </div>
+<div class="ck" id="ck" role="dialog" aria-modal="false" aria-labelledby="ck-t" hidden>
+  <p id="ck-t"><b>Cookies</b>Solo usamos el almacenamiento imprescindible para que la web funcione. Los videos de YouTube y la medición de anuncios de Google colocan sus propias cookies, así que solo se cargan si aceptas. Puedes cambiar tu elección cuando quieras desde el pie de página. <a href="politica-cookies.html">Política de cookies</a></p>
+  <div class="ck-b"><button type="button" class="ck-btn" data-consent="no">Rechazar</button><button type="button" class="ck-btn" data-consent="yes">Aceptar</button></div>
+</div>
+<script src="js/consent.js?v=36"></script>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/x.js?v=35"></script>
+<script src="js/x.js?v=36"></script>
 
 </body>
 </html>

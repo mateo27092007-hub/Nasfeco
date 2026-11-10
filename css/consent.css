@@ -1,0 +1,38 @@
+/* NASFECO · Montserrat servida desde la propia web (antes Google Fonts) + banner de cookies + aviso sobre los videos de YouTube */
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:300 700;font-display:swap;src:url(../assets/fonts/montserrat-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:300 700;font-display:swap;src:url(../assets/fonts/montserrat-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+/* ---------- banner: tarjeta redondeada, texto a la izquierda y dos botones píldora idénticos a la derecha ---------- */
+.ck{position:fixed;left:24px;right:24px;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:250;display:flex;align-items:center;gap:32px;max-width:1040px;margin-inline:auto;padding:26px 32px;border-radius:24px;background:#fff;color:#0A192F;border:1px solid rgba(10,25,47,.12);box-shadow:0 24px 60px rgba(10,25,47,.22);font-family:'Montserrat',-apple-system,'Segoe UI',Roboto,sans-serif}
+.ck[hidden]{display:none}
+.ck p{margin:0;font-size:15px;line-height:1.6;color:#22324A}
+.ck p b{display:block;margin-bottom:6px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#059669}
+.ck p a{color:#0A192F;font-weight:600;text-decoration:none;border-bottom:1.5px solid #10B981;padding-bottom:1px}
+.ck p a:hover{color:#059669}
+.ck-b{flex:none;display:flex;gap:14px}
+/* Rechazar y Aceptar: exactamente el mismo botón */
+.ck-btn{display:inline-flex;align-items:center;justify-content:center;min-width:156px;height:60px;padding:0 28px;border-radius:999px;border:1px solid rgba(10,25,47,.35);background:#fff;color:#0A192F;font:600 16px/1 'Montserrat',-apple-system,'Segoe UI',Roboto,sans-serif;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.ck-btn:hover{background:#0A192F;border-color:#0A192F;color:#fff}
+.ck-btn:focus-visible,.ck-set:focus-visible,.yt-gate button:focus-visible{outline:2px solid #10B981;outline-offset:2px}
+/* mientras el banner está visible no tapa el botón de WhatsApp ni el rótulo de la portada */
+.ck-on .x-wa,.ck-on .p-bot{display:none}
+@media (max-width:767px){
+  .ck{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));flex-direction:column;align-items:stretch;gap:16px;padding:20px;border-radius:20px}
+  .ck p{font-size:13.5px;line-height:1.55}
+  .ck-btn{min-width:0;height:50px;font-size:15px;padding:0 12px}
+  .ck-b{gap:10px}
+  .ck-b>*{flex:1}
+}
+
+/* ---------- "Configurar cookies" en el pie ---------- */
+.ck-set{display:block;margin:0 0 10px;padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.ck-set:hover{color:#10B981}
+
+/* ---------- videos: antes de aceptar se ve la portada guardada en la web y este aviso ---------- */
+.yt-gate{position:absolute;left:10px;right:10px;bottom:10px;z-index:2;display:grid;gap:10px;justify-items:center;padding:12px 14px;border-radius:8px;background:rgba(10,25,47,.88);color:#fff;font-size:12.5px;line-height:1.4;text-align:center;cursor:default}
+.x-yt .yt-gate p{margin:0;color:#fff;font-size:12.5px;line-height:1.4}
+.yt-gate button{height:38px;padding:0 14px;white-space:nowrap;border-radius:4px;border:1px solid #10B981;background:#10B981;color:#0A192F;font:600 13px/1 'Montserrat',-apple-system,'Segoe UI',Roboto,sans-serif;cursor:pointer}
+.yt-gate button:hover{background:#059669;border-color:#059669;color:#fff}
+.yt-ok .yt-gate{display:none}
+html:not(.yt-ok) .x-yt .play{display:none}
+html:not(.yt-ok) .x-yt{cursor:default}

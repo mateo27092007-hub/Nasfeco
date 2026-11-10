@@ -2,7 +2,9 @@ from urllib.parse import quote as quote_url
 import itertools
 # -*- coding: utf-8 -*-
 """Genera las páginas Waterdrop Ecuador con la estructura de waterdropfilter.com (Serie X)."""
-import os, json, re
+import os, json, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import nf_consent as CK
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -72,9 +74,7 @@ def head(title, desc, canonical, og, ld):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18496630945"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','AW-18496630945');</script>
+<!-- Google Ads (AW-18496630945): lo carga js/consent.js solo si se aceptan las cookies -->
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <meta name="robots" content="index, follow">
@@ -90,10 +90,8 @@ def head(title, desc, canonical, og, ld):
 <script type="application/ld+json">
 {json.dumps(ld, ensure_ascii=False, indent=1)}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/x.css?v=35">
+{CK.HEAD}
+<link rel="stylesheet" href="css/x.css{CK.VER}">
 </head>
 <body>
 '''
@@ -219,7 +217,7 @@ def bottom(extra=""):
         <a href="product-x12.html">Waterdrop X12</a><a href="product-g5p700a.html">Waterdrop G5P700A</a><a href="product-g2p600.html">Waterdrop G2P600</a><a href="product-uf.html">Ultrafiltración UF</a><a href="product-smart.html">Dispensador ED01</a><a href="waterdrop.html#comparar">Comparar modelos</a></div>
       <div><h4>Servicio Nasfeco</h4>
         <a href="repuestos">Filtros de repuesto</a><a href="waterdrop.html#faq">Preguntas frecuentes</a><a href="waterdrop.html#contacto">Agendar instalación</a>
-        <a href="https://wa.me/593997312362?text=Hola%2C%20necesito%20soporte%20t%C3%A9cnico%20con%20mi%20equipo%20Waterdrop" target="_blank" rel="noopener">Soporte técnico</a><a href="nasfeco.html">Soluciones para empresas</a></div>
+        <a href="https://wa.me/593997312362?text=Hola%2C%20necesito%20soporte%20t%C3%A9cnico%20con%20mi%20equipo%20Waterdrop" target="_blank" rel="noopener">Soporte técnico</a><a href="nasfeco.html">Soluciones para empresas</a>{CK.FOOT}</div>
       <div><h4>Contacto</h4><p style="margin-bottom:10px"><a href="purificadores-agua-quito">Quito</a> · <a href="purificadores-agua-guayaquil">Guayaquil</a> · <a href="purificadores-agua-cuenca">Cuenca</a> · <a href="purificadores-agua-loja">Loja</a></p><p style="margin-bottom:8px"><a href="https://nasfecousa.com/">Miami, Florida (EE. UU.)<br><b style="font-weight:600">nasfecousa.com ↗</b></a></p><p style="margin-bottom:8px">Ecuador: Quito, Guayaquil, Cuenca y Loja · Trabajamos en todo el país</p><p>WhatsApp: +593 99 731 2362</p></div>
     </div>
     <div class="x-foot-b"><span>&copy; 2026 Nasfeco · Ecuador. Nasfeco, distribuidor exclusivo oficial de Waterdrop Filter en Ecuador. Waterdrop es una marca registrada de su fabricante.</span><span>Creado por <strong>Mateo Perez</strong></span></div>
@@ -242,9 +240,10 @@ def bottom(extra=""):
 <div class="x-quiz-ov" id="x-quiz-ov" role="dialog" aria-modal="true" aria-label="Encuentra tu purificador">
   <div class="x-quiz"><button class="x-icon" data-quiz-close aria-label="Cerrar">{svg(I_X, 20)}</button><div id="x-quiz-body"></div></div>
 </div>
+{CK.BAR}
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/x.js?v=35"></script>
+<script src="js/x.js{CK.VER}"></script>
 {extra}
 </body>
 </html>
@@ -425,7 +424,7 @@ def servicio(video=True):
     cards = "".join(f'<div class="x-rv"><i>{svg(ic, 24, 1.8)}</i><h3>{t}</h3><p>{d}</p></div>' for ic, t, d in items)
     vid = f'''
     <div class="x-mt" style="margin-top:64px">
-      <div class="x-yt x-rv" data-yt="Po-mlA68pKI" role="button" tabindex="0" aria-label="Ver video de instalación"><img src="https://i.ytimg.com/vi/Po-mlA68pKI/hqdefault.jpg" alt="Video de instalación de la Serie X" loading="lazy"><span class="play">{svg(I_PLAY, 22, 2, True)}</span></div>
+      <div class="x-yt x-rv" data-yt="Po-mlA68pKI" role="button" tabindex="0" aria-label="Ver video de instalación"><img src="{CK.yt_img("Po-mlA68pKI")}" alt="Video de instalación de la Serie X" loading="lazy"><span class="play">{svg(I_PLAY, 22, 2, True)}</span>{CK.GATE}</div>
       <div class="x-rv"><p class="x-eyebrow">Instalación</p><h2>Sin obras, sin perforar paredes</h2>
         <p>La Serie X se conecta a la toma de agua fría del fregadero. Nuestros técnicos la dejan funcionando en una visita y, si estás en otra ciudad, te acompañamos por WhatsApp para que la instales tú mismo con la guía incluida.</p></div>
     </div>''' if video else ""
@@ -595,7 +594,7 @@ def page_ro():
            ("ALPRzx091G0", "La Serie X en una casa fuera de la ciudad", "Cómo funciona en una vivienda alejada que depende de su propia fuente de agua."),
            ("6kYBhODz7p8", "Agua pura para las reuniones familiares", "La Serie X en una cocina real, en un día con toda la familia en casa."),
            ("GW_j40kIjBw", "Conoce el X12 en dos minutos", "Presentación oficial de Waterdrop del modelo X12 y sus funciones.")]
-    iv = "".join(f'<article class="x-iv"><div class="x-yt" data-yt="{i}" role="button" tabindex="0" aria-label="Ver video"><img src="https://i.ytimg.com/vi/{i}/hqdefault.jpg" alt="" loading="lazy"><span class="play">{svg(I_PLAY, 22, 2, True)}</span></div><h3>{t}</h3><p>{d}</p></article>' for i, t, d in ivs)
+    iv = "".join(f'<article class="x-iv"><div class="x-yt" data-yt="{i}" role="button" tabindex="0" aria-label="Ver video"><img src="{CK.yt_img(i)}" alt="" loading="lazy"><span class="play">{svg(I_PLAY, 22, 2, True)}</span>{CK.GATE}</div><h3>{t}</h3><p>{d}</p></article>' for i, t, d in ivs)
     body += f'''
 <section class="x-sec">
   <div class="x-wrap"><div class="x-head x-rv"><h2 class="x-h2">Míralo funcionando en casas reales</h2></div><span class="x-note">Videos en inglés de usuarios y de Waterdrop.</span>
@@ -958,12 +957,12 @@ def shorts(first=None, title="Míralos en acción", lead="Así funcionan los equ
         pid, vid, name = items[0]
         return f'''
 <section class="x-sec" id="videos"><div class="x-wrap x-mt x-short-one">
-  <div class="x-yt x-yt-v x-rv" data-ytauto="{vid}" aria-label="Video de {name}"><img src="https://i.ytimg.com/vi/{vid}/oardefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/{vid}/hqdefault.jpg'" alt="Video de {name}" loading="lazy"></div>
+  <div class="x-yt x-yt-v x-rv" data-ytauto="{vid}" aria-label="Video de {name}"><img src="{CK.yt_img(vid)}" alt="Video de {name}" loading="lazy">{CK.GATE}</div>
   <div class="x-rv"><p class="x-eyebrow">Video</p><h2>{title}</h2><p>{lead}</p>
     <div class="x-btns" style="margin-top:22px"><button class="x-btn x-btn-p" data-add="{pid}">Agregar al carrito</button><button class="x-btn x-btn-o" data-buy="{pid}">Comprar ahora</button></div></div>
 </div></section>'''
     cards = "".join(f'''<article class="x-short x-rv"><div class="x-yt x-yt-v" data-ytauto="{vid}" aria-label="Video de {name}">
-      <img src="https://i.ytimg.com/vi/{vid}/oardefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/{vid}/hqdefault.jpg'" alt="Video de {name}" loading="lazy"><span class="play">{svg(I_PLAY, 22, 2, True)}</span></div>'
+      <img src="{CK.yt_img(vid)}" alt="Video de {name}" loading="lazy"><span class="play">{svg(I_PLAY, 22, 2, True)}</span>{CK.GATE}</div>'
       <h3>{name}</h3><a href="{OFFER_URL[pid]}">Ver equipo →</a></article>''' for pid, vid, name in items)
     return f'''
 <section class="x-sec" id="videos"><div class="x-wrap">
@@ -1005,6 +1004,35 @@ def page_repuestos():
   <div class="x-head x-rv"><p class="x-eyebrow" style="text-align:center">Repuestos originales</p><h1 class="x-h2">Filtros de repuesto Waterdrop</h1>
     <p class="x-lead">Filtros originales para tu equipo, vendidos por Nasfeco, distribuidor exclusivo oficial de Waterdrop Filter en Ecuador. Precios con IVA incluido; el envío se coordina por WhatsApp (el filtro WD-EDF incluye envío).</p></div>'
   {groups}
+</div></section>'''
+    return h + body + bottom()
+
+# =========================================================== PÁGINA: POLÍTICA DE COOKIES
+def page_cookies():
+    desc = "Qué cookies usa la web de Nasfeco y cómo aceptarlas, rechazarlas o cambiar tu elección."
+    h = head("Política de cookies | Nasfeco", desc, SITE + "politica-cookies", SITE + A("wd-page-1016-new-2-pc.jpg"),
+             {"@context": "https://schema.org", "@type": "WebPage", "name": "Política de cookies", "url": SITE + "politica-cookies"})
+    secs = [
+        ("Almacenamiento imprescindible",
+         "<p>Guardamos tu elección sobre cookies en tu navegador (localStorage, clave <code>nf-consent</code>) para no volver a preguntarte. "
+         "Está exenta de consentimiento porque es necesaria para respetar tu decisión. Si agregas productos al carrito, también guardamos su contenido "
+         "en tu navegador (clave <code>wd_cart_v2</code>) para que no se pierda al cambiar de página. Nada de esto se comparte con nadie.</p>"),
+        ("Cookies de terceros: YouTube y Google Ads",
+         "<p><b>YouTube.</b> Los videos son de YouTube y se insertan en modo de privacidad mejorada (youtube-nocookie.com). Aun así, YouTube (Google LLC) "
+         "puede colocar cookies o tecnologías similares cuando el video se reproduce. Por eso solo se cargan si aceptas; hasta entonces ves una imagen fija guardada en nuestra web.</p>"
+         "<p><b>Google Ads.</b> Si aceptas, cargamos la etiqueta de Google Ads (Google LLC), que coloca cookies para saber si nuestros anuncios funcionan: "
+         "por ejemplo, cuando alguien que llegó desde un anuncio nos escribe por WhatsApp o agrega un producto al carrito. Si rechazas, no se carga.</p>"),
+        ("Sin analítica ni otros rastreadores",
+         "<p>No usamos herramientas de analítica, píxeles de redes sociales ni otras cookies de publicidad. Las tipografías se sirven desde nuestra propia web.</p>"),
+        ("Cómo cambiar tu elección",
+         '<p>Puedes aceptar o rechazar cuando quieras: <button type="button" class="x-btn x-btn-o" data-cookie-settings>Configurar cookies</button></p>'
+         "<p>Si rechazas después de haber aceptado, dejamos de cargar los videos y la etiqueta de Google Ads. También puedes borrar los datos guardados desde la configuración de tu navegador.</p>")]
+    body = top()
+    body += f'''
+<section class="x-sec" style="padding-top:48px"><div class="x-wrap x-legal">
+  <p class="x-eyebrow">Legal</p><h1>Política de cookies</h1>
+  <p class="x-legal-lead">Qué cookies usa esta web y cómo gestionarlas. Última actualización: 13 de octubre de 2026.</p>
+  {"".join(f'<h2>{t}</h2>{c}' for t, c in secs)}
 </div></section>'''
     return h + body + bottom()
 
@@ -1786,7 +1814,7 @@ G2P = dict(pid="g2", art="el", req="assets/req/requisitos-instalacion.jpg",  fil
 
 def page_g2(): return premium(G2P)
 
-for name, fn in [("product-x12.html", page_x12), ("product-g5p700a.html", page_g5), ("product-g2p600.html", page_g2), ("waterdrop.html", page_store), ("product-uf.html", page_uf), ("product-smart.html", page_smart), ("repuestos.html", page_repuestos)]:
+for name, fn in [("product-x12.html", page_x12), ("product-g5p700a.html", page_g5), ("product-g2p600.html", page_g2), ("waterdrop.html", page_store), ("product-uf.html", page_uf), ("product-smart.html", page_smart), ("repuestos.html", page_repuestos), ("politica-cookies.html", page_cookies)]:
     with open(os.path.join(ROOT, name), "w", encoding="utf-8", newline="\n") as f:
         f.write(fn())
     print("ok", name)

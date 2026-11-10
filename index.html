@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18496630945"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-18496630945');</script>
+<!-- Google Ads (AW-18496630945): lo carga js/consent.js solo si se aceptan las cookies -->
 <title>Nasfeco | Energía y Agua para Empresas y Hogares en Ecuador</title>
 <meta name="description" content="Nasfeco: soluciones de energía solar y agua para empresas y distribuidor exclusivo oficial de Waterdrop Filter en Ecuador. Quito, Ecuador.">
 <meta name="robots" content="index, follow">
@@ -15,8 +13,8 @@
 <meta property="og:image" content="https://nasfeco.com/assets/nf/portal.jpg"><meta property="og:url" content="https://nasfeco.com/"><meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0A192F">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Nasfeco", "url": "https://nasfeco.com/", "telephone": "+593 99 731 2362", "address": {"@type": "PostalAddress", "addressLocality": "Quito", "addressCountry": "EC"}}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/consent.css?v=36">
 <style>
 :root{--navy:#0A192F;--navy-d:#07111F;--gold:#10B981;--f:'Montserrat',-apple-system,'Segoe UI',Roboto,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -65,6 +63,10 @@ a{color:inherit;text-decoration:none}
 .side-c>*:nth-child(2){animation-delay:.1s}.side-c>*:nth-child(3){animation-delay:.2s}.side-c>*:nth-child(4){animation-delay:.3s}.side-c>*:nth-child(5){animation-delay:.4s}
 .s-wd .side-c>*{animation-delay:.25s}.s-wd .side-c>*:nth-child(2){animation-delay:.35s}.s-wd .side-c>*:nth-child(3){animation-delay:.45s}.s-wd .side-c>*:nth-child(4){animation-delay:.55s}.s-wd .side-c>*:nth-child(5){animation-delay:.65s}
 @keyframes pIn{to{opacity:1;transform:none}}
+.p-legal{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;gap:6px;font-size:11px;color:rgba(255,255,255,.75);background:rgba(10,25,47,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:7px 14px;border-radius:20px}
+.p-legal a,.p-legal .ck-set{display:inline;margin:0;color:inherit}
+.p-legal a:hover,.p-legal .ck-set:hover{color:#fff}
+.ck-on .p-legal{display:none}
 @media (prefers-reduced-motion:reduce){.side-c>*{animation:none;opacity:1;transform:none}}
 @media (max-width:860px){
   .portal{flex-direction:column;height:auto}
@@ -74,6 +76,7 @@ a{color:inherit;text-decoration:none}
   .p-bot{display:none}
   .p-top{position:absolute}
   .side:first-child .side-c{padding-top:170px}
+  .p-legal{position:static;justify-content:center;border-radius:0;padding:16px;background:var(--navy-d)}
 }
 </style>
 </head>
@@ -104,5 +107,11 @@ a{color:inherit;text-decoration:none}
   <div class="divider"></div>
 </main>
 <div class="p-bot"><span>Elige tu destino</span></div>
+<div class="p-legal"><a href="politica-cookies.html">Política de cookies</a><span aria-hidden="true">·</span><button type="button" class="ck-set" data-cookie-settings>Configurar cookies</button></div>
+<div class="ck" id="ck" role="dialog" aria-modal="false" aria-labelledby="ck-t" hidden>
+  <p id="ck-t"><b>Cookies</b>Solo usamos el almacenamiento imprescindible para que la web funcione. Los videos de YouTube y la medición de anuncios de Google colocan sus propias cookies, así que solo se cargan si aceptas. Puedes cambiar tu elección cuando quieras desde el pie de página. <a href="politica-cookies.html">Política de cookies</a></p>
+  <div class="ck-b"><button type="button" class="ck-btn" data-consent="no">Rechazar</button><button type="button" class="ck-btn" data-consent="yes">Aceptar</button></div>
+</div>
+<script src="js/consent.js?v=36"></script>
 </body>
 </html>

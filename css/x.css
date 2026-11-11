@@ -1180,3 +1180,6 @@ a.x-bi-link em{display:block;font-style:normal;font-size:12px;font-weight:700;co
 .x-legal code{font-size:.9em;background:var(--s2);border:1px solid var(--line);padding:1px 6px;border-radius:4px}
 .x-legal p .x-btn{display:flex;width:max-content;margin-top:14px}
 @media (max-width:767px){.x-legal h1{font-size:30px}.x-legal h2{font-size:19px;margin-top:32px}}
+
+.x-nav>li>a{white-space:nowrap}
+@media (max-width:1320px){.x-nav{gap:18px}}

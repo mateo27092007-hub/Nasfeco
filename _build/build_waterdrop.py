@@ -176,6 +176,7 @@ def top(subnav=None, side=None):
       <li><a href="waterdrop.html#ofertas">Purificadores {svg(I_DOWN, 12)}</a><div class="x-mega">{mega}</div></li>
       <li><a href="waterdrop.html#ahorro">Calcula tu ahorro</a></li>
       <li><a href="repuestos">Repuestos</a></li>
+      <li><a href="club-nasfeco.html" style="color:#9A7B3C;font-weight:600">Club Nasfeco</a></li>
       <li><a href="waterdrop.html#contacto">Contacto</a></li>
       <li><a href="#" data-quiz class="cta" onclick="return false">Encuentra tu purificador</a></li>
     </ul>
@@ -189,6 +190,7 @@ def top(subnav=None, side=None):
   <div class="x-mnav-top">{wd_brand()}<button class="x-icon" data-menu-close aria-label="Cerrar">{svg(I_X, 22)}</button></div>
   {mnav}
   <a href="repuestos">Filtros de repuesto</a>
+  <a href="club-nasfeco.html" style="color:#9A7B3C;font-weight:600">Club Nasfeco</a>
   <a href="#" data-quiz onclick="return false">Encuentra tu purificador</a>
   <a href="waterdrop.html#ahorro">Calcula tu ahorro</a>
   <a href="waterdrop.html#servicio">Servicio Nasfeco</a>
@@ -216,7 +218,7 @@ def bottom(extra=""):
       <div><h4>Purificadores</h4>
         <a href="product-x12.html">Waterdrop X12</a><a href="product-g5p700a.html">Waterdrop G5P700A</a><a href="product-g2p600.html">Waterdrop G2P600</a><a href="product-uf.html">Ultrafiltración UF</a><a href="product-smart.html">Dispensador ED01</a><a href="waterdrop.html#comparar">Comparar modelos</a></div>
       <div><h4>Servicio Nasfeco</h4>
-        <a href="repuestos">Filtros de repuesto</a><a href="waterdrop.html#faq">Preguntas frecuentes</a><a href="waterdrop.html#contacto">Agendar instalación</a>
+        <a href="repuestos">Filtros de repuesto</a><a href="club-nasfeco.html">Club Nasfeco</a><a href="waterdrop.html#faq">Preguntas frecuentes</a><a href="waterdrop.html#contacto">Agendar instalación</a>
         <a href="https://wa.me/593997312362?text=Hola%2C%20necesito%20soporte%20t%C3%A9cnico%20con%20mi%20equipo%20Waterdrop" target="_blank" rel="noopener">Soporte técnico</a><a href="nasfeco.html">Soluciones para empresas</a>{CK.FOOT}</div>
       <div><h4>Contacto</h4><p style="margin-bottom:10px"><a href="purificadores-agua-quito">Quito</a> · <a href="purificadores-agua-guayaquil">Guayaquil</a> · <a href="purificadores-agua-cuenca">Cuenca</a> · <a href="purificadores-agua-loja">Loja</a></p><p style="margin-bottom:8px"><a href="https://nasfecousa.com/">Miami, Florida (EE. UU.)<br><b style="font-weight:600">nasfecousa.com ↗</b></a></p><p style="margin-bottom:8px">Ecuador: Quito, Guayaquil, Cuenca y Loja · Trabajamos en todo el país</p><p>WhatsApp: +593 99 731 2362</p></div>
     </div>
@@ -1006,6 +1008,72 @@ def page_repuestos():
   {groups}
 </div></section>'''
     return h + body + bottom()
+
+# =========================================================== PÁGINA: CLUB NASFECO
+def page_club():
+    title = "Club Nasfeco | Descuentos para clientes Waterdrop · Nasfeco"
+    desc = "Club Nasfeco: membresía exclusiva para clientes de Nasfeco, por $3.99 al mes sin IVA, con descuentos en locales aliados. Se adquiere comprando un equipo Waterdrop Filter mediante Nasfeco."
+    h = head(title, desc, SITE + "club-nasfeco", SITE + "assets/x/wd-page-1016-new-2-pc.jpg",
+             {"@context": "https://schema.org", "@type": "WebPage", "name": "Club Nasfeco", "description": desc, "url": SITE + "club-nasfeco"})
+    h = h.replace("</head>", f'<link rel="stylesheet" href="css/club.css{CK.VER}">\n</head>')
+    wa = "https://wa.me/593997312362?text=Hola%20Nasfeco%2C%20quiero%20un%20equipo%20Waterdrop%20con%20la%20membres%C3%ADa%20del%20Club%20Nasfeco"
+    I_USER = "M20 21a8 8 0 10-16 0M12 12a4.5 4.5 0 100-9 4.5 4.5 0 000 9z"
+    I_DROP = "M12 3s7 7.2 7 12a7 7 0 01-14 0c0-4.8 7-12 7-12z"
+    I_SEARCH = "M11 19a8 8 0 100-16 8 8 0 000 16zM21 21l-4.3-4.3"
+    body = top() + f'''
+<main class="cl">
+  <div class="cl-demo" id="cl-demo" hidden>Vista previa: los locales de esta página son ejemplos y se reemplazarán por los reales.</div>
+  <section class="cl-hero">
+    <div class="cl-aurora" aria-hidden="true"></div>
+    <div class="x-wrap">
+      <div class="cl-hero-g">
+        <div>
+          <p class="cl-eb">Exclusivo para clientes</p>
+          <h1>Club <em class="cl-gold">Nasfeco</em></h1>
+          <p class="cl-lead">Tu purificador Waterdrop también te abre la puerta a descuentos en locales aliados de muchas industrias.</p>
+          <div class="cl-btns"><a class="cl-btn cl-btn-g" href="#locales">Ver locales con descuento</a><a class="cl-btn cl-btn-o" href="waterdrop.html#ofertas">Ver equipos Waterdrop</a></div>
+        </div>
+        <div class="cl-cardw" data-tilt aria-hidden="true"><div class="cl-float"><div class="cl-mcard">
+          <div class="cl-mc-top"><div class="cl-mc-brand">NASFECO</div><div class="cl-mc-chip"></div></div>
+          <div class="cl-mc-name">Club <b>Nasfeco</b></div>
+          <div class="cl-mc-bot"><div><small>Membresía</small><span>Cliente Nasfeco</span></div><div style="text-align:right"><small>Equipo</small><span>Waterdrop Filter</span></div></div>
+        </div></div></div>
+      </div>
+      <div class="cl-terms cl-rv">
+        <div class="cl-term"><div class="cl-term-i">{svg(I_USER, 20, 1.5)}</div><h2>Solo para clientes de Nasfeco</h2><p>La membresía es exclusiva para quienes son clientes de Nasfeco.</p></div>
+        <div class="cl-term cl-term-p"><div class="cl-price cl-gold"><sup>$</sup>3.99</div><span>Al mes · sin IVA</span></div>
+        <div class="cl-term"><div class="cl-term-i">{svg(I_DROP, 20, 1.5)}</div><h2>Se adquiere con tu equipo</h2><p>Solo puedes comprarla al adquirir un equipo Waterdrop Filter mediante Nasfeco.</p></div>
+      </div>
+      <p class="cl-note cl-rv">Como miembro <b>disfrutas de todos los beneficios de la membresía</b>, incluidos los descuentos en los locales aliados.</p>
+    </div>
+  </section>
+  <section class="cl-steps"><div class="x-wrap">
+    <div class="cl-head cl-rv"><p class="cl-eb">Cómo entrar</p><h2 class="cl-h2">Tres pasos para ser <b class="cl-gold">miembro</b></h2></div>
+    <div class="cl-sg">
+      <div class="cl-s cl-rv"><i>1</i><h3>Elige tu equipo</h3><p>Adquiere un equipo Waterdrop Filter mediante Nasfeco.</p></div>
+      <div class="cl-s cl-rv" style="--d:.12s"><i>2</i><h3>Activa tu membresía</h3><p>Súmala con tu compra por $3.99 al mes, sin IVA.</p></div>
+      <div class="cl-s cl-rv" style="--d:.24s"><i>3</i><h3>Disfruta tus descuentos</h3><p>Aprovecha los beneficios en los locales aliados del Club.</p></div>
+    </div>
+  </div></section>
+  <section class="cl-locs" id="locales" style="padding-bottom:0"><div class="x-wrap"><div class="cl-head cl-rv" style="margin-bottom:clamp(28px,4vw,44px)"><p class="cl-eb">Locales aliados</p><h2 class="cl-h2">Encuentra tu <b class="cl-gold">descuento</b></h2><p>Elige una categoría o busca el local que te interesa.</p></div></div></section>
+  <div class="cl-bar" id="cl-bar"><div class="x-wrap"><div class="cl-railw">
+    <button type="button" class="cl-arrow" data-rail="-1" aria-label="Categorías anteriores">{svg(I_LEFT, 18)}</button>
+    <div class="cl-rail" id="cl-rail" role="group" aria-label="Categorías de locales"></div>
+    <button type="button" class="cl-arrow" data-rail="1" aria-label="Más categorías">{svg(I_RIGHT, 18)}</button>
+  </div></div></div>
+  <section class="cl-locs" id="cl-res" style="padding-top:0"><div class="x-wrap">
+    <div class="cl-tools"><label class="cl-search">{svg(I_SEARCH, 18, 1.8)}<input id="cl-q" type="search" placeholder="Busca un local, servicio o ciudad" aria-label="Buscar locales" autocomplete="off"></label><span class="cl-count" id="cl-count" aria-live="polite"></span></div>
+    <div id="cl-out"></div>
+    <noscript><p>Activa JavaScript para ver los locales del Club Nasfeco.</p></noscript>
+  </div></section>
+  <section class="cl-end"><div class="x-wrap cl-rv">
+    <p class="cl-eb">Tu entrada al Club</p>
+    <h2 class="cl-h2">Empieza con tu equipo <b class="cl-gold">Waterdrop</b></h2>
+    <p>Agua pura en casa y, con tu membresía, todos los beneficios del Club Nasfeco.</p>
+    <div class="cl-btns"><a class="cl-btn cl-btn-g" href="{wa}" target="_blank" rel="noopener">Quiero mi equipo y membresía</a><button type="button" class="cl-btn cl-btn-o" data-quiz>Encuentra tu purificador</button></div>
+  </div></section>
+</main>'''
+    return h + body + bottom(f'<script src="js/club.js{CK.VER}"></script>')
 
 # =========================================================== PÁGINA: POLÍTICA DE COOKIES
 def page_cookies():
@@ -1814,7 +1882,7 @@ G2P = dict(pid="g2", art="el", req="assets/req/requisitos-instalacion.jpg",  fil
 
 def page_g2(): return premium(G2P)
 
-for name, fn in [("product-x12.html", page_x12), ("product-g5p700a.html", page_g5), ("product-g2p600.html", page_g2), ("waterdrop.html", page_store), ("product-uf.html", page_uf), ("product-smart.html", page_smart), ("repuestos.html", page_repuestos), ("politica-cookies.html", page_cookies)]:
+for name, fn in [("product-x12.html", page_x12), ("product-g5p700a.html", page_g5), ("product-g2p600.html", page_g2), ("waterdrop.html", page_store), ("product-uf.html", page_uf), ("product-smart.html", page_smart), ("repuestos.html", page_repuestos), ("club-nasfeco.html", page_club), ("politica-cookies.html", page_cookies)]:
     with open(os.path.join(ROOT, name), "w", encoding="utf-8", newline="\n") as f:
         f.write(fn())
     print("ok", name)

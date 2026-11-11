@@ -1,0 +1,173 @@
+/* =========================================================
+   CLUB NASFECO · Locales con descuento
+   ---------------------------------------------------------
+   >>> LOCALES Y CATEGORÍAS: EDITA SOLO AQUÍ <<<
+   Cada local: nombre, categoria (id de la lista de categorías),
+   descuento, sobre (a qué aplica), ciudad, condiciones.
+   Opcional: logo (ruta de imagen) y web (enlace).
+   Quita "demo: true" cuando el local sea real: mientras exista
+   uno de ejemplo, la página muestra el aviso de vista previa.
+   ========================================================= */
+const CLUB = {
+  categorias: [
+    { id: 'gastronomia', nombre: 'Gastronomía',       icono: 'M4 3v7a3 3 0 006 0V3M7 3v18M17 3c-2 1.5-3 4-3 7s1 4 3 4v7' },
+    { id: 'salud',       nombre: 'Salud',             icono: 'M12 21s-8-4.8-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 6.2-8 11-8 11zM12 9v5M9.5 11.5h5' },
+    { id: 'belleza',     nombre: 'Belleza y spa',     icono: 'M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z' },
+    { id: 'deporte',     nombre: 'Deporte',           icono: 'M4 9v6M7 6v12M17 6v12M20 9v6M7 12h10' },
+    { id: 'hogar',       nombre: 'Hogar',             icono: 'M3 11l9-8 9 8M5 9.5V21h14V9.5M10 21v-6h4v6' },
+    { id: 'automotriz',  nombre: 'Automotriz',        icono: 'M4 16v-3l2-6h12l2 6v3M4 16h16M4 16v3M20 16v3M7.5 13h.01M16.5 13h.01' },
+    { id: 'mascotas',    nombre: 'Mascotas',          icono: 'M12 12c-3 0-5.5 2.6-5.5 5 0 2 1.6 3 3.2 3 1 0 1.5-.5 2.3-.5s1.3.5 2.3.5c1.6 0 3.2-1 3.2-3 0-2.4-2.5-5-5.5-5zM6 10.5a1.8 2.3 0 100-.01zM18 10.5a1.8 2.3 0 100-.01zM9.5 6.5a1.8 2.4 0 100-.01zM14.5 6.5a1.8 2.4 0 100-.01z' },
+    { id: 'educacion',   nombre: 'Educación',         icono: 'M2 9l10-5 10 5-10 5zM6 11.5V16c2 2 10 2 12 0v-4.5M22 9v6' },
+    { id: 'turismo',     nombre: 'Hoteles y turismo', icono: 'M3 20V6M3 16h18v4M21 16v-3a3 3 0 00-3-3h-8v6M7 12.5a1.5 1.5 0 100-.01z' },
+    { id: 'moda',        nombre: 'Moda',              icono: 'M9 3L3 7l2.5 4L8 9.5V21h8V9.5l2.5 1.5L21 7l-6-4c-.5 2-1.5 3-3 3s-2.5-1-3-3z' }
+  ],
+  locales: [
+    { nombre: 'Restaurante de ejemplo', categoria: 'gastronomia', descuento: '15%', sobre: 'en toda la carta',        ciudad: 'Quito',     condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
+    { nombre: 'Cafetería de ejemplo',   categoria: 'gastronomia', descuento: '10%', sobre: 'en bebidas y postres',    ciudad: 'Cuenca',    condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
+    { nombre: 'Clínica de ejemplo',     categoria: 'salud',       descuento: '20%', sobre: 'en consultas',            ciudad: 'Guayaquil', condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
+    { nombre: 'Óptica de ejemplo',      categoria: 'salud',       descuento: '15%', sobre: 'en lentes',               ciudad: 'Quito',     condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
+    { nombre: 'Spa de ejemplo',         categoria: 'belleza',     descuento: '25%', sobre: 'en masajes',              ciudad: 'Loja',      condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
+    { nombre: 'Gimnasio de ejemplo',    categoria: 'deporte',     descuento: '30%', sobre: 'en la inscripción',       ciudad: 'Quito',     condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
+    { nombre: 'Ferretería de ejemplo',  categoria: 'hogar',       descuento: '10%', sobre: 'en toda la tienda',       ciudad: 'Cuenca',    condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
+    { nombre: 'Taller de ejemplo',      categoria: 'automotriz',  descuento: '15%', sobre: 'en mantenimiento',        ciudad: 'Guayaquil', condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
+    { nombre: 'Veterinaria de ejemplo', categoria: 'mascotas',    descuento: '20%', sobre: 'en consultas',            ciudad: 'Quito',     condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
+    { nombre: 'Academia de ejemplo',    categoria: 'educacion',   descuento: '15%', sobre: 'en cursos',               ciudad: 'Loja',      condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
+    { nombre: 'Hotel de ejemplo',       categoria: 'turismo',     descuento: '20%', sobre: 'en hospedaje',            ciudad: 'Cuenca',    condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
+    { nombre: 'Boutique de ejemplo',    categoria: 'moda',        descuento: '10%', sobre: 'en nueva colección',      ciudad: 'Guayaquil', condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true }
+  ]
+};
+
+(function () {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const esc = t => String(t == null ? '' : t).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const norm = t => String(t || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ico = (d, w = 22) => `<svg viewBox="0 0 24 24" width="${w}" height="${w}" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
+  const ALL = 'M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z';
+
+  const rail = $('#cl-rail'), out = $('#cl-out'), count = $('#cl-count'), search = $('#cl-q');
+  const cats = CLUB.categorias.filter(c => CLUB.locales.some(l => l.categoria === c.id));
+  const state = { cat: 'all', q: '' };
+
+  /* ---------- AVISO DE VISTA PREVIA ---------- */
+  if (CLUB.locales.some(l => l.demo)) $('#cl-demo').hidden = false;
+
+  /* ---------- CATEGORÍAS ---------- */
+  const chip = (id, name, d, n) => `<button type="button" class="cl-chip" data-cat="${id}" aria-pressed="false"><span class="cl-chip-i">${ico(d)}</span><span class="cl-chip-t">${esc(name)}<small>${n} ${n === 1 ? 'local' : 'locales'}</small></span></button>`;
+  rail.innerHTML = chip('all', 'Todas', ALL, CLUB.locales.length) +
+    cats.map(c => chip(c.id, c.nombre, c.icono, CLUB.locales.filter(l => l.categoria === c.id).length)).join('');
+
+  /* ---------- TARJETAS ---------- */
+  const card = (l, i) => {
+    const c = CLUB.categorias.find(x => x.id === l.categoria) || {};
+    const face = l.logo ? `<img src="${esc(l.logo)}" alt="" loading="lazy">` : `<span>${esc(l.nombre.charAt(0))}</span>`;
+    return `<article class="cl-loc" style="--i:${Math.min(i, 12)}">
+      <div class="cl-loc-top"><div class="cl-loc-m">${face}</div>${l.demo ? '<span class="cl-loc-demo">Ejemplo</span>' : ''}</div>
+      <div class="cl-loc-off"><b>${esc(l.descuento)}</b><span>${esc(l.sobre)}</span></div>
+      <h3>${esc(l.nombre)}</h3>
+      <p class="cl-loc-meta">${ico(c.icono || ALL, 14)} ${esc(c.nombre)}<i aria-hidden="true">·</i>${esc(l.ciudad)}</p>
+      <button type="button" class="cl-loc-more" aria-expanded="false">Ver condiciones <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="cl-loc-x"><div><p>${esc(l.condiciones)}</p>${l.web ? `<a href="${esc(l.web)}" target="_blank" rel="noopener">Visitar sitio ↗</a>` : ''}</div></div>
+    </article>`;
+  };
+
+  function render() {
+    const q = norm(state.q).trim();
+    const list = CLUB.locales.filter(l => {
+      const c = CLUB.categorias.find(x => x.id === l.categoria) || {};
+      return (state.cat === 'all' || l.categoria === state.cat) &&
+        (!q || norm([l.nombre, l.sobre, l.ciudad, c.nombre].join(' ')).includes(q));
+    });
+    $$('.cl-chip', rail).forEach(b => {
+      const on = b.dataset.cat === state.cat;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-pressed', on);
+    });
+    count.textContent = list.length === 1 ? '1 local' : `${list.length} locales`;
+    if (!list.length) {
+      out.innerHTML = `<div class="cl-empty"><h3>No encontramos ese local</h3><p>Prueba con otra palabra o mira todas las categorías.</p><button type="button" class="cl-btn cl-btn-o" data-reset>Ver todos los locales</button></div>`;
+      return;
+    }
+    let n = 0;
+    out.classList.toggle('one', state.cat !== 'all');
+    out.innerHTML = cats.map(c => {
+      const items = list.filter(l => l.categoria === c.id);
+      if (!items.length) return '';
+      return `<section class="cl-group" data-n="${Math.min(items.length, 4)}"><header><span>${ico(c.icono, 20)}</span><h3>${esc(c.nombre)}</h3><i aria-hidden="true"></i><small>${items.length}</small></header>
+        <div class="cl-grid">${items.map(l => card(l, n++)).join('')}</div></section>`;
+    }).join('');
+  }
+
+  function pick(id) {
+    state.cat = id;
+    render();
+    const b = $(`.cl-chip[data-cat="${id}"]`, rail);
+    if (b) rail.scrollTo({ left: b.offsetLeft - (rail.clientWidth - b.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+    const bar = $('#cl-bar'), y = $('#cl-res').getBoundingClientRect().top + scrollY - bar.offsetHeight - 12;
+    if (scrollY > y) scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' });
+  }
+
+  /* ---------- MOVER LAS CATEGORÍAS (arrastre y flechas) ---------- */
+  let down = false, sx = 0, sl = 0, moved = false;
+  rail.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.clientX; sl = rail.scrollLeft; });
+  addEventListener('pointermove', e => {
+    if (!down) return;
+    const dx = e.clientX - sx;
+    if (Math.abs(dx) > 5) { moved = true; rail.classList.add('drag'); }
+    if (moved) rail.scrollLeft = sl - dx;
+  });
+  addEventListener('pointerup', () => { down = false; rail.classList.remove('drag'); });
+  rail.addEventListener('click', e => {
+    if (moved) { moved = false; return; }
+    const b = e.target.closest('.cl-chip');
+    if (b) pick(b.dataset.cat);
+  });
+  $$('[data-rail]').forEach(b => b.addEventListener('click', () => rail.scrollBy({ left: +b.dataset.rail * rail.clientWidth * .7, behavior: reduce ? 'auto' : 'smooth' })));
+  const edges = () => {
+    const max = rail.scrollWidth - rail.clientWidth - 2;
+    $('[data-rail="-1"]').disabled = rail.scrollLeft <= 2;
+    $('[data-rail="1"]').disabled = rail.scrollLeft >= max;
+  };
+  rail.addEventListener('scroll', edges, { passive: true });
+  addEventListener('resize', edges);
+
+  /* ---------- BUSCADOR Y CONDICIONES ---------- */
+  search.addEventListener('input', () => { state.q = search.value; render(); });
+  out.addEventListener('click', e => {
+    if (e.target.closest('[data-reset]')) { state.q = ''; search.value = ''; pick('all'); return; }
+    const m = e.target.closest('.cl-loc-more');
+    if (!m) return;
+    const open = m.closest('.cl-loc').classList.toggle('open');
+    m.setAttribute('aria-expanded', open);
+  });
+
+  /* ---------- TARJETA DE MEMBRESÍA (se mueve con el cursor) ---------- */
+  const tilt = $('[data-tilt]');
+  if (tilt && !reduce && matchMedia('(hover: hover)').matches) {
+    const c = $('.cl-mcard', tilt);
+    tilt.addEventListener('pointermove', e => {
+      const r = tilt.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      c.style.setProperty('--ry', ((x - .5) * 22).toFixed(2) + 'deg');
+      c.style.setProperty('--rx', ((.5 - y) * 18).toFixed(2) + 'deg');
+      c.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+      c.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+      tilt.classList.add('on');
+    });
+    tilt.addEventListener('pointerleave', () => {
+      tilt.classList.remove('on');
+      ['--rx', '--ry'].forEach(p => c.style.setProperty(p, '0deg'));
+    });
+  }
+
+  /* ---------- APARICIÓN ---------- */
+  const reveal = $$('.cl-rv');
+  if (reduce || !('IntersectionObserver' in window)) reveal.forEach(e => e.classList.add('in'));
+  else {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+    reveal.forEach(e => io.observe(e));
+  }
+
+  render();
+  edges();
+})();

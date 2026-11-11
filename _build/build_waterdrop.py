@@ -1015,7 +1015,8 @@ def page_club():
     desc = "Club Nasfeco: membresía exclusiva para clientes de Nasfeco, por $3.99 al mes sin IVA, con descuentos en locales aliados. Se adquiere comprando un equipo Waterdrop Filter mediante Nasfeco."
     h = head(title, desc, SITE + "club-nasfeco", SITE + "assets/x/wd-page-1016-new-2-pc.jpg",
              {"@context": "https://schema.org", "@type": "WebPage", "name": "Club Nasfeco", "description": desc, "url": SITE + "club-nasfeco"})
-    h = h.replace("</head>", f'<link rel="stylesheet" href="css/club.css{CK.VER}">\n</head>')
+    fonts = "".join(f'<link rel="preload" href="assets/fonts/{f}.woff2" as="font" type="font/woff2" crossorigin>\n' for f in ("cormorant-latin", "cormorant-latin-italic", "jost-latin"))
+    h = h.replace("</head>", f'{fonts}<link rel="stylesheet" href="css/club.css{CK.VER}">\n</head>')
     wa = "https://wa.me/593997312362?text=Hola%20Nasfeco%2C%20quiero%20un%20equipo%20Waterdrop%20con%20la%20membres%C3%ADa%20del%20Club%20Nasfeco"
     I_USER = "M20 21a8 8 0 10-16 0M12 12a4.5 4.5 0 100-9 4.5 4.5 0 000 9z"
     I_DROP = "M12 3s7 7.2 7 12a7 7 0 01-14 0c0-4.8 7-12 7-12z"
@@ -1081,6 +1082,7 @@ def page_club():
     <p>Agua pura en casa y, con tu membresía, todos los beneficios del Club Nasfeco.</p>
     <div class="cl-btns"><a class="cl-btn cl-btn-g" href="{wa}" target="_blank" rel="noopener">Quiero mi equipo y membresía</a><button type="button" class="cl-btn cl-btn-o" data-quiz>Encuentra tu purificador</button></div>
   </div></section>
+  <dialog class="cl-d" id="cl-d" aria-labelledby="cl-d-t"><button type="button" class="cl-d-x" data-d-close aria-label="Cerrar">{svg(I_X, 20)}</button><div id="cl-d-b"></div></dialog>
 </main>'''
     return h + body + bottom(f'<script src="js/club.js{CK.VER}"></script>')
 
@@ -1094,21 +1096,22 @@ def page_cookies():
          "<p>Guardamos tu elección sobre cookies en tu navegador (localStorage, clave <code>nf-consent</code>) para no volver a preguntarte. "
          "Está exenta de consentimiento porque es necesaria para respetar tu decisión. Si agregas productos al carrito, también guardamos su contenido "
          "en tu navegador (clave <code>wd_cart_v2</code>) para que no se pierda al cambiar de página. Nada de esto se comparte con nadie.</p>"),
-        ("Cookies de terceros: YouTube y Google Ads",
+        ("Cookies de terceros: YouTube, Google Maps y Google Ads",
          "<p><b>YouTube.</b> Los videos son de YouTube y se insertan en modo de privacidad mejorada (youtube-nocookie.com). Aun así, YouTube (Google LLC) "
          "puede colocar cookies o tecnologías similares cuando el video se reproduce. Por eso solo se cargan si aceptas; hasta entonces ves una imagen fija guardada en nuestra web.</p>"
+         "<p><b>Google Maps.</b> La ubicación de los locales del Club Nasfeco se muestra con un mapa de Google Maps (Google LLC), que puede colocar cookies o tecnologías similares. Por eso solo se carga si aceptas. El botón para abrir la dirección en Google Maps funciona igual aunque rechaces.</p>"
          "<p><b>Google Ads.</b> Si aceptas, cargamos la etiqueta de Google Ads (Google LLC), que coloca cookies para saber si nuestros anuncios funcionan: "
          "por ejemplo, cuando alguien que llegó desde un anuncio nos escribe por WhatsApp o agrega un producto al carrito. Si rechazas, no se carga.</p>"),
         ("Sin analítica ni otros rastreadores",
          "<p>No usamos herramientas de analítica, píxeles de redes sociales ni otras cookies de publicidad. Las tipografías se sirven desde nuestra propia web.</p>"),
         ("Cómo cambiar tu elección",
          '<p>Puedes aceptar o rechazar cuando quieras: <button type="button" class="x-btn x-btn-o" data-cookie-settings>Configurar cookies</button></p>'
-         "<p>Si rechazas después de haber aceptado, dejamos de cargar los videos y la etiqueta de Google Ads. También puedes borrar los datos guardados desde la configuración de tu navegador.</p>")]
+         "<p>Si rechazas después de haber aceptado, dejamos de cargar los videos, los mapas y la etiqueta de Google Ads. También puedes borrar los datos guardados desde la configuración de tu navegador.</p>")]
     body = top()
     body += f'''
 <section class="x-sec" style="padding-top:48px"><div class="x-wrap x-legal">
   <p class="x-eyebrow">Legal</p><h1>Política de cookies</h1>
-  <p class="x-legal-lead">Qué cookies usa esta web y cómo gestionarlas. Última actualización: 13 de octubre de 2026.</p>
+  <p class="x-legal-lead">Qué cookies usa esta web y cómo gestionarlas. Última actualización: 10 de noviembre de 2026.</p>
   {"".join(f'<h2>{t}</h2>{c}' for t, c in secs)}
 </div></section>'''
     return h + body + bottom()

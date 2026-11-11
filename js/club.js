@@ -5,7 +5,11 @@
    Cada local: nombre, categoria (id de la lista de categorías),
    descuento, sobre (a qué aplica), ciudad, condiciones.
    Si un local está en varias ciudades: ciudad: 'Quito, Cuenca'.
-   Opcional: logo (ruta de imagen) y web (enlace).
+   Ficha del local: promocion (detalle de la promoción),
+   descripcion (sobre el local), direccion (calle y número, para
+   el mapa), imagen y logo (rutas, por ejemplo
+   'assets/club/mi-local.jpg') y web (enlace). Opcional: mapa, si
+   Google lo encuentra mejor con otro texto o con coordenadas.
    Quita "demo: true" cuando el local sea real: mientras exista
    uno de ejemplo, la página muestra el aviso de vista previa.
    ========================================================= */
@@ -24,18 +28,18 @@ const CLUB = {
     { id: 'moda',        nombre: 'Moda',              icono: 'M9 3L3 7l2.5 4L8 9.5V21h8V9.5l2.5 1.5L21 7l-6-4c-.5 2-1.5 3-3 3s-2.5-1-3-3z' }
   ],
   locales: [
-    { nombre: 'Restaurante de ejemplo', categoria: 'gastronomia', descuento: '15%', sobre: 'en toda la carta',        ciudad: 'Quito',     condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
-    { nombre: 'Cafetería de ejemplo',   categoria: 'gastronomia', descuento: '10%', sobre: 'en bebidas y postres',    ciudad: 'Cuenca',    condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
-    { nombre: 'Clínica de ejemplo',     categoria: 'salud',       descuento: '20%', sobre: 'en consultas',            ciudad: 'Guayaquil', condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
-    { nombre: 'Óptica de ejemplo',      categoria: 'salud',       descuento: '15%', sobre: 'en lentes',               ciudad: 'Quito',     condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
-    { nombre: 'Spa de ejemplo',         categoria: 'belleza',     descuento: '25%', sobre: 'en masajes',              ciudad: 'Loja',      condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
-    { nombre: 'Gimnasio de ejemplo',    categoria: 'deporte',     descuento: '30%', sobre: 'en la inscripción',       ciudad: 'Quito',     condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
-    { nombre: 'Ferretería de ejemplo',  categoria: 'hogar',       descuento: '10%', sobre: 'en toda la tienda',       ciudad: 'Cuenca',    condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
-    { nombre: 'Taller de ejemplo',      categoria: 'automotriz',  descuento: '15%', sobre: 'en mantenimiento',        ciudad: 'Guayaquil', condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
-    { nombre: 'Veterinaria de ejemplo', categoria: 'mascotas',    descuento: '20%', sobre: 'en consultas',            ciudad: 'Quito',     condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
-    { nombre: 'Academia de ejemplo',    categoria: 'educacion',   descuento: '15%', sobre: 'en cursos',               ciudad: 'Loja',      condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
-    { nombre: 'Hotel de ejemplo',       categoria: 'turismo',     descuento: '20%', sobre: 'en hospedaje',            ciudad: 'Cuenca',    condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true },
-    { nombre: 'Boutique de ejemplo',    categoria: 'moda',        descuento: '10%', sobre: 'en nueva colección',      ciudad: 'Guayaquil', condiciones: 'Texto de ejemplo: aquí van las condiciones reales del local.', demo: true }
+    { nombre: 'Restaurante de ejemplo', categoria: 'gastronomia', descuento: '15%', sobre: 'en toda la carta',        ciudad: 'Quito',     promocion: 'Aquí va el detalle de la promoción para los miembros del Club.', descripcion: 'Aquí va la descripción del local: qué ofrece y qué lo hace especial.', condiciones: 'Aquí van las condiciones del local.', direccion: '', imagen: '', logo: '', demo: true },
+    { nombre: 'Cafetería de ejemplo',   categoria: 'gastronomia', descuento: '10%', sobre: 'en bebidas y postres',    ciudad: 'Cuenca',    promocion: 'Aquí va el detalle de la promoción para los miembros del Club.', descripcion: 'Aquí va la descripción del local: qué ofrece y qué lo hace especial.', condiciones: 'Aquí van las condiciones del local.', direccion: '', imagen: '', logo: '', demo: true },
+    { nombre: 'Clínica de ejemplo',     categoria: 'salud',       descuento: '20%', sobre: 'en consultas',            ciudad: 'Guayaquil', promocion: 'Aquí va el detalle de la promoción para los miembros del Club.', descripcion: 'Aquí va la descripción del local: qué ofrece y qué lo hace especial.', condiciones: 'Aquí van las condiciones del local.', direccion: '', imagen: '', logo: '', demo: true },
+    { nombre: 'Óptica de ejemplo',      categoria: 'salud',       descuento: '15%', sobre: 'en lentes',               ciudad: 'Quito',     promocion: 'Aquí va el detalle de la promoción para los miembros del Club.', descripcion: 'Aquí va la descripción del local: qué ofrece y qué lo hace especial.', condiciones: 'Aquí van las condiciones del local.', direccion: '', imagen: '', logo: '', demo: true },
+    { nombre: 'Spa de ejemplo',         categoria: 'belleza',     descuento: '25%', sobre: 'en masajes',              ciudad: 'Loja',      promocion: 'Aquí va el detalle de la promoción para los miembros del Club.', descripcion: 'Aquí va la descripción del local: qué ofrece y qué lo hace especial.', condiciones: 'Aquí van las condiciones del local.', direccion: '', imagen: '', logo: '', demo: true },
+    { nombre: 'Gimnasio de ejemplo',    categoria: 'deporte',     descuento: '30%', sobre: 'en la inscripción',       ciudad: 'Quito',     promocion: 'Aquí va el detalle de la promoción para los miembros del Club.', descripcion: 'Aquí va la descripción del local: qué ofrece y qué lo hace especial.', condiciones: 'Aquí van las condiciones del local.', direccion: '', imagen: '', logo: '', demo: true },
+    { nombre: 'Ferretería de ejemplo',  categoria: 'hogar',       descuento: '10%', sobre: 'en toda la tienda',       ciudad: 'Cuenca',    promocion: 'Aquí va el detalle de la promoción para los miembros del Club.', descripcion: 'Aquí va la descripción del local: qué ofrece y qué lo hace especial.', condiciones: 'Aquí van las condiciones del local.', direccion: '', imagen: '', logo: '', demo: true },
+    { nombre: 'Taller de ejemplo',      categoria: 'automotriz',  descuento: '15%', sobre: 'en mantenimiento',        ciudad: 'Guayaquil', promocion: 'Aquí va el detalle de la promoción para los miembros del Club.', descripcion: 'Aquí va la descripción del local: qué ofrece y qué lo hace especial.', condiciones: 'Aquí van las condiciones del local.', direccion: '', imagen: '', logo: '', demo: true },
+    { nombre: 'Veterinaria de ejemplo', categoria: 'mascotas',    descuento: '20%', sobre: 'en consultas',            ciudad: 'Quito',     promocion: 'Aquí va el detalle de la promoción para los miembros del Club.', descripcion: 'Aquí va la descripción del local: qué ofrece y qué lo hace especial.', condiciones: 'Aquí van las condiciones del local.', direccion: '', imagen: '', logo: '', demo: true },
+    { nombre: 'Academia de ejemplo',    categoria: 'educacion',   descuento: '15%', sobre: 'en cursos',               ciudad: 'Loja',      promocion: 'Aquí va el detalle de la promoción para los miembros del Club.', descripcion: 'Aquí va la descripción del local: qué ofrece y qué lo hace especial.', condiciones: 'Aquí van las condiciones del local.', direccion: '', imagen: '', logo: '', demo: true },
+    { nombre: 'Hotel de ejemplo',       categoria: 'turismo',     descuento: '20%', sobre: 'en hospedaje',            ciudad: 'Cuenca',    promocion: 'Aquí va el detalle de la promoción para los miembros del Club.', descripcion: 'Aquí va la descripción del local: qué ofrece y qué lo hace especial.', condiciones: 'Aquí van las condiciones del local.', direccion: '', imagen: '', logo: '', demo: true },
+    { nombre: 'Boutique de ejemplo',    categoria: 'moda',        descuento: '10%', sobre: 'en nueva colección',      ciudad: 'Guayaquil', promocion: 'Aquí va el detalle de la promoción para los miembros del Club.', descripcion: 'Aquí va la descripción del local: qué ofrece y qué lo hace especial.', condiciones: 'Aquí van las condiciones del local.', direccion: '', imagen: '', logo: '', demo: true }
   ]
 };
 
@@ -74,16 +78,17 @@ const CLUB = {
   };
 
   /* ---------- TARJETAS ---------- */
+  const slug = l => norm(l.nombre).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const catOf = l => CLUB.categorias.find(x => x.id === l.categoria) || {};
+  const face = l => l.logo ? `<img src="${esc(l.logo)}" alt="" loading="lazy">` : `<span>${esc(l.nombre.charAt(0))}</span>`;
   const card = (l, i) => {
-    const c = CLUB.categorias.find(x => x.id === l.categoria) || {};
-    const face = l.logo ? `<img src="${esc(l.logo)}" alt="" loading="lazy">` : `<span>${esc(l.nombre.charAt(0))}</span>`;
+    const c = catOf(l);
     return `<article class="cl-loc" style="--i:${Math.min(i, 12)}">
-      <div class="cl-loc-top"><div class="cl-loc-m">${face}</div>${l.demo ? '<span class="cl-loc-demo">Ejemplo</span>' : ''}</div>
+      <div class="cl-loc-top"><div class="cl-loc-m">${face(l)}</div>${l.demo ? '<span class="cl-loc-demo">Ejemplo</span>' : ''}</div>
       <div class="cl-loc-off"><b>${esc(l.descuento)}</b><span>${esc(l.sobre)}</span></div>
       <h3>${esc(l.nombre)}</h3>
       <p class="cl-loc-meta">${ico(c.icono || ALL, 14)} ${esc(c.nombre)}<i aria-hidden="true">·</i>${esc(l.ciudad)}</p>
-      <button type="button" class="cl-loc-more" aria-expanded="false">Ver condiciones <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-      <div class="cl-loc-x"><div><p>${esc(l.condiciones)}</p>${l.web ? `<a href="${esc(l.web)}" target="_blank" rel="noopener">Visitar sitio ↗</a>` : ''}</div></div>
+      <button type="button" class="cl-loc-more" data-local="${slug(l)}" aria-label="Ver el local ${esc(l.nombre)}">Ver local <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
     </article>`;
   };
 
@@ -175,10 +180,63 @@ const CLUB = {
   out.addEventListener('click', e => {
     if (e.target.closest('[data-reset]')) { state.q = ''; state.city = 'all'; search.value = ''; pick('all'); return; }
     const m = e.target.closest('.cl-loc-more');
-    if (!m) return;
-    const open = m.closest('.cl-loc').classList.toggle('open');
-    m.setAttribute('aria-expanded', open);
+    if (m) openLocal(CLUB.locales.find(l => slug(l) === m.dataset.local));
   });
+
+  /* ---------- FICHA DEL LOCAL ---------- */
+  const dlg = $('#cl-d'), dBody = $('#cl-d-b');
+  let cur = null;
+  const PIN = 'M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12zM12 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z';
+  const mapQ = l => l.mapa || [l.direccion, l.ciudad, 'Ecuador'].filter(Boolean).join(', ');
+  const mapsUrl = l => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(mapQ(l));
+  const embedUrl = l => `https://www.google.com/maps?q=${encodeURIComponent(mapQ(l))}&z=${l.direccion || l.mapa ? 16 : 12}&output=embed`;
+
+  // El mapa es de Google y coloca cookies: igual que YouTube, solo se carga si la persona acepta (js/consent.js)
+  function paintMap(l) {
+    const w = $('#cl-d-mapw', dBody);
+    if (!w) return;
+    w.innerHTML = window.NFConsent && NFConsent.ok()
+      ? `<iframe src="${esc(embedUrl(l))}" title="Mapa de ${esc(l.nombre)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+         <a class="cl-d-mapa" href="${esc(mapsUrl(l))}" target="_blank" rel="noopener" aria-label="Abrir ${esc(l.nombre)} en Google Maps"><span>${ico(PIN, 16)} Abrir en Google Maps</span></a>`
+      : `<div class="cl-d-gate">${ico(PIN, 30)}<p>El mapa es de Google Maps, que usa cookies.</p><button type="button" class="cl-btn cl-btn-o" data-consent="yes">Aceptar y ver el mapa</button></div>`;
+  }
+
+  function paintLocal(l) {
+    const c = catOf(l);
+    dBody.innerHTML = `
+      <div class="cl-d-hero">${l.imagen ? `<img src="${esc(l.imagen)}" alt="${esc(l.nombre)}">` : `<div class="cl-d-art">${ico(c.icono || ALL, 120)}</div>`}
+        <span class="cl-d-cat">${ico(c.icono || ALL, 16)} ${esc(c.nombre)}</span>${l.demo ? '<span class="cl-loc-demo">Ejemplo</span>' : ''}</div>
+      <div class="cl-d-in">
+        <header class="cl-d-h"><div class="cl-d-logo">${face(l)}</div><div><h2 id="cl-d-t">${esc(l.nombre)}</h2><p>${ico(PIN, 15)} ${esc(l.ciudad)}</p></div></header>
+        <div class="cl-d-g">
+          <section class="cl-d-promo"><small>Tu promoción como miembro</small><b>${esc(l.descuento)}</b><span>${esc(l.sobre)}</span>
+            ${l.promocion ? `<p>${esc(l.promocion)}</p>` : ''}${l.condiciones ? `<div class="cl-d-cond"><h3>Condiciones</h3><p>${esc(l.condiciones)}</p></div>` : ''}</section>
+          <section class="cl-d-about"><h3>Sobre el local</h3>${l.descripcion ? `<p>${esc(l.descripcion)}</p>` : ''}${l.web ? `<a class="cl-d-web" href="${esc(l.web)}" target="_blank" rel="noopener">Visitar su sitio ↗</a>` : ''}</section>
+        </div>
+        <section class="cl-d-map"><div class="cl-d-maph"><div><h3>Dónde está</h3><p>${esc(l.direccion ? `${l.direccion}, ${l.ciudad}` : (l.demo ? `${l.ciudad} (ubicación de ejemplo)` : l.ciudad))}</p></div>
+          <a class="cl-btn cl-btn-g" href="${esc(mapsUrl(l))}" target="_blank" rel="noopener">Cómo llegar</a></div>
+          <div class="cl-d-mapw" id="cl-d-mapw"></div></section>
+      </div>`;
+    paintMap(l);
+  }
+
+  function openLocal(l) {
+    if (!l) return;
+    cur = l;
+    paintLocal(l);
+    if (!dlg.open) dlg.showModal();
+    dlg.scrollTop = 0;
+    history.pushState(null, '', '#local=' + slug(l));
+  }
+
+  dlg.addEventListener('close', () => {
+    cur = null;
+    dBody.innerHTML = '';
+    if (location.hash.startsWith('#local=')) history.back();
+  });
+  dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('[data-d-close]')) dlg.close(); });
+  addEventListener('popstate', () => { if (dlg.open && !location.hash.startsWith('#local=')) dlg.close(); });
+  document.addEventListener('nf-consent', () => { if (cur) paintMap(cur); });
 
   /* ---------- TARJETA DE MEMBRESÍA (se mueve con el cursor) ---------- */
   const tilt = $('[data-tilt]');
@@ -208,4 +266,11 @@ const CLUB = {
 
   render();
   edges();
+
+  // Enlace directo a un local: club-nasfeco#local=nombre-del-local
+  const direct = location.hash.startsWith('#local=') && CLUB.locales.find(l => slug(l) === location.hash.slice(7));
+  if (direct) {
+    history.replaceState(null, '', location.pathname + location.search);
+    openLocal(direct);
+  }
 })();

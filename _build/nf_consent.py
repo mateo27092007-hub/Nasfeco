@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Piezas comunes a build_waterdrop.py y build_nasfeco.py: versión de CSS/JS, tipografía local y cookies.
 
-Cookies: solo almacenamiento imprescindible. YouTube y Google Ads se cargan únicamente si la persona acepta
+Cookies: solo almacenamiento imprescindible. YouTube, Google Maps y Google Ads se cargan únicamente si la persona acepta
 (lógica en js/consent.js; estilos en css/consent.css)."""
 
 # Súbelo cada vez que cambies un .css o .js, para que el navegador no use la versión vieja.
@@ -15,7 +15,7 @@ HEAD = f'''<link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="fo
 
 # Banner de cookies. Rechazar y Aceptar llevan exactamente el mismo botón. Va justo antes de los scripts de la página.
 BAR = f'''<div class="ck" id="ck" role="dialog" aria-modal="false" aria-labelledby="ck-t" hidden>
-  <p id="ck-t"><b>Cookies</b>Solo usamos el almacenamiento imprescindible para que la web funcione. Los videos de YouTube y la medición de anuncios de Google colocan sus propias cookies, así que solo se cargan si aceptas. Puedes cambiar tu elección cuando quieras desde el pie de página. <a href="{COOKIES_URL}">Política de cookies</a></p>
+  <p id="ck-t"><b>Cookies</b>Solo usamos el almacenamiento imprescindible para que la web funcione. Los videos de YouTube, los mapas de Google y la medición de anuncios de Google colocan sus propias cookies, así que solo se cargan si aceptas. Puedes cambiar tu elección cuando quieras desde el pie de página. <a href="{COOKIES_URL}">Política de cookies</a></p>
   <div class="ck-b"><button type="button" class="ck-btn" data-consent="no">Rechazar</button><button type="button" class="ck-btn" data-consent="yes">Aceptar</button></div>
 </div>
 <script src="js/consent.js{VER}"></script>'''

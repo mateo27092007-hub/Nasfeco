@@ -194,7 +194,7 @@ const CLUB = {
     });
     tilt.addEventListener('pointerleave', () => {
       tilt.classList.remove('on');
-      ['--rx', '--ry'].forEach(p => c.style.setProperty(p, '0deg'));
+      ['--rx', '--ry', '--mx', '--my'].forEach(p => c.style.removeProperty(p));
     });
   }
 

@@ -1020,6 +1020,11 @@ def page_club():
     I_USER = "M20 21a8 8 0 10-16 0M12 12a4.5 4.5 0 100-9 4.5 4.5 0 000 9z"
     I_DROP = "M12 3s7 7.2 7 12a7 7 0 01-14 0c0-4.8 7-12 7-12z"
     I_SEARCH = "M11 19a8 8 0 100-16 8 8 0 000 16zM21 21l-4.3-4.3"
+    I_NFC = "M6 8.5a8 8 0 010 7M10 6a12 12 0 010 12M14 3.5a17 17 0 010 17"
+    rings = "".join(f'<ellipse rx="205" ry="66" transform="rotate({i * 5})"/>' for i in range(36))
+    guil = f"""<svg class="cl-mc-guil" viewBox="0 0 500 315" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g transform="translate(405 150)" fill="none" stroke="#E8CF96" stroke-opacity=".24" stroke-width=".6">{rings}</g></svg>"""
+    mark = """<svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="clMark" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F7E9C4"/><stop offset="1" stop-color="#A9843F"/></linearGradient></defs><path d="M9 7L33 20 9 33Z" fill="none" stroke="url(#clMark)" stroke-width="4.5" stroke-linejoin="round"/><circle cx="9" cy="7" r="5.5" fill="url(#clMark)"/><circle cx="33" cy="20" r="5.5" fill="url(#clMark)"/><circle cx="9" cy="33" r="5.5" fill="url(#clMark)"/></svg>"""
+    chip = """<svg class="cl-mc-chip" viewBox="0 0 62 47" aria-hidden="true"><defs><linearGradient id="clChip" x1="0" y1="0" x2="62" y2="47" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F7E9C4"/><stop offset=".45" stop-color="#C9A45C"/><stop offset=".7" stop-color="#F0DBA8"/><stop offset="1" stop-color="#9A7637"/></linearGradient></defs><rect x=".5" y=".5" width="61" height="46" rx="8" fill="url(#clChip)" stroke="#6E5426"/><path d="M0 16h20M0 31h20M42 16h20M42 31h20M20 0c2 8 2 39 0 47M42 0c-2 8-2 39 0 47M20 16c7-4 15-4 22 0M20 31c7 4 15 4 22 0" fill="none" stroke="#6E5426" stroke-width="1.1"/></svg>"""
     body = top() + f'''
 <main class="cl">
   <div class="cl-demo" id="cl-demo" hidden>Vista previa: los locales de esta página son ejemplos y se reemplazarán por los reales.</div>
@@ -1034,9 +1039,11 @@ def page_club():
           <div class="cl-btns"><a class="cl-btn cl-btn-g" href="#locales">Ver locales con descuento</a><a class="cl-btn cl-btn-o" href="waterdrop.html#ofertas">Ver equipos Waterdrop</a></div>
         </div>
         <div class="cl-cardw" data-tilt aria-hidden="true"><div class="cl-float"><div class="cl-mcard">
-          <div class="cl-mc-top"><div class="cl-mc-brand">NASFECO</div><div class="cl-mc-chip"></div></div>
-          <div class="cl-mc-name">Club <b>Nasfeco</b></div>
-          <div class="cl-mc-bot"><div><small>Membresía</small><span>Cliente Nasfeco</span></div><div style="text-align:right"><small>Equipo</small><span>Waterdrop Filter</span></div></div>
+          {guil}
+          <div class="cl-mc-top"><div class="cl-mc-brand">{mark}NASFECO</div><div class="cl-mc-tag">Membresía</div></div>
+          <div class="cl-mc-mid">{chip}{svg(I_NFC, 22, 1.7).replace('<svg ', '<svg class="cl-mc-nfc" ')}</div>
+          <div class="cl-mc-name">Club Nasfeco</div>
+          <div class="cl-mc-bot"><div><small>Titular</small><span>Cliente Nasfeco</span></div><div style="text-align:right"><small>Equipo</small><span>{svg(I_DROP, 14, 1.8)}Waterdrop Filter</span></div></div>
         </div></div></div>
       </div>
       <div class="cl-terms cl-rv">

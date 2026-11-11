@@ -142,7 +142,7 @@ def wd_brand():
 I_TRUCK2 = I_TRUCK
 def trust():
     items = [(I_SHIELD, "Distribuidor exclusivo oficial", "Waterdrop Filter en Ecuador"), (I_TOOL, "Instalación profesional", "Quito, Guayaquil, Cuenca y Loja"),
-             (I_CHAT, "Garantía local", "Respaldo de Nasfeco S.A."), (I_TRUCK2, "Ecuador y Miami, Florida", "Presencia en Ecuador y EE. UU.")]
+             (I_CHAT, "Garantía local", "Respaldo de Nasfeco S.A."), (I_TRUCK2, "Ecuador, Miami, Madrid y Medellín", "Presencia en Ecuador, EE. UU., España y Colombia")]
     it = "".join(f"<div><i>{svg(i, 20, 1.8)}</i><p><b>{t}</b><span>{d}</span></p></div>" for i, t, d in items)
     return f'<section class="x-trust"><div class="x-wrap">{it}</div></section>'
 
@@ -158,7 +158,7 @@ def top(subnav=None, side=None):
       <a href="nasfeco.html">Empresas</a>
       <a href="waterdrop.html" class="on">Waterdrop Hogar</a>
     </div>
-    <div class="x-group-r"><b style="color:var(--gold-d)">Distribuidor exclusivo oficial de Waterdrop Filter</b> · Ecuador y <a href="https://nasfecousa.com/" class="x-mia">Miami, Florida (EE. UU.)</a> · WhatsApp +593 99 731 2362</div>
+    <div class="x-group-r"><b style="color:var(--gold-d)">Distribuidor exclusivo oficial de Waterdrop Filter</b> · Ecuador · <a href="https://nasfecousa.com/" class="x-mia">Miami</a> · Madrid · Medellín · WhatsApp +593 99 731 2362</div>
   </div>
 </div>
 <div class="x-ann" data-promo>
@@ -220,7 +220,7 @@ def bottom(extra=""):
       <div><h4>Servicio Nasfeco</h4>
         <a href="repuestos">Filtros de repuesto</a><a href="club-nasfeco.html">Club Nasfeco</a><a href="waterdrop.html#faq">Preguntas frecuentes</a><a href="waterdrop.html#contacto">Agendar instalación</a>
         <a href="https://wa.me/593997312362?text=Hola%2C%20necesito%20soporte%20t%C3%A9cnico%20con%20mi%20equipo%20Waterdrop" target="_blank" rel="noopener">Soporte técnico</a><a href="nasfeco.html">Soluciones para empresas</a>{CK.FOOT}</div>
-      <div><h4>Contacto</h4><p style="margin-bottom:10px"><a href="purificadores-agua-quito">Quito</a> · <a href="purificadores-agua-guayaquil">Guayaquil</a> · <a href="purificadores-agua-cuenca">Cuenca</a> · <a href="purificadores-agua-loja">Loja</a></p><p style="margin-bottom:8px"><a href="https://nasfecousa.com/">Miami, Florida (EE. UU.)<br><b style="font-weight:600">nasfecousa.com ↗</b></a></p><p style="margin-bottom:8px">Ecuador: Quito, Guayaquil, Cuenca y Loja · Trabajamos en todo el país</p><p>WhatsApp: +593 99 731 2362</p></div>
+      <div><h4>Contacto</h4><p style="margin-bottom:10px"><a href="purificadores-agua-quito">Quito</a> · <a href="purificadores-agua-guayaquil">Guayaquil</a> · <a href="purificadores-agua-cuenca">Cuenca</a> · <a href="purificadores-agua-loja">Loja</a></p><p style="margin-bottom:8px"><a href="https://nasfecousa.com/">Miami, Florida (EE. UU.)<br><b style="font-weight:600">nasfecousa.com ↗</b></a></p><p style="margin-bottom:8px">Madrid, España</p><p style="margin-bottom:8px">Medellín, Colombia</p><p style="margin-bottom:8px">Ecuador: Quito, Guayaquil, Cuenca y Loja · Trabajamos en todo el país</p><p>WhatsApp: +593 99 731 2362</p></div>
     </div>
     <div class="x-foot-b"><span>&copy; 2026 Nasfeco · Ecuador. Nasfeco, distribuidor exclusivo oficial de Waterdrop Filter en Ecuador. Waterdrop es una marca registrada de su fabricante.</span><span>Creado por <strong>Mateo Perez</strong></span></div>
   </div>
@@ -1128,7 +1128,7 @@ def page_store():
          "address": {"@type": "PostalAddress", "addressLocality": "Quito", "addressRegion": "Pichincha", "addressCountry": "EC"}}]}
     h = head("Waterdrop Ecuador | Purificadores de Agua para tu Hogar · Nasfeco", desc, SITE + "waterdrop", SITE + A("wd-page-1016-new-2-pc.jpg"), ld)
     body = top()
-    body += banner("Deja los botellones.<br>Toma agua pura.", "Nasfeco es el distribuidor exclusivo oficial de Waterdrop Filter en Ecuador, con presencia en Miami, Florida (EE. UU.): equipos originales, con instalación en Quito, Guayaquil, Cuenca y Loja y envíos a todo el país.",
+    body += banner("Deja los botellones.<br>Toma agua pura.", "Nasfeco es el distribuidor exclusivo oficial de Waterdrop Filter en Ecuador, con presencia en Miami (EE. UU.), Madrid (España) y Medellín (Colombia): equipos originales, con instalación en Quito, Guayaquil, Cuenca y Loja y envíos a todo el país.",
                    [("Certificados", "NSF/ANSI"), ("Instalación", "En 4 ciudades"), ("Envíos", "A todo Ecuador")],
                    bg=(A("wd-page-1016-new-2-pc.jpg"), A("wd-page-1016-new-2-mo.jpg")),
                    btns='<div class="x-btns"><a href="#ofertas" class="x-btn x-btn-p">Ver ofertas</a><a href="#ahorro" class="x-btn x-btn-o">Calcular mi ahorro</a><button type="button" class="x-btn x-btn-g" data-cv-open>' + svg(I_DOC, 18, 1.8) + ' Ver certificados NSF/ANSI</button></div>', extra=seal("hero")).replace(

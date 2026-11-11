@@ -74,7 +74,7 @@ IND = [("nf/manufactura.jpg", "Manufactura", "Energía y agua para procesos prod
        ("nf/agua.jpg", "Alimentos y bebidas", "Agua purificada para producción"),
        ("nf/oficinas.jpg", "Oficinas y comercio", "Paneles solares y puntos de agua"),
        ("nf/tecnico.jpg", "Construcción e inmobiliario", "Soluciones para proyectos nuevos")]
-FAQ = [("¿En qué ciudades trabajan?", "Trabajamos en todo el Ecuador, con presencia en Quito, Guayaquil, Cuenca y Loja. Coordinamos la visita técnica según la ubicación de tu operación."),
+FAQ = [("¿En qué ciudades trabajan?", "Trabajamos en todo el Ecuador, con presencia en Quito, Guayaquil, Cuenca y Loja. Además, tenemos presencia en Miami (EE. UU.), Madrid (España) y Medellín (Colombia). Coordinamos la visita técnica según la ubicación de tu operación."),
        ("¿Cómo empieza un proyecto?", "Con una conversación y una visita técnica para entender tu consumo y tus necesidades. Con eso preparamos una propuesta a medida."),
        ("¿Ofrecen mantenimiento?", "Sí. Acompañamos cada proyecto con mantenimiento, monitoreo y soporte técnico local."),
        ("¿También atienden hogares?", "Sí. Nasfeco es el distribuidor exclusivo oficial de Waterdrop Filter en Ecuador: vendemos sus purificadores para el hogar con instalación y soporte de Nasfeco.")]
@@ -84,7 +84,7 @@ def group(active):
 <div class="x-group"><div class="x-wrap">
   <div class="x-group-l"><a href="index.html">{nf_logo(sub=False)}</a><span class="x-group-sep" aria-hidden="true">/</span><a href="https://nasfecousa.com/" class="x-group-us" title="NASFECO Miami (EE. UU.)"><span class="us-l">NASFECO US</span><span class="us-s">USA</span></a>
     <a href="nasfeco.html"{' class="on"' if active == "nf" else ""}>Empresas</a><a href="waterdrop.html"{' class="on"' if active == "wd" else ""}>Waterdrop Hogar</a></div>
-  <div class="x-group-r"><b style="color:var(--gold-d)">Distribuidor exclusivo oficial de Waterdrop Filter</b> · Ecuador y <a href="https://nasfecousa.com/" class="x-mia">Miami, Florida (EE. UU.)</a> · WhatsApp +593 99 731 2362</div>
+  <div class="x-group-r"><b style="color:var(--gold-d)">Distribuidor exclusivo oficial de Waterdrop Filter</b> · Ecuador · <a href="https://nasfecousa.com/" class="x-mia">Miami</a> · Madrid · Medellín · WhatsApp +593 99 731 2362</div>
 </div></div>'''
 
 def page_nf():
@@ -121,7 +121,7 @@ def page_nf():
 <section class="nf-hero">
   <img src="assets/nf/hero.jpg" alt="Planta solar al atardecer">
   <div class="x-wrap">
-    <p class="x-eyebrow">Nasfeco · Ecuador y Miami, Florida</p>
+    <p class="x-eyebrow">Nasfeco · Ecuador, Miami, Madrid y Medellín</p>
     <h1>Energía y agua <b>para la industria</b> que mueve al Ecuador</h1>
     <p class="lead">Diseñamos, instalamos y mantenemos soluciones de energía solar, purificación y tratamiento de agua para empresas, plantas y operaciones mineras.</p>
     <div class="x-btns"><a href="#calculadora" class="x-btn x-btn-g">Calcula tu ahorro solar</a><a href="#contacto" class="x-btn nf-btn-w">Cotizar proyecto</a></div>
@@ -207,7 +207,7 @@ def page_nf():
     <div>{nf_logo("#ffffff")}<p style="margin-top:14px">Energía solar, purificación y tratamiento de agua para empresas e industrias en Ecuador. Distribuidor exclusivo oficial de Waterdrop Filter en Ecuador.</p></div>
     <div><h4>Soluciones</h4><a href="#soluciones">Energía solar</a><a href="#soluciones">Purificación de agua</a><a href="#soluciones">Tratamiento químico</a><a href="#soluciones">Consultoría técnica</a></div>
     <div><h4>Nasfeco</h4><a href="#nosotros">Nosotros</a><a href="#proceso">Cómo trabajamos</a><a href="waterdrop.html">Waterdrop Hogar</a><a href="index.html">Inicio</a>{CK.FOOT}</div>
-    <div><h4>Contacto</h4><p style="margin-bottom:8px">nasfeco@gmail.com</p><p style="margin-bottom:8px">Ecuador · <a href="https://nasfecousa.com/" style="display:inline">Miami (EE. UU.)<br><b style="font-weight:600">nasfecousa.com ↗</b></a></p><p style="margin-bottom:8px">WhatsApp +593 99 731 2362</p><p>Quito, Ecuador</p></div>
+    <div><h4>Contacto</h4><p style="margin-bottom:8px">nasfeco@gmail.com</p><p style="margin-bottom:8px">Ecuador</p><p style="margin-bottom:8px"><a href="https://nasfecousa.com/" style="display:inline">Miami, Florida (EE. UU.)<br><b style="font-weight:600">nasfecousa.com ↗</b></a></p><p style="margin-bottom:8px">Madrid, España</p><p style="margin-bottom:8px">Medellín, Colombia</p><p style="margin-bottom:8px">WhatsApp +593 99 731 2362</p><p>Quito, Ecuador</p></div>
   </div>
   <div class="x-foot-b"><span>&copy; 2026 Nasfeco · Ecuador. Todos los derechos reservados.</span><span>Creado por <strong>Mateo Perez</strong></span></div>
 </div></footer>

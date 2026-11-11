@@ -1015,8 +1015,7 @@ def page_club():
     desc = "Club Nasfeco: membresía exclusiva para clientes de Nasfeco, por $3.99 al mes sin IVA, con descuentos en locales aliados. Se adquiere comprando un equipo Waterdrop Filter mediante Nasfeco."
     h = head(title, desc, SITE + "club-nasfeco", SITE + "assets/x/wd-page-1016-new-2-pc.jpg",
              {"@context": "https://schema.org", "@type": "WebPage", "name": "Club Nasfeco", "description": desc, "url": SITE + "club-nasfeco"})
-    fonts = "".join(f'<link rel="preload" href="assets/fonts/{f}.woff2" as="font" type="font/woff2" crossorigin>\n' for f in ("cormorant-latin", "cormorant-latin-italic", "jost-latin"))
-    h = h.replace("</head>", f'{fonts}<link rel="stylesheet" href="css/club.css{CK.VER}">\n</head>')
+    h = h.replace("</head>", f'<link rel="stylesheet" href="css/club.css{CK.VER}">\n</head>')
     wa = "https://wa.me/593997312362?text=Hola%20Nasfeco%2C%20quiero%20un%20equipo%20Waterdrop%20con%20la%20membres%C3%ADa%20del%20Club%20Nasfeco"
     I_USER = "M20 21a8 8 0 10-16 0M12 12a4.5 4.5 0 100-9 4.5 4.5 0 000 9z"
     I_DROP = "M12 3s7 7.2 7 12a7 7 0 01-14 0c0-4.8 7-12 7-12z"

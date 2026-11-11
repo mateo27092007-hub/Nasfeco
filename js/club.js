@@ -4,11 +4,13 @@
    >>> LOCALES Y CATEGORÍAS: EDITA SOLO AQUÍ <<<
    Cada local: nombre, categoria (id de la lista de categorías),
    descuento, sobre (a qué aplica), ciudad, condiciones.
+   Si un local está en varias ciudades: ciudad: 'Quito, Cuenca'.
    Opcional: logo (ruta de imagen) y web (enlace).
    Quita "demo: true" cuando el local sea real: mientras exista
    uno de ejemplo, la página muestra el aviso de vista previa.
    ========================================================= */
 const CLUB = {
+  ciudades: ['Quito', 'Guayaquil', 'Cuenca', 'Loja'],
   categorias: [
     { id: 'gastronomia', nombre: 'Gastronomía',       icono: 'M4 3v7a3 3 0 006 0V3M7 3v18M17 3c-2 1.5-3 4-3 7s1 4 3 4v7' },
     { id: 'salud',       nombre: 'Salud',             icono: 'M12 21s-8-4.8-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 6.2-8 11-8 11zM12 9v5M9.5 11.5h5' },
@@ -46,17 +48,30 @@ const CLUB = {
   const ico = (d, w = 22) => `<svg viewBox="0 0 24 24" width="${w}" height="${w}" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
   const ALL = 'M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z';
 
-  const rail = $('#cl-rail'), out = $('#cl-out'), count = $('#cl-count'), search = $('#cl-q');
+  const rail = $('#cl-rail'), out = $('#cl-out'), count = $('#cl-count'), search = $('#cl-q'), cities = $('#cl-cities');
   const cats = CLUB.categorias.filter(c => CLUB.locales.some(l => l.categoria === c.id));
-  const state = { cat: 'all', q: '' };
+  const state = { cat: 'all', q: '', city: 'all' };
+  const inCity = l => state.city === 'all' || String(l.ciudad).split(',').some(c => c.trim() === state.city);
+  const plural = n => `${n} ${n === 1 ? 'local' : 'locales'}`;
 
   /* ---------- AVISO DE VISTA PREVIA ---------- */
   if (CLUB.locales.some(l => l.demo)) $('#cl-demo').hidden = false;
 
   /* ---------- CATEGORÍAS ---------- */
-  const chip = (id, name, d, n) => `<button type="button" class="cl-chip" data-cat="${id}" aria-pressed="false"><span class="cl-chip-i">${ico(d)}</span><span class="cl-chip-t">${esc(name)}<small>${n} ${n === 1 ? 'local' : 'locales'}</small></span></button>`;
+  const chip = (id, name, d, n) => `<button type="button" class="cl-chip" data-cat="${id}" aria-pressed="false"><span class="cl-chip-i">${ico(d)}</span><span class="cl-chip-t">${esc(name)}<small>${plural(n)}</small></span></button>`;
   rail.innerHTML = chip('all', 'Todas', ALL, CLUB.locales.length) +
     cats.map(c => chip(c.id, c.nombre, c.icono, CLUB.locales.filter(l => l.categoria === c.id).length)).join('');
+
+  /* ---------- CIUDADES ---------- */
+  const cityBtn = (id, name) => `<button type="button" class="cl-city" data-city="${esc(id)}" aria-pressed="false">${esc(name)}</button>`;
+  cities.innerHTML = '<span class="cl-city-ind" aria-hidden="true"></span>' + cityBtn('all', 'Todas') + CLUB.ciudades.map(c => cityBtn(c, c)).join('');
+  const ind = $('.cl-city-ind', cities);
+  const moveInd = () => {
+    const b = $('.cl-city.on', cities);
+    if (!b) return;
+    ind.style.width = b.offsetWidth + 'px';
+    ind.style.transform = `translateX(${b.offsetLeft}px)`;
+  };
 
   /* ---------- TARJETAS ---------- */
   const card = (l, i) => {
@@ -76,17 +91,26 @@ const CLUB = {
     const q = norm(state.q).trim();
     const list = CLUB.locales.filter(l => {
       const c = CLUB.categorias.find(x => x.id === l.categoria) || {};
-      return (state.cat === 'all' || l.categoria === state.cat) &&
+      return inCity(l) && (state.cat === 'all' || l.categoria === state.cat) &&
         (!q || norm([l.nombre, l.sobre, l.ciudad, c.nombre].join(' ')).includes(q));
     });
     $$('.cl-chip', rail).forEach(b => {
       const on = b.dataset.cat === state.cat;
       b.classList.toggle('on', on);
       b.setAttribute('aria-pressed', on);
+      const n = CLUB.locales.filter(l => inCity(l) && (b.dataset.cat === 'all' || l.categoria === b.dataset.cat)).length;
+      $('small', b).textContent = plural(n);
+      b.disabled = !n && !on;
     });
-    count.textContent = list.length === 1 ? '1 local' : `${list.length} locales`;
+    $$('.cl-city', cities).forEach(b => {
+      const on = b.dataset.city === state.city;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-pressed', on);
+    });
+    moveInd();
+    count.textContent = plural(list.length) + (state.city === 'all' ? '' : ` en ${state.city}`);
     if (!list.length) {
-      out.innerHTML = `<div class="cl-empty"><h3>No encontramos ese local</h3><p>Prueba con otra palabra o mira todas las categorías.</p><button type="button" class="cl-btn cl-btn-o" data-reset>Ver todos los locales</button></div>`;
+      out.innerHTML = `<div class="cl-empty"><h3>No encontramos locales aquí</h3><p>Prueba con otra ciudad, categoría o palabra.</p><button type="button" class="cl-btn cl-btn-o" data-reset>Ver todos los locales</button></div>`;
       return;
     }
     let n = 0;
@@ -104,9 +128,22 @@ const CLUB = {
     render();
     const b = $(`.cl-chip[data-cat="${id}"]`, rail);
     if (b) rail.scrollTo({ left: b.offsetLeft - (rail.clientWidth - b.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+    toResults();
+  }
+
+  function toResults() {
     const bar = $('#cl-bar'), y = $('#cl-res').getBoundingClientRect().top + scrollY - bar.offsetHeight - 12;
     if (scrollY > y) scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' });
   }
+
+  cities.addEventListener('click', e => {
+    const b = e.target.closest('.cl-city');
+    if (!b) return;
+    state.city = b.dataset.city;
+    render();
+    cities.scrollTo({ left: b.offsetLeft - (cities.clientWidth - b.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+    toResults();
+  });
 
   /* ---------- MOVER LAS CATEGORÍAS (arrastre y flechas) ---------- */
   let down = false, sx = 0, sl = 0, moved = false;
@@ -130,12 +167,13 @@ const CLUB = {
     $('[data-rail="1"]').disabled = rail.scrollLeft >= max;
   };
   rail.addEventListener('scroll', edges, { passive: true });
-  addEventListener('resize', edges);
+  addEventListener('resize', () => { edges(); moveInd(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveInd);
 
   /* ---------- BUSCADOR Y CONDICIONES ---------- */
   search.addEventListener('input', () => { state.q = search.value; render(); });
   out.addEventListener('click', e => {
-    if (e.target.closest('[data-reset]')) { state.q = ''; search.value = ''; pick('all'); return; }
+    if (e.target.closest('[data-reset]')) { state.q = ''; state.city = 'all'; search.value = ''; pick('all'); return; }
     const m = e.target.closest('.cl-loc-more');
     if (!m) return;
     const open = m.closest('.cl-loc').classList.toggle('open');

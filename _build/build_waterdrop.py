@@ -1055,12 +1055,14 @@ def page_club():
       <div class="cl-s cl-rv" style="--d:.24s"><i>3</i><h3>Disfruta tus descuentos</h3><p>Aprovecha los beneficios en los locales aliados del Club.</p></div>
     </div>
   </div></section>
-  <section class="cl-locs" id="locales" style="padding-bottom:0"><div class="x-wrap"><div class="cl-head cl-rv" style="margin-bottom:clamp(28px,4vw,44px)"><p class="cl-eb">Locales aliados</p><h2 class="cl-h2">Encuentra tu <b class="cl-gold">descuento</b></h2><p>Elige una categoría o busca el local que te interesa.</p></div></div></section>
+  <section class="cl-locs" id="locales" style="padding-bottom:0"><div class="x-wrap"><div class="cl-head cl-rv" style="margin-bottom:clamp(28px,4vw,44px)"><p class="cl-eb">Locales aliados</p><h2 class="cl-h2">Encuentra tu <b class="cl-gold">descuento</b></h2><p>Elige tu ciudad y una categoría, o busca el local que te interesa.</p></div></div></section>
   <div class="cl-bar" id="cl-bar"><div class="x-wrap"><div class="cl-railw">
     <button type="button" class="cl-arrow" data-rail="-1" aria-label="Categorías anteriores">{svg(I_LEFT, 18)}</button>
     <div class="cl-rail" id="cl-rail" role="group" aria-label="Categorías de locales"></div>
     <button type="button" class="cl-arrow" data-rail="1" aria-label="Más categorías">{svg(I_RIGHT, 18)}</button>
-  </div></div></div>
+  </div>
+  <div class="cl-cityw"><span class="cl-city-l">{svg(I_PIN, 15, 1.8)} Ciudad</span><div class="cl-cities" id="cl-cities" role="group" aria-label="Ciudades"></div></div>
+  </div></div>
   <section class="cl-locs" id="cl-res" style="padding-top:0"><div class="x-wrap">
     <div class="cl-tools"><label class="cl-search">{svg(I_SEARCH, 18, 1.8)}<input id="cl-q" type="search" placeholder="Busca un local, servicio o ciudad" aria-label="Buscar locales" autocomplete="off"></label><span class="cl-count" id="cl-count" aria-live="polite"></span></div>
     <div id="cl-out"></div>

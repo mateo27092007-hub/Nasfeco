@@ -1010,6 +1010,9 @@ def page_repuestos():
     return h + body + bottom()
 
 # =========================================================== PÁGINA: CLUB NASFECO
+# True: el Club se muestra como "Coming Soon". False: página completa con membresía y locales (datos en js/club.js).
+CLUB_COMING_SOON = True
+
 def page_club():
     title = "Club Nasfeco | Descuentos para clientes Waterdrop · Nasfeco"
     desc = "Club Nasfeco: membresía exclusiva para clientes de Nasfeco, por $3.99 al mes sin IVA, con descuentos en locales aliados. Se adquiere comprando un equipo Waterdrop Filter mediante Nasfeco."
@@ -1025,6 +1028,13 @@ def page_club():
     guil = f"""<svg class="cl-mc-guil" viewBox="0 0 500 315" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g transform="translate(405 150)" fill="none" stroke="#E8CF96" stroke-opacity=".24" stroke-width=".6">{rings}</g></svg>"""
     mark = """<svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="clMark" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F7E9C4"/><stop offset="1" stop-color="#A9843F"/></linearGradient></defs><path d="M9 7L33 20 9 33Z" fill="none" stroke="url(#clMark)" stroke-width="4.5" stroke-linejoin="round"/><circle cx="9" cy="7" r="5.5" fill="url(#clMark)"/><circle cx="33" cy="20" r="5.5" fill="url(#clMark)"/><circle cx="9" cy="33" r="5.5" fill="url(#clMark)"/></svg>"""
     chip = """<svg class="cl-mc-chip" viewBox="0 0 62 47" aria-hidden="true"><defs><linearGradient id="clChip" x1="0" y1="0" x2="62" y2="47" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F7E9C4"/><stop offset=".45" stop-color="#C9A45C"/><stop offset=".7" stop-color="#F0DBA8"/><stop offset="1" stop-color="#9A7637"/></linearGradient></defs><rect x=".5" y=".5" width="61" height="46" rx="8" fill="url(#clChip)" stroke="#6E5426"/><path d="M0 16h20M0 31h20M42 16h20M42 31h20M20 0c2 8 2 39 0 47M42 0c-2 8-2 39 0 47M20 16c7-4 15-4 22 0M20 31c7 4 15 4 22 0" fill="none" stroke="#6E5426" stroke-width="1.1"/></svg>"""
+    card = f'''<div class="cl-cardw" data-tilt aria-hidden="true"><div class="cl-float"><div class="cl-mcard">
+          {guil}
+          <div class="cl-mc-top"><div class="cl-mc-brand">{mark}NASFECO</div><div class="cl-mc-tag">Membresía</div></div>
+          <div class="cl-mc-mid">{chip}{svg(I_NFC, 22, 1.7).replace('<svg ', '<svg class="cl-mc-nfc" ')}</div>
+          <div class="cl-mc-name">Club Nasfeco</div>
+          <div class="cl-mc-bot"><div><small>Titular</small><span>Cliente Nasfeco</span></div><div style="text-align:right"><small>Equipo</small><span>{svg(I_DROP, 14, 1.8)}Waterdrop Filter</span></div></div>
+        </div></div></div>'''
     body = top() + f'''
 <main class="cl">
   <div class="cl-demo" id="cl-demo" hidden>Vista previa: los locales de esta página son ejemplos y se reemplazarán por los reales.</div>
@@ -1038,13 +1048,7 @@ def page_club():
           <p class="cl-lead">Tu purificador Waterdrop también te abre la puerta a descuentos en locales aliados de muchas industrias.</p>
           <div class="cl-btns"><a class="cl-btn cl-btn-g" href="#locales">Ver locales con descuento</a><a class="cl-btn cl-btn-o" href="waterdrop.html#ofertas">Ver equipos Waterdrop</a></div>
         </div>
-        <div class="cl-cardw" data-tilt aria-hidden="true"><div class="cl-float"><div class="cl-mcard">
-          {guil}
-          <div class="cl-mc-top"><div class="cl-mc-brand">{mark}NASFECO</div><div class="cl-mc-tag">Membresía</div></div>
-          <div class="cl-mc-mid">{chip}{svg(I_NFC, 22, 1.7).replace('<svg ', '<svg class="cl-mc-nfc" ')}</div>
-          <div class="cl-mc-name">Club Nasfeco</div>
-          <div class="cl-mc-bot"><div><small>Titular</small><span>Cliente Nasfeco</span></div><div style="text-align:right"><small>Equipo</small><span>{svg(I_DROP, 14, 1.8)}Waterdrop Filter</span></div></div>
-        </div></div></div>
+        {card}
       </div>
       <div class="cl-terms cl-rv">
         <div class="cl-term"><div class="cl-term-i">{svg(I_USER, 20, 1.5)}</div><h2>Solo para clientes de Nasfeco</h2><p>La membresía es exclusiva para quienes son clientes de Nasfeco.</p></div>
@@ -1082,6 +1086,26 @@ def page_club():
     <div class="cl-btns"><a class="cl-btn cl-btn-g" href="{wa}" target="_blank" rel="noopener">Quiero mi equipo y membresía</a><button type="button" class="cl-btn cl-btn-o" data-quiz>Encuentra tu purificador</button></div>
   </div></section>
   <dialog class="cl-d" id="cl-d" aria-labelledby="cl-d-t"><button type="button" class="cl-d-x" data-d-close aria-label="Cerrar">{svg(I_X, 20)}</button><div id="cl-d-b"></div></dialog>
+</main>'''
+    if CLUB_COMING_SOON:
+        h = h.replace(title, "Club Nasfeco | Coming Soon · Nasfeco").replace(desc, "Club Nasfeco: coming soon. Muy pronto más información para los clientes de Nasfeco.")
+        card = card.replace('<div class="cl-mc-tag">Membresía</div>', '<div class="cl-mc-tag">Coming Soon</div>')
+        body = top() + f'''
+<main class="cl cl-soon">
+  <section class="cl-hero">
+    <div class="cl-aurora" aria-hidden="true"></div>
+    <div class="x-wrap">
+      <div class="cl-hero-g">
+        <div>
+          <p class="cl-soon-tag"><i aria-hidden="true"></i>Coming Soon</p>
+          <h1>Club <em class="cl-gold">Nasfeco</em></h1>
+          <p class="cl-lead">Estamos preparando algo especial para los clientes de Nasfeco. Muy pronto te contaremos más.</p>
+          <div class="cl-btns"><a class="cl-btn cl-btn-g" href="waterdrop.html#ofertas">Ver equipos Waterdrop</a></div>
+        </div>
+        {card}
+      </div>
+    </div>
+  </section>
 </main>'''
     return h + body + bottom(f'<script src="js/club.js{CK.VER}"></script>')
 

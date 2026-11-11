@@ -171,6 +171,13 @@
 .cl-group h3{font-weight:600}
 .cl-loc-off b{font-weight:300;background:none;color:var(--au-l)}
 
+/* Coming Soon */
+.cl-soon .cl-hero{display:flex;align-items:center;min-height:calc(100vh - 146px)}
+.cl-soon .cl-hero>.x-wrap{width:100%}
+.cl-soon-tag{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:30px;border:1px solid var(--au);color:var(--au-l);font-size:15px;font-weight:600}
+.cl-soon-tag i{width:8px;height:8px;border-radius:50%;background:var(--au-l);animation:clPulse 1.8s ease-in-out infinite}
+@keyframes clPulse{50%{opacity:.25;transform:scale(.7)}}
+
 /* Ficha del local */
 .cl-d{width:min(960px,calc(100% - 40px));max-width:none;max-height:calc(100dvh - 48px);margin:auto;padding:0;border:1px solid var(--line);border-radius:18px;background:var(--panel);color:var(--tx);overflow-y:auto;overscroll-behavior:contain;scrollbar-color:var(--au-d) transparent}
 .cl-d::backdrop{background:rgba(3,6,12,.78);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
@@ -271,6 +278,7 @@
   .cl-d[open],.cl-d[open]::backdrop{animation:none}
   .cl-aurora,.cl-float,.cl-mcard::after{animation:none}
   .cl-city-ind{transition:none}
+  .cl-soon-tag i{animation:none}
   .cl-rv{opacity:1;transform:none;transition:none}
   .cl-loc{opacity:1;transform:none;animation:none}
 }

@@ -52,6 +52,34 @@ const CLUB = {
   const ico = (d, w = 22) => `<svg viewBox="0 0 24 24" width="${w}" height="${w}" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
   const ALL = 'M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z';
 
+  /* ---------- TARJETA DE MEMBRESÍA (se mueve con el cursor) ---------- */
+  const tilt = $('[data-tilt]');
+  if (tilt && !reduce && matchMedia('(hover: hover)').matches) {
+    const c = $('.cl-mcard', tilt);
+    tilt.addEventListener('pointermove', e => {
+      const r = tilt.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      c.style.setProperty('--ry', ((x - .5) * 22).toFixed(2) + 'deg');
+      c.style.setProperty('--rx', ((.5 - y) * 18).toFixed(2) + 'deg');
+      c.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+      c.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+      tilt.classList.add('on');
+    });
+    tilt.addEventListener('pointerleave', () => {
+      tilt.classList.remove('on');
+      ['--rx', '--ry', '--mx', '--my'].forEach(p => c.style.removeProperty(p));
+    });
+  }
+
+  /* ---------- APARICIÓN ---------- */
+  const reveal = $$('.cl-rv');
+  if (reduce || !('IntersectionObserver' in window)) reveal.forEach(e => e.classList.add('in'));
+  else {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+    reveal.forEach(e => io.observe(e));
+  }
+
+  if (!$('#cl-rail')) return;   // Club en "Coming Soon": la página no lleva lista de locales
+
   const rail = $('#cl-rail'), out = $('#cl-out'), count = $('#cl-count'), search = $('#cl-q'), cities = $('#cl-cities');
   const cats = CLUB.categorias.filter(c => CLUB.locales.some(l => l.categoria === c.id));
   const state = { cat: 'all', q: '', city: 'all' };
@@ -237,32 +265,6 @@ const CLUB = {
   dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('[data-d-close]')) dlg.close(); });
   addEventListener('popstate', () => { if (dlg.open && !location.hash.startsWith('#local=')) dlg.close(); });
   document.addEventListener('nf-consent', () => { if (cur) paintMap(cur); });
-
-  /* ---------- TARJETA DE MEMBRESÍA (se mueve con el cursor) ---------- */
-  const tilt = $('[data-tilt]');
-  if (tilt && !reduce && matchMedia('(hover: hover)').matches) {
-    const c = $('.cl-mcard', tilt);
-    tilt.addEventListener('pointermove', e => {
-      const r = tilt.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-      c.style.setProperty('--ry', ((x - .5) * 22).toFixed(2) + 'deg');
-      c.style.setProperty('--rx', ((.5 - y) * 18).toFixed(2) + 'deg');
-      c.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
-      c.style.setProperty('--my', (y * 100).toFixed(1) + '%');
-      tilt.classList.add('on');
-    });
-    tilt.addEventListener('pointerleave', () => {
-      tilt.classList.remove('on');
-      ['--rx', '--ry', '--mx', '--my'].forEach(p => c.style.removeProperty(p));
-    });
-  }
-
-  /* ---------- APARICIÓN ---------- */
-  const reveal = $$('.cl-rv');
-  if (reduce || !('IntersectionObserver' in window)) reveal.forEach(e => e.classList.add('in'));
-  else {
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
-    reveal.forEach(e => io.observe(e));
-  }
 
   render();
   edges();
